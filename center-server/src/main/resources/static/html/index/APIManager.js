@@ -1,7 +1,7 @@
 
 
 //var BASE_URL="http://127.0.0.1:9090/";
-var BASE_URL="http://192.168.16.28:9099/";
+var BASE_URL="~/";
 //http://127.0.0.1:9090/html/index/Login.html
 var AUTH="auth/";
 var APIManager={
