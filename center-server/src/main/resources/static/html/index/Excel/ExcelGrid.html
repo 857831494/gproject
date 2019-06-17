@@ -45,9 +45,9 @@
 
 		function synClick() {
 			var rows = g.getSelectedRow();
-			var path=AUTH+"uploadExcel";
+			var path="../../../"+AUTH+"uploadExcel";
 			console.log(rows);
-			var url=BASE_URL+path+"?sessionId="
+			var url=path+"?sessionId="
 			+parent.sessionId+"&time="+parent.time+"&uid="+parent.userId+"&path="+rows.filePath;
 			console.log(url);
 			var formData = new FormData();
