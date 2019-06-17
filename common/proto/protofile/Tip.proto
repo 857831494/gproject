@@ -1,0 +1,20 @@
+syntax="proto2";
+package gsp;
+option java_package="com.gproject.dto.proto";
+option java_outer_classname="TipDTO";
+
+
+enum TipCode{
+    UnKown=1;//未知错误
+    Fail=2;
+    PlayerInFighting=3;//战斗正在发生，不可以在别的设备登录
+    TokenExpire=4;//token失效
+    Uid_NULL=5;
+    Token_NULL=6;
+    Random_NULL=7;
+}
+
+message GameTip{
+   optional TipCode code=1;
+   optional string  msg=2;
+}

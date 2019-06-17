@@ -1,0 +1,29 @@
+syntax="proto2";
+package gsp;
+option java_package="com.gproject.dto.proto";
+option java_outer_classname="CommandCodeDTO";
+
+enum CommandCode{
+   C2SLoginCode=1;
+   C2SHeart=2;
+   C2SEnterWorld=3;//进入游戏服
+   C2SCreateRoleCode=4;//创建角色
+   C2SGetRankData=5;//获取排行榜数据
+   S2CBrocastAll=6;//广播全服
+   S2CBrocastTargets=7;//广播对应目标
+   S2SShutDown=8;//关机
+   C2SApplyJoinUnion=9;//申请加入公会
+   S2CTip=10;//错误码提示
+   C2Slogout=11;//
+   C2SGetAllRole=12;//获取全部角色
+   S2SReload=13;//重载配置文件
+   S2SEnterFightServer=14;//进入战斗服,上报，连接服务器id
+   C2SEnterUnion=15;//进入公会
+   C2SEXitUnion=16;//离开公会
+   W2SLogin=17;//gm web 登录
+   W2SGetExcelData=18;//gm 获取excel表格数据，详情
+   S2SRmCurrentInstanceCode=19;
+   S2COffline=20;//服务器呼叫客户端，注销当前账号
+   W2SSynData=21;//同步全部excel表格数据
+   S2SSynData=22;//同步全部excel表格数据
+}

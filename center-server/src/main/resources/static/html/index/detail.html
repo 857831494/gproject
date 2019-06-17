@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../lib/ligerUI/skins/Aqua/css/ligerui-all.css" type="text/css" />
+	<link href="../lib/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../lib/jquery/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="../lib/ligerUI/js/ligerui.min.js"></script>
+    <script type="text/javascript" src="CommandCode.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$("#center").ligerForm({
+				fields: [{
+						type: 'text',
+						label: '标题',
+						name: 'name',
+						validate: "{required:true,minlength:5}"
+					},
+					{
+						type: 'date',
+						label: '入职日期',
+						name: 'createTime'
+					},
+
+					{
+						type: 'spinner',
+						label: '数目',
+						name: 'money'
+					}
+				]
+			});
+
+			$("#top").ligerToolBar({
+				items: [{
+						text: '增加',
+						click: function(item) {
+							var formData = new FormData();
+							formData.append("myfile", document.getElementById("file1").files[0]);
+							$.ajax({
+								url: BASE_URL+CommandCode.W2SUploadFile,
+								type: "POST",
+								data: formData,
+								/**
+								 *必须false才会自动加上正确的Content-Type
+								 */
+								contentType: false,
+								/**
+								 * 必须false才会避开jQuery对 formdata 的默认处理
+								 * XMLHttpRequest会对 formdata 进行正确的处理
+								 */
+								processData: false,
+								success: function(data) {
+									if(data.status == "true") {
+										alert("上传成功！");
+									}
+									if(data.status == "error") {
+										alert(data.msg);
+									}
+									$("#imgWait").hide();
+								},
+								error: function() {
+									alert("上传失败！");
+									$("#imgWait").hide();
+								}
+							});
+						},
+						icon: 'add'
+					},
+					{
+						line: true
+					},
+					{
+						text: '修改',
+						click: null
+					},
+					{
+						line: true
+					},
+					{
+						text: '删除',
+						click: null
+					}
+				]
+			});
+
+		});
+
+		function getForm() {
+			return liger.get("center");
+		}
+	</script>
+
+	<body>
+		选择文件:<input type="file" id="file1" /><br />
+		<div position="top" id="top"></div>
+		<div position="center" id="center"></div>
+	</body>
+
+</html>
