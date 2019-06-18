@@ -27,10 +27,9 @@ public class GlobalManager implements ApplicationListener<ApplicationReadyEvent>
 		IOC=event.getApplicationContext();
 		InitParame initParame=new InitParame();
 		initParame.applicationContext=IOC;
-		//ExcelManager excelManager=IOC.getBean(ExcelManager.class);
-		//excelManager.init(initParame);
+		ExcelManager excelManager=IOC.getBean(ExcelManager.class);
+		excelManager.init(initParame);
 		//加载所有启动类
-		
 		for(IAPPInit appInit:IOC.getBeansOfType(IAPPInit.class).values()) {
 			try {
 				appInit.init(initParame);

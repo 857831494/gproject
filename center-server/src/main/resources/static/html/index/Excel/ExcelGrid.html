@@ -45,6 +45,10 @@
 
 		function synClick() {
 			var rows = g.getSelectedRow();
+			if(rows==undefind||rows==null){
+				$.ligerDialog.error("没有选中任何资源服");
+				return;
+			}
 			var path="../../../"+AUTH+"uploadExcel";
 			console.log(rows);
 			var url=path+"?sessionId="
