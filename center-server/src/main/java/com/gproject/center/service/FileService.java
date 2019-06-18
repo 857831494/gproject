@@ -15,14 +15,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gproject.staticdata.StaticDataDef.SheetData;
-import com.gproject.staticdata.writejson.UploadExcelManager;
+import com.gproject.common.PathUtil;
+import com.gproject.common.staticdata.StaticDataDef.SheetData;
+import com.gproject.common.staticdata.writejson.UploadExcelManager;
 
 @Component
 public class FileService {
 
-	@Value("${App.Path}")
-	String root_path;
 	
 	static String EXCEL_PATH="/static/excel/";
 	
@@ -45,11 +44,24 @@ public class FileService {
 
 	}
 
+	private String getFilePath() {
+		//优先检查
+		String dir=System.getProperties().getProperty("user.dir");
+		File file=new File(dir+"/static");
+		if (file.exists()&&file.isDirectory()) {
+			return dir;
+		}
+		return PathUtil.getPath(FileService.class);
+	}
+	
+	
 	public void saveFile(String path, MultipartFile file) throws Exception {
 		List<SheetData> list=uploadExcelManager.getJson(file.getInputStream());
 		ObjectMapper mapper=new ObjectMapper();
+		String basePath=getFilePath();
+		logger.info("文件写入目录============"+basePath);
 		for (SheetData sheetData : list) {
-			File json=new File(root_path+EXCEL_PATH+path+"/"+sheetData.fileName+".json");
+			File json=new File(basePath+EXCEL_PATH+path+"/"+sheetData.fileName+".json");
 			String content=mapper.writeValueAsString(sheetData.dataMap);
 			if (!json.exists()) {
 				writeFile(json, content);

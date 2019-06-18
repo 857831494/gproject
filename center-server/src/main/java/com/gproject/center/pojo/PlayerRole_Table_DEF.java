@@ -10,8 +10,8 @@ import javax.persistence.Transient;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.gproject.db.DBEvent;
-import com.gproject.utils.common.JSONUtil;
+import com.gproject.common.db.DBEvent;
+import com.gproject.common.utils.common.JSONUtil;
 
 
 public interface PlayerRole_Table_DEF {

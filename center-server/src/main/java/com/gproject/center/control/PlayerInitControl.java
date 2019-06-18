@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gproject.center.config.AuthHandler;
 import com.gproject.center.pojo.PlayerRole_Table_DEF.PlayerRole;
 import com.gproject.center.service.PlayerInitService;
-import com.gproject.dto.proto.TipDTO.GameTip;
-import com.gproject.net.PushService;
+import com.gproject.common.dto.proto.TipDTO.GameTip;
+import com.gproject.common.net.PushService;
 
 @RestController
 public class PlayerInitControl {

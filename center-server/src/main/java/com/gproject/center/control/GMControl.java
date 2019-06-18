@@ -12,8 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.gproject.center.config.AuthHandler;
 import com.gproject.center.service.FileService;
 import com.gproject.center.service.GMService;
-import com.gproject.dto.json.GMLoginDTO.GMLoginReq;
-import com.gproject.dto.json.GMLoginDTO.GMLoginResp;
+import com.gproject.common.dto.json.GMLoginDTO.GMLoginReq;
+import com.gproject.common.dto.json.GMLoginDTO.GMLoginResp;
 
 @RestController
 public class GMControl {

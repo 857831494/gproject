@@ -11,8 +11,8 @@ import org.springframework.data.repository.util.ClassUtils;
 
 import com.gproject.common.IDef.IAPPInit;
 import com.gproject.common.IDef.InitParame;
-import com.gproject.staticdata.ExcelManager;
-import com.gproject.staticdata.StaticDataDef.ConfigExcel;
+import com.gproject.common.staticdata.ExcelManager;
+import com.gproject.common.staticdata.StaticDataDef.ConfigExcel;
 
 
 public class GlobalManager implements ApplicationListener<ApplicationReadyEvent> {
@@ -34,7 +34,6 @@ public class GlobalManager implements ApplicationListener<ApplicationReadyEvent>
 		for(IAPPInit appInit:IOC.getBeansOfType(IAPPInit.class).values()) {
 			try {
 				appInit.init(initParame);
-				logger.info("执行=====");
 			} catch (Exception e) {
 				// TODO: handle exception
 				logger.info("启动类报错======");

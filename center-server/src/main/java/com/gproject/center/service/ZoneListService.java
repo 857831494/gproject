@@ -1,36 +1,26 @@
 package com.gproject.center.service;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gproject.center.CenterBoot;
-import com.gproject.common.PathUtil;
 import com.gproject.common.IDef.IAPPInit;
 import com.gproject.common.IDef.InitParame;
-import com.gproject.dto.json.HServerConfig;
+import com.gproject.common.dto.json.HServerConfig;
 
 @Component
 public class ZoneListService implements IAPPInit{
 
-	
-	@Value("${App.Path}")
-	String root_path;
-	
 	static String SERVER_LIST_NAME="Servers.json";
 	
 	static Logger logger=LoggerFactory.getLogger(FileService.class);
@@ -40,7 +30,7 @@ public class ZoneListService implements IAPPInit{
 	private String readToString(String fileName) {  
         String encoding = "UTF-8";  
         try {  
-            InputStream  in =new FileInputStream(fileName);
+            InputStream  in =new ClassPathResource(fileName).getInputStream();
             int filelength = in.available();
             byte[] filecontent = new byte[filelength];
             in.read(filecontent);  
@@ -69,7 +59,7 @@ public class ZoneListService implements IAPPInit{
 	public void reloadZone() {
 		try {
 			ObjectMapper objectMapper=new ObjectMapper();
-			String txt=readToString(root_path+"/"+SERVER_LIST_NAME);
+			String txt=readToString(SERVER_LIST_NAME);
 			ZONE_LIST= objectMapper.readValue(txt,
 					new TypeReference<List<HServerConfig>>() {
 			});

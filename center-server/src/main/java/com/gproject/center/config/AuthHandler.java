@@ -6,10 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
-import com.gproject.dto.proto.TipDTO.TipCode;
-import com.gproject.net.http.APIParameDef.APIRet;
+import com.gproject.common.dto.proto.TipDTO.TipCode;
+import com.gproject.common.net.http.APIParameDef.APIRet;
 
-import ch.qos.logback.core.joran.conditional.IfAction;
 
 @Component
 public class AuthHandler extends org.springframework.web.servlet.handler.HandlerInterceptorAdapter {
