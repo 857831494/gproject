@@ -5,19 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gproject.common.IDef;
-import com.gproject.common.IDef.IAPPInit;
 import com.gproject.common.IDef.InitParame;
+import com.gproject.common.net.http.HttpUtil;
 import com.gproject.common.staticdata.StaticDataDef.ConfigExcel;
-import com.gproject.common.staticdata.StaticDataDef.ICDN;
 import com.gproject.common.utils.common.GClassUtil;
 
 /**
@@ -33,11 +32,12 @@ public  class ExcelManager {
 	static Logger logger=LoggerFactory.getLogger(ExcelManager.class);
 	
 	
-	private ICDN icdn;
-	
 	private Map<Class,Map<Integer,Object>> dataMap=new HashMap<>();
 	
 	private Map<String, Class> classMap=new HashMap<>();
+	
+	@Value("${resUrl}")
+	String res_url;
 	
 	public void loadData(String fileName) {
 		try {
@@ -46,7 +46,10 @@ public  class ExcelManager {
 				logger.error(fileName+"找不到这个配置文件");
 				return;
 			}
-			String jsonString=icdn.getJson(fileName);
+			String res_url_path=res_url+"/"+fileName+".json";
+			logger.info(res_url_path+"==========开始加载数据======");
+			String jsonString=HttpUtil.doGet(res_url_path);
+			logger.info(jsonString);
 			ObjectMapper mapper = new ObjectMapper();
 			JavaType jt = mapper.getTypeFactory().constructParametricType(ArrayList.class, 
 					typeName);
@@ -121,15 +124,6 @@ public  class ExcelManager {
 	
 	public void init(InitParame initParame) {
 		// TODO Auto-generated method stub
-		String cdnName=initParame.applicationContext.getEnvironment().
-				getProperty(StaticDataDef.CDN_NAME);
-		if (StringUtils.isEmpty(cdnName)) {
-			icdn=(ICDN) initParame.applicationContext.
-					getBean(StaticDataDef.TX_CDN);
-		}else {
-			icdn=(ICDN) initParame.applicationContext.
-					getBean(cdnName);
-		}
-		icdn.init(initParame);
+		this.loadAll();
 	}
 }

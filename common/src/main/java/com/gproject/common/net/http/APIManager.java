@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gproject.common.dto.json.HServerConfig;
 import com.gproject.common.dto.proto.TipDTO.TipCode;
 import com.gproject.common.net.http.APIParameDef.APIRet;
 import com.gproject.common.staticdata.ExcelManager;
+import com.gproject.common.staticdata.excelmodel.HServerConfig;
 
 
 @Component

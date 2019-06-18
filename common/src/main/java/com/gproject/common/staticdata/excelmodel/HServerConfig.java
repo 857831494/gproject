@@ -1,11 +1,10 @@
-package com.gproject.common.dto.json;
+package com.gproject.common.staticdata.excelmodel;
 
 import com.gproject.common.dto.proto.StatusDTO.StatusCode;
-import com.gproject.common.staticdata.StaticDataDef;
 import com.gproject.common.staticdata.StaticDataDef.ConfigExcel;
 
 
-public class HServerConfig {
+public class HServerConfig implements ConfigExcel{
 
 	public final static int CENTER_SERVER=2;
 	
@@ -31,5 +30,11 @@ public class HServerConfig {
 	public int type;
 	
 	public StatusCode statusCode;
+
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return logicId;
+	}
 
 }

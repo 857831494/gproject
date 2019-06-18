@@ -11,16 +11,8 @@ public interface StaticDataDef {
 
 	public final static String TX_CDN = "tx";
 
-	final static String CDN_NAME="cdn";
-	/**
-	 * 所有静态数据加载完成后
-	 * @author YW1825
-	 *
-	 */
-	public interface IAllDataLoadFinish{
-		public void doLogic(InitParame initParame);
-	}
-
+	final static String RES_URL="resUrl";
+	
 	
 	
 
@@ -33,16 +25,6 @@ public interface StaticDataDef {
 	final static String DATE_TYPE = "date";
 
 	
-	
-	public interface ICDN extends IAPPInit{
-
-		
-		public String getJson(String fileName);
-
-		public boolean delJson(String fileName);
-
-		public boolean updateJson(String key,String json);
-	}
 
 	public interface ConfigExcel {
 		int getId() ;
