@@ -1,6 +1,6 @@
 package com.gproject.common;
 
-import com.gproject.dto.proto.TipDTO.TipCode;
+import com.gproject.common.dto.proto.TipDTO.TipCode;
 
 public class GErrorException extends RuntimeException {
 
