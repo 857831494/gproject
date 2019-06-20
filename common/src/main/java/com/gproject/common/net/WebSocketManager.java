@@ -11,7 +11,9 @@ import org.springframework.stereotype.Component;
 
 import com.google.protobuf.MessageLite;
 import com.gproject.common.cmdHandler.CMDDef;
+import com.gproject.common.dto.proto.TipDTO;
 import com.gproject.common.dto.proto.CommandCodeDTO.CommandCode;
+import com.gproject.common.dto.proto.TipDTO.GameTip;
 import com.gproject.common.dto.proto.TipDTO.TipCode;
 
 @Component(PushService.WEBSCOKET)
@@ -63,7 +65,9 @@ public class WebSocketManager implements PushService{
 	@Override
 	public void pushError(long playerId, TipCode tipCode) {
 		// TODO Auto-generated method stub
-		
+		Session session=IDMap.get(playerId);
+		GameTip.Builder dto=GameTip.newBuilder();
+		dto.setCode(tipCode);
 	}
 
 	@Override

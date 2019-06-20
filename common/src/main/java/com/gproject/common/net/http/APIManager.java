@@ -11,7 +11,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gproject.common.dto.proto.TipDTO.TipCode;
 import com.gproject.common.net.http.APIParameDef.APIRet;
-import com.gproject.common.staticdata.ExcelManager;
+import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HServerConfig;
 
 
@@ -19,7 +19,7 @@ import com.gproject.common.staticdata.excelmodel.HServerConfig;
 public class APIManager {
 
 	@Autowired
-	ExcelManager excelManager;
+	ExcelService excelManager;
 	
 	Logger logger=LoggerFactory.getLogger(APIManager.class);
 	

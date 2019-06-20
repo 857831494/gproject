@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -25,11 +26,11 @@ import com.gproject.common.utils.common.GClassUtil;
  *
  */
 @Component
-public  class ExcelManager {
+public  class ExcelService {
 
 	
 	
-	static Logger logger=LoggerFactory.getLogger(ExcelManager.class);
+	Logger logger=LoggerFactory.getLogger(ExcelService.class);
 	
 	
 	private Map<Class,Map<Integer,Object>> dataMap=new HashMap<>();

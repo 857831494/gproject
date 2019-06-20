@@ -35,6 +35,7 @@ public class GWebSocket  {
 	public void onOpen(Session session) throws Exception {
 		if (webSocketManager.sessionMap.size()>MAX_SESSION_NUM) {
 			session.close();
+			logger.info("当前服务器已经超出最大数量=================");
 			return;
 		}
 		session.setMaxIdleTimeout(IDLE_TIME);

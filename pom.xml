@@ -1,6 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com</groupId>
@@ -13,7 +12,8 @@
 	<modules>
 		<module>common</module>
 		<module>center-server</module>
-	</modules>
+    <module>gproject-gate</module>
+  </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,27 +70,9 @@
 
 
 	<build>
-		<!-- 打包输出的根目录 -->
-		<directory>target/${project.version}</directory>
+		<!-- 打包输出的根目录 
+		<directory>target/${project.version}</directory>-->
 		<plugins>
-			
-			<!-- 打源码包 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<configuration>
-					<attach>true</attach>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<!-- 把项目依赖的第三方包打包在target/lib下 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
