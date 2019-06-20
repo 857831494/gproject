@@ -7,8 +7,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.gproject.center.config.GlobalManager;
 import com.gproject.common.IDef;
+import com.gproject.common.config.AppinitHandler;
+
 
 @SpringBootApplication(exclude = {
 DataSourceAutoConfiguration.class,
@@ -20,7 +21,7 @@ public class CenterBoot {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SpringApplication application = new SpringApplication(CenterBoot.class);
-        application.addListeners(new GlobalManager());
+        application.addListeners(new AppinitHandler());
         application.run(args);
 	}
 

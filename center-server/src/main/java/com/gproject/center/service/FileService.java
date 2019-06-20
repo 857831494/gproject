@@ -3,6 +3,7 @@ package com.gproject.center.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.util.HashSet;
 import java.util.List;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -55,10 +56,11 @@ public class FileService {
 	}
 	
 	
-	public void saveFile(String path, MultipartFile file) throws Exception {
+	public HashSet<String> saveFile(String path, MultipartFile file) throws Exception {
 		List<SheetData> list=uploadExcelManager.getJson(file.getInputStream());
 		ObjectMapper mapper=new ObjectMapper();
 		String basePath=getFilePath();
+		HashSet<String> hashSet=new HashSet<>();
 		logger.info("文件写入目录============"+basePath);
 		for (SheetData sheetData : list) {
 			File json=new File(basePath+EXCEL_PATH+path+"/"+sheetData.fileName+".json");
@@ -70,9 +72,10 @@ public class FileService {
 				json.createNewFile();
 				writeFile(json, content);
 			}
+			hashSet.add(sheetData.fileName);
 			logger.info("json文件写入成功=========="+sheetData.fileName);
 		}
-		
+		return hashSet;
 	}
 
 }
