@@ -1,0 +1,64 @@
+package com.gproject.gate.service.item.hander;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gproject.common.staticdata.ExcelService;
+import com.gproject.common.staticdata.excelmodel.HItemConfig;
+import com.gproject.gate.dao.AttarDAO;
+import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
+import com.gproject.gate.pojo.AttarTableDef.AttarRet;
+import com.gproject.gate.service.item.ItemDef;
+import com.gproject.gate.service.item.ItemDef.AddItemHandler;
+import com.gproject.gate.service.item.ItemDef.AddItemOrder;
+import com.gproject.gate.service.item.ItemDef.ItemHandlerType;
+
+@Service(ItemDef.ITEM_HANDLER+ItemHandlerType.attar)
+public class AttarHandler implements AddItemHandler{
+
+	
+	@Autowired
+	AttarDAO attarDAO;
+	
+	final static int MAX_NUM=99999999; 
+	
+	@Autowired
+	ExcelService excelService;
+	
+	@Override
+	public synchronized void add(AddItemOrder addItemOrder) {
+		// TODO Auto-generated method stub
+		AttarPojo attarPojo=attarDAO.getData(addItemOrder.playerId);
+		AttarRet attarRet=attarPojo.attarRet;
+		HItemConfig hItemConfig=excelService.getById(HItemConfig.class, addItemOrder.itemId);
+		Long curVal=attarRet.attarMap.get(hItemConfig.itemId);
+		if (curVal==null) {
+			curVal=(long) 0;
+		}
+		long max=hItemConfig.maxNum;
+		if (0>=max) {
+			max=MAX_NUM;
+		}
+		if (curVal>=max) {
+			addItemOrder.successVal=0;
+			addItemOrder.lastVal=max;
+			return;
+		}
+		if (curVal+addItemOrder.addVal>max) {
+			addItemOrder.successVal=max-curVal;
+			addItemOrder.lastVal=max;
+			curVal=max;
+		}else {
+			curVal+=addItemOrder.addVal;
+			addItemOrder.successVal=addItemOrder.addVal;
+			addItemOrder.lastVal=curVal;
+		}
+		attarRet.attarMap.put(addItemOrder.itemId, curVal);
+		attarDAO.update(attarPojo);
+	}
+
+	
+
+	
+
+}
