@@ -1,8 +1,6 @@
 package com.gproject.gate.pojo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,26 +13,29 @@ import com.gproject.common.utils.common.JSONUtil;
 
 public interface BagTableDef {
 
-	public class HasAttarModel{
+	public class BagModel{
 		public int itemId;
 		/**
 		 * 唯一标识
 		 */
-		public int dbItemId;
+		public int bagId;
+		
+		public long num;
 		
 		public HashMap<Integer, Integer> attarMap=new HashMap<>();
+
+		public BagModel(int itemId, int bagId) {
+			super();
+			this.itemId = itemId;
+			this.bagId = bagId;
+		}
+		
+		
 	}
 	
 	public class BagRet{
-		/**
-		 * 无属性物品
-		 */
-		public HashMap<Integer, Long> unAttarMap=new HashMap<>();
-		
-		/**
-		 * 有属性物品
-		 */
-		public List<HasAttarModel> attarModels=new ArrayList<BagTableDef.HasAttarModel>();
+		public int curId;
+		public HashMap<Integer, BagModel> bagMap=new HashMap<>();
 	}
 	
 	//物理表
