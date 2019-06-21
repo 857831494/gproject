@@ -9,13 +9,13 @@ import com.gproject.common.staticdata.excelmodel.HItemConfig;
 import com.gproject.gate.cache.AttarCache;
 import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
 import com.gproject.gate.pojo.AttarTableDef.AttarRet;
+import com.gproject.gate.service.item.AddItemOrder;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
-import com.gproject.gate.service.item.ItemDef.AddItemOrder;
-import com.gproject.gate.service.item.ItemDef.ItemHandlerType;
+import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
 
-@Component(ItemDef.ITEM_HANDLER+ItemHandlerType.attar)
-public class AttarHandler implements AddItemHandler{
+@Component(ItemDef.ITEM_HANDLER+AddItemHandlerType.attar)
+public class AttarAddHandler implements AddItemHandler{
 
 	
 	@Autowired

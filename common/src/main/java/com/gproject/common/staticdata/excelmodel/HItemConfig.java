@@ -8,10 +8,7 @@ public class HItemConfig implements ConfigExcel{
 	
 	public int maxNum;
 	
-	/**
-	 * 是否进入背包,抛错误码专用字段
-	 */
-	public int showWhere;
+	
 	
 	/**
 	 *加 处理器类型  
