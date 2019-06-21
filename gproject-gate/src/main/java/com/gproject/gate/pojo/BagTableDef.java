@@ -13,7 +13,7 @@ import javax.persistence.Transient;
 import com.gproject.common.db.DBEvent;
 import com.gproject.common.utils.common.JSONUtil;
 
-public class BagTableDef {
+public interface BagTableDef {
 
 	public class HasAttarModel{
 		public int itemId;

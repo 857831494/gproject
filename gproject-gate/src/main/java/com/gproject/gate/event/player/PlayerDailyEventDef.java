@@ -1,6 +1,6 @@
 package com.gproject.gate.event.player;
 
-
+import java.util.Date;
 
 /**
  * 
@@ -11,10 +11,14 @@ package com.gproject.gate.event.player;
 public interface PlayerDailyEventDef {
 
 	public class PlayerDailyEventParame extends PlayerEventParame{
-		
+		public Date lastLoginTime;
+		public PlayerDailyEventParame(long playerId,Date lastLoginTime){
+			this.lastLoginTime=lastLoginTime;
+			this.playerId=playerId;
+		}
 	}
 	
-	public interface PlayerEnterEvent{
+	public interface PlayerDailyEvent{
 		public void doPlayerDailyEvent(PlayerDailyEventParame parame);
 	}
 }

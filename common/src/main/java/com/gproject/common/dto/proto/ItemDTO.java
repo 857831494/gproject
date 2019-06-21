@@ -8,7 +8,7 @@ public final class ItemDTO {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface ClientItemOrBuilder
+  public interface ClientAttarItemOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // required int32 itemId = 1;
@@ -76,24 +76,28 @@ public final class ItemDTO {
     long getLastNum();
   }
   /**
-   * Protobuf type {@code gsp.ClientItem}
+   * Protobuf type {@code gsp.ClientAttarItem}
+   *
+   * <pre>
+   *属性物品，不属于背包
+   * </pre>
    */
-  public static final class ClientItem extends
+  public static final class ClientAttarItem extends
       com.google.protobuf.GeneratedMessage
-      implements ClientItemOrBuilder {
-    // Use ClientItem.newBuilder() to construct.
-    private ClientItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements ClientAttarItemOrBuilder {
+    // Use ClientAttarItem.newBuilder() to construct.
+    private ClientAttarItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ClientItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private ClientAttarItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ClientItem defaultInstance;
-    public static ClientItem getDefaultInstance() {
+    private static final ClientAttarItem defaultInstance;
+    public static ClientAttarItem getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ClientItem getDefaultInstanceForType() {
+    public ClientAttarItem getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -103,7 +107,7 @@ public final class ItemDTO {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ClientItem(
+    private ClientAttarItem(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -160,28 +164,28 @@ public final class ItemDTO {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientItem_descriptor;
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientAttarItem_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientItem_fieldAccessorTable
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientAttarItem_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.gproject.common.dto.proto.ItemDTO.ClientItem.class, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder.class);
+              com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.class, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ClientItem> PARSER =
-        new com.google.protobuf.AbstractParser<ClientItem>() {
-      public ClientItem parsePartialFrom(
+    public static com.google.protobuf.Parser<ClientAttarItem> PARSER =
+        new com.google.protobuf.AbstractParser<ClientAttarItem>() {
+      public ClientAttarItem parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientItem(input, extensionRegistry);
+        return new ClientAttarItem(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ClientItem> getParserForType() {
+    public com.google.protobuf.Parser<ClientAttarItem> getParserForType() {
       return PARSER;
     }
 
@@ -349,53 +353,53 @@ public final class ItemDTO {
       return super.writeReplace();
     }
 
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(byte[] data)
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(java.io.InputStream input)
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseDelimitedFrom(java.io.InputStream input)
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseDelimitedFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.ClientItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -404,7 +408,7 @@ public final class ItemDTO {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.gproject.common.dto.proto.ItemDTO.ClientItem prototype) {
+    public static Builder newBuilder(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -416,24 +420,28 @@ public final class ItemDTO {
       return builder;
     }
     /**
-     * Protobuf type {@code gsp.ClientItem}
+     * Protobuf type {@code gsp.ClientAttarItem}
+     *
+     * <pre>
+     *属性物品，不属于背包
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder {
+       implements com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientItem_descriptor;
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientAttarItem_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientItem_fieldAccessorTable
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientAttarItem_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.gproject.common.dto.proto.ItemDTO.ClientItem.class, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder.class);
+                com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.class, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder.class);
       }
 
-      // Construct using com.gproject.common.dto.proto.ItemDTO.ClientItem.newBuilder()
+      // Construct using com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -470,23 +478,23 @@ public final class ItemDTO {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientItem_descriptor;
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_ClientAttarItem_descriptor;
       }
 
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem getDefaultInstanceForType() {
-        return com.gproject.common.dto.proto.ItemDTO.ClientItem.getDefaultInstance();
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getDefaultInstanceForType() {
+        return com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance();
       }
 
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem build() {
-        com.gproject.common.dto.proto.ItemDTO.ClientItem result = buildPartial();
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem build() {
+        com.gproject.common.dto.proto.ItemDTO.ClientAttarItem result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem buildPartial() {
-        com.gproject.common.dto.proto.ItemDTO.ClientItem result = new com.gproject.common.dto.proto.ItemDTO.ClientItem(this);
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem buildPartial() {
+        com.gproject.common.dto.proto.ItemDTO.ClientAttarItem result = new com.gproject.common.dto.proto.ItemDTO.ClientAttarItem(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -511,16 +519,16 @@ public final class ItemDTO {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.gproject.common.dto.proto.ItemDTO.ClientItem) {
-          return mergeFrom((com.gproject.common.dto.proto.ItemDTO.ClientItem)other);
+        if (other instanceof com.gproject.common.dto.proto.ItemDTO.ClientAttarItem) {
+          return mergeFrom((com.gproject.common.dto.proto.ItemDTO.ClientAttarItem)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.gproject.common.dto.proto.ItemDTO.ClientItem other) {
-        if (other == com.gproject.common.dto.proto.ItemDTO.ClientItem.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem other) {
+        if (other == com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance()) return this;
         if (other.hasItemId()) {
           setItemId(other.getItemId());
         }
@@ -553,11 +561,11 @@ public final class ItemDTO {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.gproject.common.dto.proto.ItemDTO.ClientItem parsedMessage = null;
+        com.gproject.common.dto.proto.ItemDTO.ClientAttarItem parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.gproject.common.dto.proto.ItemDTO.ClientItem) e.getUnfinishedMessage();
+          parsedMessage = (com.gproject.common.dto.proto.ItemDTO.ClientAttarItem) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -748,50 +756,50 @@ public final class ItemDTO {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:gsp.ClientItem)
+      // @@protoc_insertion_point(builder_scope:gsp.ClientAttarItem)
     }
 
     static {
-      defaultInstance = new ClientItem(true);
+      defaultInstance = new ClientAttarItem(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:gsp.ClientItem)
+    // @@protoc_insertion_point(class_scope:gsp.ClientAttarItem)
   }
 
   public interface S2CAddItemOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .gsp.ClientItem data = 1;
+    // repeated .gsp.ClientAttarItem data = 1;
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> 
+    java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> 
         getDataList();
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    com.gproject.common.dto.proto.ItemDTO.ClientItem getData(int index);
+    com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index);
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
     int getDataCount();
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+    java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
         getDataOrBuilderList();
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder getDataOrBuilder(
+    com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
         int index);
   }
   /**
    * Protobuf type {@code gsp.S2CAddItem}
    *
    * <pre>
-   *专用用于展示获得物品
+   *专用用于展示获得物品,不属于背包
    * </pre>
    */
   public static final class S2CAddItem extends
@@ -844,10 +852,10 @@ public final class ItemDTO {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientItem>();
+                data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              data_.add(input.readMessage(com.gproject.common.dto.proto.ItemDTO.ClientItem.PARSER, extensionRegistry));
+              data_.add(input.readMessage(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.PARSER, extensionRegistry));
               break;
             }
           }
@@ -892,38 +900,38 @@ public final class ItemDTO {
       return PARSER;
     }
 
-    // repeated .gsp.ClientItem data = 1;
+    // repeated .gsp.ClientAttarItem data = 1;
     public static final int DATA_FIELD_NUMBER = 1;
-    private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> data_;
+    private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> data_;
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> getDataList() {
+    public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> getDataList() {
       return data_;
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+    public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
         getDataOrBuilderList() {
       return data_;
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
     public int getDataCount() {
       return data_.size();
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public com.gproject.common.dto.proto.ItemDTO.ClientItem getData(int index) {
+    public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index) {
       return data_.get(index);
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder getDataOrBuilder(
+    public com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
         int index) {
       return data_.get(index);
     }
@@ -1047,7 +1055,7 @@ public final class ItemDTO {
      * Protobuf type {@code gsp.S2CAddItem}
      *
      * <pre>
-     *专用用于展示获得物品
+     *专用用于展示获得物品,不属于背包
      * </pre>
      */
     public static final class Builder extends
@@ -1202,23 +1210,23 @@ public final class ItemDTO {
       }
       private int bitField0_;
 
-      // repeated .gsp.ClientItem data = 1;
-      private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> data_ =
+      // repeated .gsp.ClientAttarItem data = 1;
+      private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> data_ =
         java.util.Collections.emptyList();
       private void ensureDataIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientItem>(data_);
+          data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem>(data_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.gproject.common.dto.proto.ItemDTO.ClientItem, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> dataBuilder_;
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> dataBuilder_;
 
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> getDataList() {
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> getDataList() {
         if (dataBuilder_ == null) {
           return java.util.Collections.unmodifiableList(data_);
         } else {
@@ -1226,7 +1234,7 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public int getDataCount() {
         if (dataBuilder_ == null) {
@@ -1236,9 +1244,9 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem getData(int index) {
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index) {
         if (dataBuilder_ == null) {
           return data_.get(index);
         } else {
@@ -1246,10 +1254,10 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder setData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem value) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
         if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1263,10 +1271,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder setData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder builderForValue) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           data_.set(index, builderForValue.build());
@@ -1277,9 +1285,9 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public Builder addData(com.gproject.common.dto.proto.ItemDTO.ClientItem value) {
+      public Builder addData(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
         if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1293,10 +1301,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem value) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
         if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1310,10 +1318,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addData(
-          com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder builderForValue) {
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           data_.add(builderForValue.build());
@@ -1324,10 +1332,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder builderForValue) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           data_.add(index, builderForValue.build());
@@ -1338,10 +1346,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addAllData(
-          java.lang.Iterable<? extends com.gproject.common.dto.proto.ItemDTO.ClientItem> values) {
+          java.lang.Iterable<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> values) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           super.addAll(values, data_);
@@ -1352,7 +1360,7 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder clearData() {
         if (dataBuilder_ == null) {
@@ -1365,7 +1373,7 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder removeData(int index) {
         if (dataBuilder_ == null) {
@@ -1378,16 +1386,16 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder getDataBuilder(
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder getDataBuilder(
           int index) {
         return getDataFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder getDataOrBuilder(
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
           int index) {
         if (dataBuilder_ == null) {
           return data_.get(index);  } else {
@@ -1395,9 +1403,9 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+      public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
            getDataOrBuilderList() {
         if (dataBuilder_ != null) {
           return dataBuilder_.getMessageOrBuilderList();
@@ -1406,33 +1414,33 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder addDataBuilder() {
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder addDataBuilder() {
         return getDataFieldBuilder().addBuilder(
-            com.gproject.common.dto.proto.ItemDTO.ClientItem.getDefaultInstance());
+            com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder addDataBuilder(
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder addDataBuilder(
           int index) {
         return getDataFieldBuilder().addBuilder(
-            index, com.gproject.common.dto.proto.ItemDTO.ClientItem.getDefaultInstance());
+            index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder> 
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder> 
            getDataBuilderList() {
         return getDataFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.gproject.common.dto.proto.ItemDTO.ClientItem, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
           getDataFieldBuilder() {
         if (dataBuilder_ == null) {
           dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.gproject.common.dto.proto.ItemDTO.ClientItem, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder>(
+              com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder>(
                   data_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -1453,57 +1461,57 @@ public final class ItemDTO {
     // @@protoc_insertion_point(class_scope:gsp.S2CAddItem)
   }
 
-  public interface S2CSynItemOrBuilder
+  public interface S2CSynClientAttarItemOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .gsp.ClientItem data = 1;
+    // repeated .gsp.ClientAttarItem data = 1;
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> 
+    java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> 
         getDataList();
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    com.gproject.common.dto.proto.ItemDTO.ClientItem getData(int index);
+    com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index);
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
     int getDataCount();
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+    java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
         getDataOrBuilderList();
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder getDataOrBuilder(
+    com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code gsp.S2CSynItem}
+   * Protobuf type {@code gsp.S2CSynClientAttarItem}
    *
    * <pre>
-   *同步物品最新数值，多用于消耗物品
+   *专门用于消耗物品后，同步客户端数值
    * </pre>
    */
-  public static final class S2CSynItem extends
+  public static final class S2CSynClientAttarItem extends
       com.google.protobuf.GeneratedMessage
-      implements S2CSynItemOrBuilder {
-    // Use S2CSynItem.newBuilder() to construct.
-    private S2CSynItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements S2CSynClientAttarItemOrBuilder {
+    // Use S2CSynClientAttarItem.newBuilder() to construct.
+    private S2CSynClientAttarItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private S2CSynItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private S2CSynClientAttarItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final S2CSynItem defaultInstance;
-    public static S2CSynItem getDefaultInstance() {
+    private static final S2CSynClientAttarItem defaultInstance;
+    public static S2CSynClientAttarItem getDefaultInstance() {
       return defaultInstance;
     }
 
-    public S2CSynItem getDefaultInstanceForType() {
+    public S2CSynClientAttarItem getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -1513,7 +1521,7 @@ public final class ItemDTO {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private S2CSynItem(
+    private S2CSynClientAttarItem(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1538,10 +1546,10 @@ public final class ItemDTO {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientItem>();
+                data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              data_.add(input.readMessage(com.gproject.common.dto.proto.ItemDTO.ClientItem.PARSER, extensionRegistry));
+              data_.add(input.readMessage(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.PARSER, extensionRegistry));
               break;
             }
           }
@@ -1561,63 +1569,63 @@ public final class ItemDTO {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynItem_descriptor;
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynClientAttarItem_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynItem_fieldAccessorTable
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynClientAttarItem_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.gproject.common.dto.proto.ItemDTO.S2CSynItem.class, com.gproject.common.dto.proto.ItemDTO.S2CSynItem.Builder.class);
+              com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem.class, com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<S2CSynItem> PARSER =
-        new com.google.protobuf.AbstractParser<S2CSynItem>() {
-      public S2CSynItem parsePartialFrom(
+    public static com.google.protobuf.Parser<S2CSynClientAttarItem> PARSER =
+        new com.google.protobuf.AbstractParser<S2CSynClientAttarItem>() {
+      public S2CSynClientAttarItem parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new S2CSynItem(input, extensionRegistry);
+        return new S2CSynClientAttarItem(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<S2CSynItem> getParserForType() {
+    public com.google.protobuf.Parser<S2CSynClientAttarItem> getParserForType() {
       return PARSER;
     }
 
-    // repeated .gsp.ClientItem data = 1;
+    // repeated .gsp.ClientAttarItem data = 1;
     public static final int DATA_FIELD_NUMBER = 1;
-    private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> data_;
+    private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> data_;
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> getDataList() {
+    public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> getDataList() {
       return data_;
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+    public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
         getDataOrBuilderList() {
       return data_;
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
     public int getDataCount() {
       return data_.size();
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public com.gproject.common.dto.proto.ItemDTO.ClientItem getData(int index) {
+    public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index) {
       return data_.get(index);
     }
     /**
-     * <code>repeated .gsp.ClientItem data = 1;</code>
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
      */
-    public com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder getDataOrBuilder(
+    public com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
         int index) {
       return data_.get(index);
     }
@@ -1671,53 +1679,53 @@ public final class ItemDTO {
       return super.writeReplace();
     }
 
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(byte[] data)
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(java.io.InputStream input)
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseDelimitedFrom(java.io.InputStream input)
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseDelimitedFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.gproject.common.dto.proto.ItemDTO.S2CSynItem parseFrom(
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1726,7 +1734,7 @@ public final class ItemDTO {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.gproject.common.dto.proto.ItemDTO.S2CSynItem prototype) {
+    public static Builder newBuilder(com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1738,28 +1746,28 @@ public final class ItemDTO {
       return builder;
     }
     /**
-     * Protobuf type {@code gsp.S2CSynItem}
+     * Protobuf type {@code gsp.S2CSynClientAttarItem}
      *
      * <pre>
-     *同步物品最新数值，多用于消耗物品
+     *专门用于消耗物品后，同步客户端数值
      * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.gproject.common.dto.proto.ItemDTO.S2CSynItemOrBuilder {
+       implements com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItemOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynItem_descriptor;
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynClientAttarItem_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynItem_fieldAccessorTable
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynClientAttarItem_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.gproject.common.dto.proto.ItemDTO.S2CSynItem.class, com.gproject.common.dto.proto.ItemDTO.S2CSynItem.Builder.class);
+                com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem.class, com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem.Builder.class);
       }
 
-      // Construct using com.gproject.common.dto.proto.ItemDTO.S2CSynItem.newBuilder()
+      // Construct using com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1795,23 +1803,23 @@ public final class ItemDTO {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynItem_descriptor;
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynClientAttarItem_descriptor;
       }
 
-      public com.gproject.common.dto.proto.ItemDTO.S2CSynItem getDefaultInstanceForType() {
-        return com.gproject.common.dto.proto.ItemDTO.S2CSynItem.getDefaultInstance();
+      public com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem getDefaultInstanceForType() {
+        return com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem.getDefaultInstance();
       }
 
-      public com.gproject.common.dto.proto.ItemDTO.S2CSynItem build() {
-        com.gproject.common.dto.proto.ItemDTO.S2CSynItem result = buildPartial();
+      public com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem build() {
+        com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.gproject.common.dto.proto.ItemDTO.S2CSynItem buildPartial() {
-        com.gproject.common.dto.proto.ItemDTO.S2CSynItem result = new com.gproject.common.dto.proto.ItemDTO.S2CSynItem(this);
+      public com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem buildPartial() {
+        com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem result = new com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem(this);
         int from_bitField0_ = bitField0_;
         if (dataBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1827,16 +1835,16 @@ public final class ItemDTO {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.gproject.common.dto.proto.ItemDTO.S2CSynItem) {
-          return mergeFrom((com.gproject.common.dto.proto.ItemDTO.S2CSynItem)other);
+        if (other instanceof com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem) {
+          return mergeFrom((com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.gproject.common.dto.proto.ItemDTO.S2CSynItem other) {
-        if (other == com.gproject.common.dto.proto.ItemDTO.S2CSynItem.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem other) {
+        if (other == com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem.getDefaultInstance()) return this;
         if (dataBuilder_ == null) {
           if (!other.data_.isEmpty()) {
             if (data_.isEmpty()) {
@@ -1881,11 +1889,11 @@ public final class ItemDTO {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.gproject.common.dto.proto.ItemDTO.S2CSynItem parsedMessage = null;
+        com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.gproject.common.dto.proto.ItemDTO.S2CSynItem) e.getUnfinishedMessage();
+          parsedMessage = (com.gproject.common.dto.proto.ItemDTO.S2CSynClientAttarItem) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1896,23 +1904,23 @@ public final class ItemDTO {
       }
       private int bitField0_;
 
-      // repeated .gsp.ClientItem data = 1;
-      private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> data_ =
+      // repeated .gsp.ClientAttarItem data = 1;
+      private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> data_ =
         java.util.Collections.emptyList();
       private void ensureDataIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientItem>(data_);
+          data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem>(data_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.gproject.common.dto.proto.ItemDTO.ClientItem, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> dataBuilder_;
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> dataBuilder_;
 
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem> getDataList() {
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> getDataList() {
         if (dataBuilder_ == null) {
           return java.util.Collections.unmodifiableList(data_);
         } else {
@@ -1920,7 +1928,7 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public int getDataCount() {
         if (dataBuilder_ == null) {
@@ -1930,9 +1938,9 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem getData(int index) {
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index) {
         if (dataBuilder_ == null) {
           return data_.get(index);
         } else {
@@ -1940,10 +1948,10 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder setData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem value) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
         if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1957,10 +1965,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder setData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder builderForValue) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           data_.set(index, builderForValue.build());
@@ -1971,9 +1979,9 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public Builder addData(com.gproject.common.dto.proto.ItemDTO.ClientItem value) {
+      public Builder addData(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
         if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1987,10 +1995,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem value) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
         if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2004,10 +2012,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addData(
-          com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder builderForValue) {
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           data_.add(builderForValue.build());
@@ -2018,10 +2026,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addData(
-          int index, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder builderForValue) {
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           data_.add(index, builderForValue.build());
@@ -2032,10 +2040,10 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder addAllData(
-          java.lang.Iterable<? extends com.gproject.common.dto.proto.ItemDTO.ClientItem> values) {
+          java.lang.Iterable<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> values) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
           super.addAll(values, data_);
@@ -2046,7 +2054,7 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder clearData() {
         if (dataBuilder_ == null) {
@@ -2059,7 +2067,7 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
       public Builder removeData(int index) {
         if (dataBuilder_ == null) {
@@ -2072,16 +2080,16 @@ public final class ItemDTO {
         return this;
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder getDataBuilder(
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder getDataBuilder(
           int index) {
         return getDataFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder getDataOrBuilder(
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
           int index) {
         if (dataBuilder_ == null) {
           return data_.get(index);  } else {
@@ -2089,9 +2097,9 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+      public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
            getDataOrBuilderList() {
         if (dataBuilder_ != null) {
           return dataBuilder_.getMessageOrBuilderList();
@@ -2100,33 +2108,33 @@ public final class ItemDTO {
         }
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder addDataBuilder() {
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder addDataBuilder() {
         return getDataFieldBuilder().addBuilder(
-            com.gproject.common.dto.proto.ItemDTO.ClientItem.getDefaultInstance());
+            com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder addDataBuilder(
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder addDataBuilder(
           int index) {
         return getDataFieldBuilder().addBuilder(
-            index, com.gproject.common.dto.proto.ItemDTO.ClientItem.getDefaultInstance());
+            index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .gsp.ClientItem data = 1;</code>
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
        */
-      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder> 
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder> 
            getDataBuilderList() {
         return getDataFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.gproject.common.dto.proto.ItemDTO.ClientItem, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder> 
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
           getDataFieldBuilder() {
         if (dataBuilder_ == null) {
           dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.gproject.common.dto.proto.ItemDTO.ClientItem, com.gproject.common.dto.proto.ItemDTO.ClientItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientItemOrBuilder>(
+              com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder>(
                   data_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -2136,32 +2144,2307 @@ public final class ItemDTO {
         return dataBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:gsp.S2CSynItem)
+      // @@protoc_insertion_point(builder_scope:gsp.S2CSynClientAttarItem)
     }
 
     static {
-      defaultInstance = new S2CSynItem(true);
+      defaultInstance = new S2CSynClientAttarItem(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:gsp.S2CSynItem)
+    // @@protoc_insertion_point(class_scope:gsp.S2CSynClientAttarItem)
+  }
+
+  public interface BagItemOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 itemId = 1;
+    /**
+     * <code>required int32 itemId = 1;</code>
+     */
+    boolean hasItemId();
+    /**
+     * <code>required int32 itemId = 1;</code>
+     */
+    int getItemId();
+
+    // required int32 bagId = 2;
+    /**
+     * <code>required int32 bagId = 2;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    boolean hasBagId();
+    /**
+     * <code>required int32 bagId = 2;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    int getBagId();
+
+    // optional int64 addNum = 3;
+    /**
+     * <code>optional int64 addNum = 3;</code>
+     *
+     * <pre>
+     *获得多少物品
+     * </pre>
+     */
+    boolean hasAddNum();
+    /**
+     * <code>optional int64 addNum = 3;</code>
+     *
+     * <pre>
+     *获得多少物品
+     * </pre>
+     */
+    long getAddNum();
+
+    // optional bool canShow = 4;
+    /**
+     * <code>optional bool canShow = 4;</code>
+     *
+     * <pre>
+     *是否需要被玩家看到
+     * </pre>
+     */
+    boolean hasCanShow();
+    /**
+     * <code>optional bool canShow = 4;</code>
+     *
+     * <pre>
+     *是否需要被玩家看到
+     * </pre>
+     */
+    boolean getCanShow();
+
+    // required int64 lastNum = 5;
+    /**
+     * <code>required int64 lastNum = 5;</code>
+     *
+     * <pre>
+     *最终数值
+     * </pre>
+     */
+    boolean hasLastNum();
+    /**
+     * <code>required int64 lastNum = 5;</code>
+     *
+     * <pre>
+     *最终数值
+     * </pre>
+     */
+    long getLastNum();
+  }
+  /**
+   * Protobuf type {@code gsp.BagItem}
+   *
+   * <pre>
+   *背包物品
+   * </pre>
+   */
+  public static final class BagItem extends
+      com.google.protobuf.GeneratedMessage
+      implements BagItemOrBuilder {
+    // Use BagItem.newBuilder() to construct.
+    private BagItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private BagItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final BagItem defaultInstance;
+    public static BagItem getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public BagItem getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BagItem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              itemId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              bagId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              addNum_ = input.readInt64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              canShow_ = input.readBool();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              lastNum_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_BagItem_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_BagItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gproject.common.dto.proto.ItemDTO.BagItem.class, com.gproject.common.dto.proto.ItemDTO.BagItem.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<BagItem> PARSER =
+        new com.google.protobuf.AbstractParser<BagItem>() {
+      public BagItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BagItem(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BagItem> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 itemId = 1;
+    public static final int ITEMID_FIELD_NUMBER = 1;
+    private int itemId_;
+    /**
+     * <code>required int32 itemId = 1;</code>
+     */
+    public boolean hasItemId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 itemId = 1;</code>
+     */
+    public int getItemId() {
+      return itemId_;
+    }
+
+    // required int32 bagId = 2;
+    public static final int BAGID_FIELD_NUMBER = 2;
+    private int bagId_;
+    /**
+     * <code>required int32 bagId = 2;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public boolean hasBagId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 bagId = 2;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public int getBagId() {
+      return bagId_;
+    }
+
+    // optional int64 addNum = 3;
+    public static final int ADDNUM_FIELD_NUMBER = 3;
+    private long addNum_;
+    /**
+     * <code>optional int64 addNum = 3;</code>
+     *
+     * <pre>
+     *获得多少物品
+     * </pre>
+     */
+    public boolean hasAddNum() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int64 addNum = 3;</code>
+     *
+     * <pre>
+     *获得多少物品
+     * </pre>
+     */
+    public long getAddNum() {
+      return addNum_;
+    }
+
+    // optional bool canShow = 4;
+    public static final int CANSHOW_FIELD_NUMBER = 4;
+    private boolean canShow_;
+    /**
+     * <code>optional bool canShow = 4;</code>
+     *
+     * <pre>
+     *是否需要被玩家看到
+     * </pre>
+     */
+    public boolean hasCanShow() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bool canShow = 4;</code>
+     *
+     * <pre>
+     *是否需要被玩家看到
+     * </pre>
+     */
+    public boolean getCanShow() {
+      return canShow_;
+    }
+
+    // required int64 lastNum = 5;
+    public static final int LASTNUM_FIELD_NUMBER = 5;
+    private long lastNum_;
+    /**
+     * <code>required int64 lastNum = 5;</code>
+     *
+     * <pre>
+     *最终数值
+     * </pre>
+     */
+    public boolean hasLastNum() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required int64 lastNum = 5;</code>
+     *
+     * <pre>
+     *最终数值
+     * </pre>
+     */
+    public long getLastNum() {
+      return lastNum_;
+    }
+
+    private void initFields() {
+      itemId_ = 0;
+      bagId_ = 0;
+      addNum_ = 0L;
+      canShow_ = false;
+      lastNum_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasItemId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasBagId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLastNum()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, itemId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, bagId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, addNum_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(4, canShow_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt64(5, lastNum_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, itemId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, bagId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, addNum_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, canShow_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, lastNum_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.BagItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.gproject.common.dto.proto.ItemDTO.BagItem prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gsp.BagItem}
+     *
+     * <pre>
+     *背包物品
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_BagItem_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_BagItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gproject.common.dto.proto.ItemDTO.BagItem.class, com.gproject.common.dto.proto.ItemDTO.BagItem.Builder.class);
+      }
+
+      // Construct using com.gproject.common.dto.proto.ItemDTO.BagItem.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        itemId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        bagId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        addNum_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        canShow_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        lastNum_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_BagItem_descriptor;
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.BagItem getDefaultInstanceForType() {
+        return com.gproject.common.dto.proto.ItemDTO.BagItem.getDefaultInstance();
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.BagItem build() {
+        com.gproject.common.dto.proto.ItemDTO.BagItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.BagItem buildPartial() {
+        com.gproject.common.dto.proto.ItemDTO.BagItem result = new com.gproject.common.dto.proto.ItemDTO.BagItem(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.itemId_ = itemId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bagId_ = bagId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.addNum_ = addNum_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.canShow_ = canShow_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.lastNum_ = lastNum_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gproject.common.dto.proto.ItemDTO.BagItem) {
+          return mergeFrom((com.gproject.common.dto.proto.ItemDTO.BagItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gproject.common.dto.proto.ItemDTO.BagItem other) {
+        if (other == com.gproject.common.dto.proto.ItemDTO.BagItem.getDefaultInstance()) return this;
+        if (other.hasItemId()) {
+          setItemId(other.getItemId());
+        }
+        if (other.hasBagId()) {
+          setBagId(other.getBagId());
+        }
+        if (other.hasAddNum()) {
+          setAddNum(other.getAddNum());
+        }
+        if (other.hasCanShow()) {
+          setCanShow(other.getCanShow());
+        }
+        if (other.hasLastNum()) {
+          setLastNum(other.getLastNum());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasItemId()) {
+          
+          return false;
+        }
+        if (!hasBagId()) {
+          
+          return false;
+        }
+        if (!hasLastNum()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gproject.common.dto.proto.ItemDTO.BagItem parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gproject.common.dto.proto.ItemDTO.BagItem) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 itemId = 1;
+      private int itemId_ ;
+      /**
+       * <code>required int32 itemId = 1;</code>
+       */
+      public boolean hasItemId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 itemId = 1;</code>
+       */
+      public int getItemId() {
+        return itemId_;
+      }
+      /**
+       * <code>required int32 itemId = 1;</code>
+       */
+      public Builder setItemId(int value) {
+        bitField0_ |= 0x00000001;
+        itemId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 itemId = 1;</code>
+       */
+      public Builder clearItemId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        itemId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 bagId = 2;
+      private int bagId_ ;
+      /**
+       * <code>required int32 bagId = 2;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public boolean hasBagId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 bagId = 2;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public int getBagId() {
+        return bagId_;
+      }
+      /**
+       * <code>required int32 bagId = 2;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder setBagId(int value) {
+        bitField0_ |= 0x00000002;
+        bagId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 bagId = 2;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder clearBagId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        bagId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 addNum = 3;
+      private long addNum_ ;
+      /**
+       * <code>optional int64 addNum = 3;</code>
+       *
+       * <pre>
+       *获得多少物品
+       * </pre>
+       */
+      public boolean hasAddNum() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int64 addNum = 3;</code>
+       *
+       * <pre>
+       *获得多少物品
+       * </pre>
+       */
+      public long getAddNum() {
+        return addNum_;
+      }
+      /**
+       * <code>optional int64 addNum = 3;</code>
+       *
+       * <pre>
+       *获得多少物品
+       * </pre>
+       */
+      public Builder setAddNum(long value) {
+        bitField0_ |= 0x00000004;
+        addNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 addNum = 3;</code>
+       *
+       * <pre>
+       *获得多少物品
+       * </pre>
+       */
+      public Builder clearAddNum() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        addNum_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional bool canShow = 4;
+      private boolean canShow_ ;
+      /**
+       * <code>optional bool canShow = 4;</code>
+       *
+       * <pre>
+       *是否需要被玩家看到
+       * </pre>
+       */
+      public boolean hasCanShow() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bool canShow = 4;</code>
+       *
+       * <pre>
+       *是否需要被玩家看到
+       * </pre>
+       */
+      public boolean getCanShow() {
+        return canShow_;
+      }
+      /**
+       * <code>optional bool canShow = 4;</code>
+       *
+       * <pre>
+       *是否需要被玩家看到
+       * </pre>
+       */
+      public Builder setCanShow(boolean value) {
+        bitField0_ |= 0x00000008;
+        canShow_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool canShow = 4;</code>
+       *
+       * <pre>
+       *是否需要被玩家看到
+       * </pre>
+       */
+      public Builder clearCanShow() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        canShow_ = false;
+        onChanged();
+        return this;
+      }
+
+      // required int64 lastNum = 5;
+      private long lastNum_ ;
+      /**
+       * <code>required int64 lastNum = 5;</code>
+       *
+       * <pre>
+       *最终数值
+       * </pre>
+       */
+      public boolean hasLastNum() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required int64 lastNum = 5;</code>
+       *
+       * <pre>
+       *最终数值
+       * </pre>
+       */
+      public long getLastNum() {
+        return lastNum_;
+      }
+      /**
+       * <code>required int64 lastNum = 5;</code>
+       *
+       * <pre>
+       *最终数值
+       * </pre>
+       */
+      public Builder setLastNum(long value) {
+        bitField0_ |= 0x00000010;
+        lastNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 lastNum = 5;</code>
+       *
+       * <pre>
+       *最终数值
+       * </pre>
+       */
+      public Builder clearLastNum() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        lastNum_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gsp.BagItem)
+    }
+
+    static {
+      defaultInstance = new BagItem(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gsp.BagItem)
+  }
+
+  public interface S2CAddBagItemOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .gsp.ClientAttarItem data = 1;
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> 
+        getDataList();
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index);
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    int getDataCount();
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
+        getDataOrBuilderList();
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code gsp.S2CAddBagItem}
+   *
+   * <pre>
+   *专门用于展示背包获得物品
+   * </pre>
+   */
+  public static final class S2CAddBagItem extends
+      com.google.protobuf.GeneratedMessage
+      implements S2CAddBagItemOrBuilder {
+    // Use S2CAddBagItem.newBuilder() to construct.
+    private S2CAddBagItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private S2CAddBagItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final S2CAddBagItem defaultInstance;
+    public static S2CAddBagItem getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public S2CAddBagItem getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private S2CAddBagItem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              data_.add(input.readMessage(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          data_ = java.util.Collections.unmodifiableList(data_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CAddBagItem_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CAddBagItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem.class, com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<S2CAddBagItem> PARSER =
+        new com.google.protobuf.AbstractParser<S2CAddBagItem>() {
+      public S2CAddBagItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new S2CAddBagItem(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<S2CAddBagItem> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .gsp.ClientAttarItem data = 1;
+    public static final int DATA_FIELD_NUMBER = 1;
+    private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> data_;
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> getDataList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
+        getDataOrBuilderList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    public int getDataCount() {
+      return data_.size();
+    }
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index) {
+      return data_.get(index);
+    }
+    /**
+     * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+     */
+    public com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
+        int index) {
+      return data_.get(index);
+    }
+
+    private void initFields() {
+      data_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getDataCount(); i++) {
+        if (!getData(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < data_.size(); i++) {
+        output.writeMessage(1, data_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < data_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, data_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gsp.S2CAddBagItem}
+     *
+     * <pre>
+     *专门用于展示背包获得物品
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.gproject.common.dto.proto.ItemDTO.S2CAddBagItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CAddBagItem_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CAddBagItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem.class, com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem.Builder.class);
+      }
+
+      // Construct using com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getDataFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          dataBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CAddBagItem_descriptor;
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem getDefaultInstanceForType() {
+        return com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem.getDefaultInstance();
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem build() {
+        com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem buildPartial() {
+        com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem result = new com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem(this);
+        int from_bitField0_ = bitField0_;
+        if (dataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            data_ = java.util.Collections.unmodifiableList(data_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem) {
+          return mergeFrom((com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem other) {
+        if (other == com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem.getDefaultInstance()) return this;
+        if (dataBuilder_ == null) {
+          if (!other.data_.isEmpty()) {
+            if (data_.isEmpty()) {
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDataIsMutable();
+              data_.addAll(other.data_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.data_.isEmpty()) {
+            if (dataBuilder_.isEmpty()) {
+              dataBuilder_.dispose();
+              dataBuilder_ = null;
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dataBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getDataFieldBuilder() : null;
+            } else {
+              dataBuilder_.addAllMessages(other.data_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getDataCount(); i++) {
+          if (!getData(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gproject.common.dto.proto.ItemDTO.S2CAddBagItem) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .gsp.ClientAttarItem data = 1;
+      private java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> data_ =
+        java.util.Collections.emptyList();
+      private void ensureDataIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem>(data_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> dataBuilder_;
+
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> getDataList() {
+        if (dataBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(data_);
+        } else {
+          return dataBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public int getDataCount() {
+        if (dataBuilder_ == null) {
+          return data_.size();
+        } else {
+          return dataBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem getData(int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);
+        } else {
+          return dataBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder setData(
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.set(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder setData(
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder addData(com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder addData(
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder addData(
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder addData(
+          int index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder addAllData(
+          java.lang.Iterable<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItem> values) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          super.addAll(values, data_);
+          onChanged();
+        } else {
+          dataBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public Builder removeData(int index) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.remove(index);
+          onChanged();
+        } else {
+          dataBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder getDataBuilder(
+          int index) {
+        return getDataFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder getDataOrBuilder(
+          int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);  } else {
+          return dataBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
+           getDataOrBuilderList() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(data_);
+        }
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder addDataBuilder() {
+        return getDataFieldBuilder().addBuilder(
+            com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder addDataBuilder(
+          int index) {
+        return getDataFieldBuilder().addBuilder(
+            index, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gsp.ClientAttarItem data = 1;</code>
+       */
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder> 
+           getDataBuilderList() {
+        return getDataFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.gproject.common.dto.proto.ItemDTO.ClientAttarItem, com.gproject.common.dto.proto.ItemDTO.ClientAttarItem.Builder, com.gproject.common.dto.proto.ItemDTO.ClientAttarItemOrBuilder>(
+                  data_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gsp.S2CAddBagItem)
+    }
+
+    static {
+      defaultInstance = new S2CAddBagItem(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gsp.S2CAddBagItem)
+  }
+
+  public interface S2CSynBagItemOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .gsp.BagItem data = 1;
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    java.util.List<com.gproject.common.dto.proto.ItemDTO.BagItem> 
+        getDataList();
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    com.gproject.common.dto.proto.ItemDTO.BagItem getData(int index);
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    int getDataCount();
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder> 
+        getDataOrBuilderList();
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder getDataOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code gsp.S2CSynBagItem}
+   *
+   * <pre>
+   *专门用于消耗物品后，同步客户端数值,背包类型
+   * </pre>
+   */
+  public static final class S2CSynBagItem extends
+      com.google.protobuf.GeneratedMessage
+      implements S2CSynBagItemOrBuilder {
+    // Use S2CSynBagItem.newBuilder() to construct.
+    private S2CSynBagItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private S2CSynBagItem(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final S2CSynBagItem defaultInstance;
+    public static S2CSynBagItem getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public S2CSynBagItem getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private S2CSynBagItem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.BagItem>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              data_.add(input.readMessage(com.gproject.common.dto.proto.ItemDTO.BagItem.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          data_ = java.util.Collections.unmodifiableList(data_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynBagItem_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynBagItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem.class, com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<S2CSynBagItem> PARSER =
+        new com.google.protobuf.AbstractParser<S2CSynBagItem>() {
+      public S2CSynBagItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new S2CSynBagItem(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<S2CSynBagItem> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .gsp.BagItem data = 1;
+    public static final int DATA_FIELD_NUMBER = 1;
+    private java.util.List<com.gproject.common.dto.proto.ItemDTO.BagItem> data_;
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    public java.util.List<com.gproject.common.dto.proto.ItemDTO.BagItem> getDataList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder> 
+        getDataOrBuilderList() {
+      return data_;
+    }
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    public int getDataCount() {
+      return data_.size();
+    }
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    public com.gproject.common.dto.proto.ItemDTO.BagItem getData(int index) {
+      return data_.get(index);
+    }
+    /**
+     * <code>repeated .gsp.BagItem data = 1;</code>
+     */
+    public com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder getDataOrBuilder(
+        int index) {
+      return data_.get(index);
+    }
+
+    private void initFields() {
+      data_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getDataCount(); i++) {
+        if (!getData(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < data_.size(); i++) {
+        output.writeMessage(1, data_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < data_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, data_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gsp.S2CSynBagItem}
+     *
+     * <pre>
+     *专门用于消耗物品后，同步客户端数值,背包类型
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.gproject.common.dto.proto.ItemDTO.S2CSynBagItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynBagItem_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynBagItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem.class, com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem.Builder.class);
+      }
+
+      // Construct using com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getDataFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          dataBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gproject.common.dto.proto.ItemDTO.internal_static_gsp_S2CSynBagItem_descriptor;
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem getDefaultInstanceForType() {
+        return com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem.getDefaultInstance();
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem build() {
+        com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem buildPartial() {
+        com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem result = new com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem(this);
+        int from_bitField0_ = bitField0_;
+        if (dataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            data_ = java.util.Collections.unmodifiableList(data_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem) {
+          return mergeFrom((com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem other) {
+        if (other == com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem.getDefaultInstance()) return this;
+        if (dataBuilder_ == null) {
+          if (!other.data_.isEmpty()) {
+            if (data_.isEmpty()) {
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDataIsMutable();
+              data_.addAll(other.data_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.data_.isEmpty()) {
+            if (dataBuilder_.isEmpty()) {
+              dataBuilder_.dispose();
+              dataBuilder_ = null;
+              data_ = other.data_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dataBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getDataFieldBuilder() : null;
+            } else {
+              dataBuilder_.addAllMessages(other.data_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getDataCount(); i++) {
+          if (!getData(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gproject.common.dto.proto.ItemDTO.S2CSynBagItem) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .gsp.BagItem data = 1;
+      private java.util.List<com.gproject.common.dto.proto.ItemDTO.BagItem> data_ =
+        java.util.Collections.emptyList();
+      private void ensureDataIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          data_ = new java.util.ArrayList<com.gproject.common.dto.proto.ItemDTO.BagItem>(data_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.gproject.common.dto.proto.ItemDTO.BagItem, com.gproject.common.dto.proto.ItemDTO.BagItem.Builder, com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder> dataBuilder_;
+
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.BagItem> getDataList() {
+        if (dataBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(data_);
+        } else {
+          return dataBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public int getDataCount() {
+        if (dataBuilder_ == null) {
+          return data_.size();
+        } else {
+          return dataBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.BagItem getData(int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);
+        } else {
+          return dataBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder setData(
+          int index, com.gproject.common.dto.proto.ItemDTO.BagItem value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.set(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder setData(
+          int index, com.gproject.common.dto.proto.ItemDTO.BagItem.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder addData(com.gproject.common.dto.proto.ItemDTO.BagItem value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder addData(
+          int index, com.gproject.common.dto.proto.ItemDTO.BagItem value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataIsMutable();
+          data_.add(index, value);
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder addData(
+          com.gproject.common.dto.proto.ItemDTO.BagItem.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder addData(
+          int index, com.gproject.common.dto.proto.ItemDTO.BagItem.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder addAllData(
+          java.lang.Iterable<? extends com.gproject.common.dto.proto.ItemDTO.BagItem> values) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          super.addAll(values, data_);
+          onChanged();
+        } else {
+          dataBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public Builder removeData(int index) {
+        if (dataBuilder_ == null) {
+          ensureDataIsMutable();
+          data_.remove(index);
+          onChanged();
+        } else {
+          dataBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.BagItem.Builder getDataBuilder(
+          int index) {
+        return getDataFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder getDataOrBuilder(
+          int index) {
+        if (dataBuilder_ == null) {
+          return data_.get(index);  } else {
+          return dataBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public java.util.List<? extends com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder> 
+           getDataOrBuilderList() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(data_);
+        }
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.BagItem.Builder addDataBuilder() {
+        return getDataFieldBuilder().addBuilder(
+            com.gproject.common.dto.proto.ItemDTO.BagItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public com.gproject.common.dto.proto.ItemDTO.BagItem.Builder addDataBuilder(
+          int index) {
+        return getDataFieldBuilder().addBuilder(
+            index, com.gproject.common.dto.proto.ItemDTO.BagItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gsp.BagItem data = 1;</code>
+       */
+      public java.util.List<com.gproject.common.dto.proto.ItemDTO.BagItem.Builder> 
+           getDataBuilderList() {
+        return getDataFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.gproject.common.dto.proto.ItemDTO.BagItem, com.gproject.common.dto.proto.ItemDTO.BagItem.Builder, com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.gproject.common.dto.proto.ItemDTO.BagItem, com.gproject.common.dto.proto.ItemDTO.BagItem.Builder, com.gproject.common.dto.proto.ItemDTO.BagItemOrBuilder>(
+                  data_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gsp.S2CSynBagItem)
+    }
+
+    static {
+      defaultInstance = new S2CSynBagItem(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gsp.S2CSynBagItem)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_gsp_ClientItem_descriptor;
+    internal_static_gsp_ClientAttarItem_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gsp_ClientItem_fieldAccessorTable;
+      internal_static_gsp_ClientAttarItem_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gsp_S2CAddItem_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gsp_S2CAddItem_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_gsp_S2CSynItem_descriptor;
+    internal_static_gsp_S2CSynClientAttarItem_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gsp_S2CSynItem_fieldAccessorTable;
+      internal_static_gsp_S2CSynClientAttarItem_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_gsp_BagItem_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gsp_BagItem_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_gsp_S2CAddBagItem_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gsp_S2CAddBagItem_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_gsp_S2CSynBagItem_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gsp_S2CSynBagItem_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2171,23 +4454,29 @@ public final class ItemDTO {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nItem.proto\022\003gsp\"N\n\nClientItem\022\016\n\006itemI" +
-      "d\030\001 \002(\005\022\016\n\006addNum\030\002 \001(\003\022\017\n\007canShow\030\003 \001(\010" +
-      "\022\017\n\007lastNum\030\004 \002(\003\"+\n\nS2CAddItem\022\035\n\004data\030" +
-      "\001 \003(\0132\017.gsp.ClientItem\"+\n\nS2CSynItem\022\035\n\004" +
-      "data\030\001 \003(\0132\017.gsp.ClientItemB(\n\035com.gproj" +
-      "ect.common.dto.protoB\007ItemDTO"
+      "\n\nItem.proto\022\003gsp\"S\n\017ClientAttarItem\022\016\n\006" +
+      "itemId\030\001 \002(\005\022\016\n\006addNum\030\002 \001(\003\022\017\n\007canShow\030" +
+      "\003 \001(\010\022\017\n\007lastNum\030\004 \002(\003\"0\n\nS2CAddItem\022\"\n\004" +
+      "data\030\001 \003(\0132\024.gsp.ClientAttarItem\";\n\025S2CS" +
+      "ynClientAttarItem\022\"\n\004data\030\001 \003(\0132\024.gsp.Cl" +
+      "ientAttarItem\"Z\n\007BagItem\022\016\n\006itemId\030\001 \002(\005" +
+      "\022\r\n\005bagId\030\002 \002(\005\022\016\n\006addNum\030\003 \001(\003\022\017\n\007canSh" +
+      "ow\030\004 \001(\010\022\017\n\007lastNum\030\005 \002(\003\"3\n\rS2CAddBagIt" +
+      "em\022\"\n\004data\030\001 \003(\0132\024.gsp.ClientAttarItem\"+" +
+      "\n\rS2CSynBagItem\022\032\n\004data\030\001 \003(\0132\014.gsp.BagI",
+      "temB(\n\035com.gproject.common.dto.protoB\007It" +
+      "emDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_gsp_ClientItem_descriptor =
+          internal_static_gsp_ClientAttarItem_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_gsp_ClientItem_fieldAccessorTable = new
+          internal_static_gsp_ClientAttarItem_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_gsp_ClientItem_descriptor,
+              internal_static_gsp_ClientAttarItem_descriptor,
               new java.lang.String[] { "ItemId", "AddNum", "CanShow", "LastNum", });
           internal_static_gsp_S2CAddItem_descriptor =
             getDescriptor().getMessageTypes().get(1);
@@ -2195,11 +4484,29 @@ public final class ItemDTO {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_gsp_S2CAddItem_descriptor,
               new java.lang.String[] { "Data", });
-          internal_static_gsp_S2CSynItem_descriptor =
+          internal_static_gsp_S2CSynClientAttarItem_descriptor =
             getDescriptor().getMessageTypes().get(2);
-          internal_static_gsp_S2CSynItem_fieldAccessorTable = new
+          internal_static_gsp_S2CSynClientAttarItem_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_gsp_S2CSynItem_descriptor,
+              internal_static_gsp_S2CSynClientAttarItem_descriptor,
+              new java.lang.String[] { "Data", });
+          internal_static_gsp_BagItem_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_gsp_BagItem_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gsp_BagItem_descriptor,
+              new java.lang.String[] { "ItemId", "BagId", "AddNum", "CanShow", "LastNum", });
+          internal_static_gsp_S2CAddBagItem_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_gsp_S2CAddBagItem_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gsp_S2CAddBagItem_descriptor,
+              new java.lang.String[] { "Data", });
+          internal_static_gsp_S2CSynBagItem_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_gsp_S2CSynBagItem_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gsp_S2CSynBagItem_descriptor,
               new java.lang.String[] { "Data", });
           return null;
         }

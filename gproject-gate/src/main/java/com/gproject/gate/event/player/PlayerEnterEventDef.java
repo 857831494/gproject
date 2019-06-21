@@ -1,5 +1,7 @@
 package com.gproject.gate.event.player;
 
+import java.util.Date;
+
 /**
  * 
  * 玩家进入游戏,玩家掉线，一样是跟一打开游戏一样的处理逻辑,
@@ -10,6 +12,13 @@ package com.gproject.gate.event.player;
 public interface PlayerEnterEventDef {
 
 	public class PlayerEnterEventParame extends PlayerEventParame{
+
+		public PlayerEnterEventParame(long playerId) {
+			this.playerId=playerId;
+			// TODO Auto-generated constructor stub
+		}
+		
+		public Date lastLoginTime;
 		
 	}
 	

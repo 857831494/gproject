@@ -1,11 +1,12 @@
 package com.gproject.gate.service.item.hander;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HItemConfig;
-import com.gproject.gate.dao.BagDAO;
+import com.gproject.gate.cache.BagCache;
 import com.gproject.gate.pojo.BagTableDef.BagPojo;
 import com.gproject.gate.pojo.BagTableDef.BagRet;
 import com.gproject.gate.service.item.ItemDef;
@@ -14,12 +15,12 @@ import com.gproject.gate.service.item.ItemDef.AddItemOrder;
 import com.gproject.gate.service.item.ItemDef.ItemHandlerType;
 
 
-@Service(ItemDef.ITEM_HANDLER+ItemHandlerType.bag)
+@Component(ItemDef.ITEM_HANDLER+ItemHandlerType.bag)
 public class BagHandler implements AddItemHandler{
 
 	
 	@Autowired
-	BagDAO bagDAO;
+	BagCache bagDAO;
 	
 	final static int MAX_NUM=99999999; 
 	

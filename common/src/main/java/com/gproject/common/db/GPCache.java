@@ -24,7 +24,7 @@ import com.gproject.common.IDef.IAPPInit;
 import com.gproject.common.IDef.InitParame;
 import com.gproject.common.utils.common.GClassUtil;
 
-public abstract class GPDAO<E,ID> implements  IAPPInit {
+public abstract class GPCache<E,ID> implements  IAPPInit {
 
 	Logger logger=LoggerFactory.getLogger(this.getClass());
 	/**

@@ -1,11 +1,12 @@
 package com.gproject.gate.service.item.hander;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HItemConfig;
-import com.gproject.gate.dao.AttarDAO;
+import com.gproject.gate.cache.AttarCache;
 import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
 import com.gproject.gate.pojo.AttarTableDef.AttarRet;
 import com.gproject.gate.service.item.ItemDef;
@@ -13,12 +14,12 @@ import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemOrder;
 import com.gproject.gate.service.item.ItemDef.ItemHandlerType;
 
-@Service(ItemDef.ITEM_HANDLER+ItemHandlerType.attar)
+@Component(ItemDef.ITEM_HANDLER+ItemHandlerType.attar)
 public class AttarHandler implements AddItemHandler{
 
 	
 	@Autowired
-	AttarDAO attarDAO;
+	AttarCache attarDAO;
 	
 	final static int MAX_NUM=99999999; 
 	

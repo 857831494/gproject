@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gproject.common.config.AppinitHandler;
-import com.gproject.common.dto.proto.ItemDTO.ClientItem;
+import com.gproject.common.net.PushService;
 import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HItemConfig;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
@@ -24,7 +24,13 @@ public class AddItemService {
 	@Autowired
 	ExcelService excelService;
 	
+	@Autowired
+	PushService pushService;
+	
 	Logger logger=LoggerFactory.getLogger(AddItemService.class);
+	
+	
+	
 	/**
 	 * 添加物品，百分百成功
 	 * 背包满了的东西，直接发到邮件
@@ -40,10 +46,8 @@ public class AddItemService {
 		//检查是否加到数值
 		synClient(itemOrder);
 		//没有全部添加成功，发到邮件
-		if (itemOrder.successVal!=itemOrder.addVal) {
-			mailService.itemMail(itemOrder);
-			this.doTip(itemOrder);
-		}
+		mailService.itemMail(itemOrder);
+		this.doTip(itemOrder);
 	}
 	
 	/**
@@ -75,18 +79,23 @@ public class AddItemService {
 		if (0>=addItemOrder.successVal) {
 			return;
 		}
-		ClientItem.Builder clBuilder=ClientItem.newBuilder();
-		clBuilder.setItemId(addItemOrder.itemId);
-		clBuilder.setAddNum(addItemOrder.successVal);
-		clBuilder.setCanShow(addItemOrder.canShow);
-		clBuilder.setLastNum(addItemOrder.lastVal);
+//		ClientItem.Builder clBuilder=ClientItem.newBuilder();
+//		clBuilder.setItemId(addItemOrder.itemId);
+//		clBuilder.setAddNum(addItemOrder.successVal);
+//		clBuilder.setCanShow(addItemOrder.canShow);
+//		clBuilder.setLastNum(addItemOrder.lastVal);
+//		S2CAddItem.Builder dto=S2CAddItem.newBuilder();
+//		dto.addData(clBuilder);
 	}
 	
 	
 	/**
-	 * 添加物品，如果物品是进入背包，需要抛出错误码---背包满了
-	 * 调用方可以根据自己的业务处理,
-	 * 背包满了的东西，直接发到邮件
+	 * 百分百成功，邮件满了部分，已经发到邮件
+	 * 多个物品，可能有3种提示
+	 *1. 背包满了
+	 *2. 指定物品加不到背包
+	 *3. 属性数值，添加不了，
+	 *4.==== 2,3的综合体
 	 * @param itemOrder
 	 */
 	public void addItem(List<AddItemOrder> itemOrders) {
@@ -98,6 +107,8 @@ public class AddItemService {
 			itemHandler.add(addItemOrder);
 		}
 		//开始遍历物品订单，看看，哪个没有添加成功
+		mailService.itemsMail(itemOrders);
 		//发到邮件
+		
 	}
 }

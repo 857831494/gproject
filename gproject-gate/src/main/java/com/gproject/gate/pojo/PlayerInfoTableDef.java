@@ -1,6 +1,9 @@
 package com.gproject.gate.pojo;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,15 +13,17 @@ import javax.persistence.Transient;
 import com.gproject.common.db.DBEvent;
 import com.gproject.common.utils.common.JSONUtil;
 
-public interface AttarTableDef {
+public interface PlayerInfoTableDef {
 
-	public class AttarRet{
-		public HashMap<Integer, Long> attarMap=new HashMap<>();
+	public class PlayerInfo{
+		public String nickName;
+		
+		public Date lastLoginTime;
 	}
 	
 	//物理表
-	@Entity(name = "tb_attar")
-	public class AttarPojo implements DBEvent{
+	@Entity(name = "tb_player_info")
+	public class PlayerInfoPojo implements DBEvent{
 		@Id
 		public long playerId;
 		
@@ -26,24 +31,24 @@ public interface AttarTableDef {
 		String logicData;
 		
 		@Transient
-		public AttarRet attarRet;
+		public PlayerInfo playerInfo;
 
 		@Override
 		public void initAfterQueryDB() {
 			// TODO Auto-generated method stub
-			this.attarRet=JSONUtil.getObjectType(logicData, AttarRet.class);
-			if (attarRet==null) {
-				attarRet=new AttarRet();
+			this.playerInfo=JSONUtil.getObjectType(logicData, PlayerInfo.class);
+			if (playerInfo==null) {
+				playerInfo=new PlayerInfo();
 			}
 		}
 
 		@Override
 		public void beforeSaveDB() {
 			// TODO Auto-generated method stub
-			if (attarRet==null) {
-				attarRet=new AttarRet();
+			if (playerInfo==null) {
+				playerInfo=new PlayerInfo();
 			}
-			this.logicData=JSONUtil.toJsonString(attarRet);
+			this.logicData=JSONUtil.toJsonString(playerInfo);
 		}
 
 		@Override

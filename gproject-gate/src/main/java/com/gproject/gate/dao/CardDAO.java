@@ -4,7 +4,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
 import com.gproject.gate.pojo.BagTableDef.BagPojo;
+import com.gproject.gate.pojo.CardTableDef.CardPojo;
 
-public interface BagDAO extends CrudRepository<BagPojo,Long>{
+public interface CardDAO extends CrudRepository<CardPojo,Long>{
 
 }

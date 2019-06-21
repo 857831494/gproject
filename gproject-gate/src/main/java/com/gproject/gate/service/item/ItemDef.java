@@ -27,6 +27,7 @@ public interface ItemDef {
 		public long successVal;
 		
 	
+		
 		/**
 		 * 是否在客户端看的见
 		 */
@@ -35,10 +36,14 @@ public interface ItemDef {
 		public long playerId;
 		/**
 		 * 玩家最后数值
+		 * 卡类型 是玩家还剩余多少秒
 		 */
 		public long lastVal;
 		
-		
+		/**
+		 * 有效时间===类型  30 天的毫秒数  使用  DateUtil  
+		 */
+		public long expireTime;
 		
 		public AddItemOrder(int itemId, int addVal, AddType addType) {
 			super();
