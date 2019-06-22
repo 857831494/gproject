@@ -1,4 +1,4 @@
-package com.gproject.gate.service.item;
+package com.gproject.gate.service.item.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

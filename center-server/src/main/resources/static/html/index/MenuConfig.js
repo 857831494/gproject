@@ -2,8 +2,8 @@ var MenuConfig =
 [
     { text: '基础',isexpand:false, children: [ 
 	
-		{url:"Excel/ExcelGrid.html",text:"同步Excel表格数据"},
-		
+		{url:"Excel/ExcelGrid-dev.html",text:"开发服"},
+		{url:"Excel/ExcelGrid-pro.html",text:"正式服"}
 	]
     },
     { text: '过滤器', isexpand: false, children: [
