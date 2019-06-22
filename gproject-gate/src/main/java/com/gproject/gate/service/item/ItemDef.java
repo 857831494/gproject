@@ -1,5 +1,6 @@
 package com.gproject.gate.service.item;
 
+import com.gproject.gate.service.item.model.AddItemOrder;
 
 public interface ItemDef {
 
@@ -19,18 +20,17 @@ public interface ItemDef {
 
 	
 	
-	
-	public class ConsumeOrder{
-		/**
-		 * 添加数字
-		 */
-		public int addVal;
-		public int itemId;
-		
-		
-	
-		public ConSumeType Type;
+	/**
+	 * 消耗物品
+	 * @author YW1825
+	 *
+	 */
+	public interface ConsumeHandlerType{
+		int attar=1;//金币类型
+		int bag_common=2;//背包不带属性的道具
+		int bag_hasAttar=3;//带属性===需要扩展   背包
 	}
+	
 	
 	/**
 	 *    物品 处理器 背包满了不需要抛出错误码  满了开始走邮件
@@ -38,11 +38,7 @@ public interface ItemDef {
 	 *
 	 */
 	public interface AddItemHandler{
-		
 		public void add(AddItemOrder addItemOrder) ;
-		
-
-		
 	}
 	
 }

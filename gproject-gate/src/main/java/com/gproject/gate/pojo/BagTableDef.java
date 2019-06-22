@@ -25,7 +25,6 @@ public interface BagTableDef {
 		public HashMap<Integer, Integer> attarMap=new HashMap<>();
 
 		public BagModel(int itemId, int bagId) {
-			super();
 			this.itemId = itemId;
 			this.bagId = bagId;
 		}
@@ -36,6 +35,15 @@ public interface BagTableDef {
 	public class BagRet{
 		public int curId;
 		public HashMap<Integer, BagModel> bagMap=new HashMap<>();
+		
+		public BagModel getBagModel(int itemId) {
+			for (BagModel bagModel : bagMap.values()) {
+				if (bagModel.attarMap.isEmpty()&&itemId==bagModel.itemId) {
+					return bagModel;
+				}
+			}
+			return null;
+		}
 	}
 	
 	//物理表
@@ -50,6 +58,8 @@ public interface BagTableDef {
 		@Transient
 		public BagRet bagRet;
 
+	
+		
 		@Override
 		public void initAfterQueryDB() {
 			// TODO Auto-generated method stub

@@ -8,10 +8,10 @@ import com.gproject.gate.cache.BagCache;
 import com.gproject.gate.pojo.BagTableDef.BagModel;
 import com.gproject.gate.pojo.BagTableDef.BagPojo;
 import com.gproject.gate.pojo.BagTableDef.BagRet;
-import com.gproject.gate.service.item.AddItemOrder;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
+import com.gproject.gate.service.item.model.AddItemOrder;
 
 
 @Component(ItemDef.ITEM_HANDLER+AddItemHandlerType.bag)
@@ -56,10 +56,8 @@ public class AddBagHandler implements AddItemHandler{
 			bagRet.bagMap.put(bagModel.bagId, bagModel);
 		}
 		long curVal=bagModel.num;
-		long max=hItemConfig.maxNum;
-		if (0>=max) {
-			max=MAX_NUM;
-		}
+		long max=hItemConfig.getMaxNum();
+		
 		if (curVal>=max) {
 			addItemOrder.successVal=0;
 			addItemOrder.lastVal=max;

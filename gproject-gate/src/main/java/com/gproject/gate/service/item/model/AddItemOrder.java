@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 /**
  * 
@@ -47,6 +50,11 @@ public class AddItemOrder{
 	 */
 	public long expireTime;
 	
+	/**
+	 * 指定邮件创建时间，0 为当前时间
+	 */
+	public long mailTime;
+	
 	public AddItemOrder(int itemId, int addVal, AddType addType) {
 		this.itemId = itemId;
 		this.addVal = addVal;
@@ -72,4 +80,17 @@ public class AddItemOrder{
 	}
 
 	public AddType addType;
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		ObjectMapper objectMapper=new ObjectMapper();
+		try {
+			return objectMapper.writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -9,10 +9,10 @@ import com.gproject.common.staticdata.excelmodel.HItemConfig;
 import com.gproject.gate.cache.AttarCache;
 import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
 import com.gproject.gate.pojo.AttarTableDef.AttarRet;
-import com.gproject.gate.service.item.AddItemOrder;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
+import com.gproject.gate.service.item.model.AddItemOrder;
 
 @Component(ItemDef.ITEM_HANDLER+AddItemHandlerType.attar)
 public class AttarAddHandler implements AddItemHandler{
@@ -21,7 +21,6 @@ public class AttarAddHandler implements AddItemHandler{
 	@Autowired
 	AttarCache attarDAO;
 	
-	final static int MAX_NUM=99999999; 
 	
 	@Autowired
 	ExcelService excelService;
@@ -36,10 +35,8 @@ public class AttarAddHandler implements AddItemHandler{
 		if (curVal==null) {
 			curVal=(long) 0;
 		}
-		long max=hItemConfig.maxNum;
-		if (0>=max) {
-			max=MAX_NUM;
-		}
+		long max=hItemConfig.getMaxNum();
+		
 		if (curVal>=max) {
 			addItemOrder.successVal=0;
 			addItemOrder.lastVal=max;

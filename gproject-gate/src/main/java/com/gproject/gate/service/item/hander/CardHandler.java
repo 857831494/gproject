@@ -11,10 +11,10 @@ import com.gproject.gate.pojo.CardTableDef.CardModel;
 import com.gproject.gate.pojo.CardTableDef.CardPojo;
 import com.gproject.gate.pojo.CardTableDef.CardRet;
 import com.gproject.gate.pojo.CardTableDef.CardTime;
-import com.gproject.gate.service.item.AddItemOrder;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
+import com.gproject.gate.service.item.model.AddItemOrder;
 
 @Component(ItemDef.ITEM_HANDLER+AddItemHandlerType.card)
 public class CardHandler implements AddItemHandler{

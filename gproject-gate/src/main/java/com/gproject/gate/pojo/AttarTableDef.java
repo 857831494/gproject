@@ -14,6 +14,13 @@ public interface AttarTableDef {
 
 	public class AttarRet{
 		public HashMap<Integer, Long> attarMap=new HashMap<>();
+		
+		public long getVal(int itemId) {
+			if (!attarMap.containsKey(itemId)) {
+				return 0;
+			}
+			return attarMap.get(itemId);
+		}
 	}
 	
 	//物理表
