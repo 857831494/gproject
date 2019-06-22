@@ -53,6 +53,22 @@ public final class TipDTO {
      * <code>Random_NULL = 7;</code>
      */
     Random_NULL(6, 7),
+    /**
+     * <code>Max_bag_num = 8;</code>
+     *
+     * <pre>
+     *最大背包数
+     * </pre>
+     */
+    Max_bag_num(7, 8),
+    /**
+     * <code>Max_Item_num = 9;</code>
+     *
+     * <pre>
+     *道具数量超出最大数
+     * </pre>
+     */
+    Max_Item_num(8, 9),
     ;
 
     /**
@@ -95,6 +111,22 @@ public final class TipDTO {
      * <code>Random_NULL = 7;</code>
      */
     public static final int Random_NULL_VALUE = 7;
+    /**
+     * <code>Max_bag_num = 8;</code>
+     *
+     * <pre>
+     *最大背包数
+     * </pre>
+     */
+    public static final int Max_bag_num_VALUE = 8;
+    /**
+     * <code>Max_Item_num = 9;</code>
+     *
+     * <pre>
+     *道具数量超出最大数
+     * </pre>
+     */
+    public static final int Max_Item_num_VALUE = 9;
 
 
     public final int getNumber() { return value; }
@@ -108,6 +140,8 @@ public final class TipDTO {
         case 5: return Uid_NULL;
         case 6: return Token_NULL;
         case 7: return Random_NULL;
+        case 8: return Max_bag_num;
+        case 9: return Max_Item_num;
         default: return null;
       }
     }
@@ -735,11 +769,12 @@ public final class TipDTO {
   static {
     java.lang.String[] descriptorData = {
       "\n\tTip.proto\022\003gsp\"2\n\007GameTip\022\032\n\004code\030\001 \001(" +
-      "\0162\014.gsp.TipCode\022\013\n\003msg\030\002 \001(\t*u\n\007TipCode\022" +
-      "\n\n\006UnKown\020\001\022\010\n\004Fail\020\002\022\024\n\020PlayerInFightin" +
-      "g\020\003\022\017\n\013TokenExpire\020\004\022\014\n\010Uid_NULL\020\005\022\016\n\nTo" +
-      "ken_NULL\020\006\022\017\n\013Random_NULL\020\007B\'\n\035com.gproj" +
-      "ect.common.dto.protoB\006TipDTO"
+      "\0162\014.gsp.TipCode\022\013\n\003msg\030\002 \001(\t*\230\001\n\007TipCode" +
+      "\022\n\n\006UnKown\020\001\022\010\n\004Fail\020\002\022\024\n\020PlayerInFighti" +
+      "ng\020\003\022\017\n\013TokenExpire\020\004\022\014\n\010Uid_NULL\020\005\022\016\n\nT" +
+      "oken_NULL\020\006\022\017\n\013Random_NULL\020\007\022\017\n\013Max_bag_" +
+      "num\020\010\022\020\n\014Max_Item_num\020\tB\'\n\035com.gproject." +
+      "common.dto.protoB\006TipDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

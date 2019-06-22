@@ -4,9 +4,11 @@ import com.gproject.common.staticdata.StaticDataDef.ConfigExcel;
 
 public class HItemConfig implements ConfigExcel{
 
+	public final static long MAX_NUM=99999999;
+	
 	public int itemId;
 	
-	public int maxNum;
+	public long maxNum;
 	
 	
 	
@@ -26,4 +28,11 @@ public class HItemConfig implements ConfigExcel{
 		return itemId;
 	}
 
+	
+	public long getMaxNum() {
+		if (0>=maxNum) {
+			return MAX_NUM;
+		}
+		return maxNum;
+	}
 }
