@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,20 +31,14 @@ public class PlayerInitControl {
 	@Autowired
 	PlayerInitService playerInitService;
 	
+	@Autowired
+	ApplicationContext applicationContext;
+	
 	@RequestMapping("/cai")
-	public String[] doTest(@RequestBody byte[] msg) throws Exception {
-		logger.info("ccccc-------------");
-		GameTip gameTip=GameTip.parseFrom(msg);
-		logger.info(gameTip.getCode()+"c0-----------------");
-		int[] ret=new int[msg.length];
-		for (int i = 0; i < ret.length; i++) {
-			ret[i]=msg[i];
-		}
-		HashMap<String, String> map=new HashMap<>();
-		map.put("ccvv", "是没什么事");
-		PlayerRole playerRole=new PlayerRole();
-		playerRole.playerId=33333;
-		return new String[]{"sksks大大方方"};
+	public void doTest() throws Exception {
+		System.out.println(applicationContext);
+		//logger.info("ccccc-------------"+applicationContext);
+		
 	}
 	
 	

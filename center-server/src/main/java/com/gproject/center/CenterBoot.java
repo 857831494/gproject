@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.gproject.common.IDef;
 import com.gproject.common.config.AppinitHandler;
+import com.gproject.common.utils.IDef;
 
 
 @SpringBootApplication(exclude = {

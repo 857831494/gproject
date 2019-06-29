@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.gproject.center.dao.PlayerRoleDAO;
 import com.gproject.center.pojo.PlayerRole_Table_DEF.PlayerRole_Table;
-import com.gproject.common.IDef.InitParame;
 import com.gproject.common.db.GPCache;
+import com.gproject.common.utils.IDef.InitParame;
 
 //数据DAO
 @Repository
