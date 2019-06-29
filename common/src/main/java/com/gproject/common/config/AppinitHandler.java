@@ -8,27 +8,27 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 
-
-import com.gproject.common.IDef.IAPPInit;
-import com.gproject.common.IDef.InitParame;
 import com.gproject.common.staticdata.ExcelService;
+import com.gproject.common.utils.IDef.IAPPInit;
+import com.gproject.common.utils.IDef.InitParame;
 
 public class AppinitHandler implements ApplicationListener<ApplicationReadyEvent> {
 	
     private Logger logger = LoggerFactory.getLogger(AppinitHandler.class);
 
-    public static  ConfigurableApplicationContext IOC;
+   
     
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
 		// TODO Auto-generated method stub
-		IOC=event.getApplicationContext();
+		
 		InitParame initParame=new InitParame();
-		initParame.applicationContext=IOC;
-		ExcelService excelManager=IOC.getBean(ExcelService.class);
+		
+		ExcelService excelManager=event.getApplicationContext().getBean(ExcelService.class);
 		excelManager.init(initParame);
 		//加载所有启动类
-		for(IAPPInit appInit:IOC.getBeansOfType(IAPPInit.class).values()) {
+		for(IAPPInit appInit:event.getApplicationContext().
+				getBeansOfType(IAPPInit.class).values()) {
 			try {
 				appInit.init(initParame);
 			} catch (Exception e) {
@@ -36,7 +36,6 @@ public class AppinitHandler implements ApplicationListener<ApplicationReadyEvent
 				logger.info("启动类报错======");
 				logger.error(ExceptionUtils.getStackTrace(e));
 			}
-			
 		}
 		logger.info("执行完毕启动类==================");
 	}

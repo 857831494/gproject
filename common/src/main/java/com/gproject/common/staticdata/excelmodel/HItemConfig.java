@@ -8,6 +8,9 @@ public class HItemConfig implements ConfigExcel{
 	
 	public int itemId;
 	
+	/**
+	 * 
+	 */
 	public long maxNum;
 	
 	

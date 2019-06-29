@@ -14,9 +14,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gproject.common.GErrorException;
 import com.gproject.common.dto.proto.TipDTO.TipCode;
 import com.gproject.common.net.http.APIParameDef.APIRet;
+import com.gproject.common.utils.common.GErrorException;
 
 @RestControllerAdvice
 public class APIRetAdvice implements ResponseBodyAdvice<Object>{

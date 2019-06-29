@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gproject.common.IDef;
-import com.gproject.common.IDef.InitParame;
 import com.gproject.common.net.http.HttpUtil;
 import com.gproject.common.staticdata.StaticDataDef.ConfigExcel;
+import com.gproject.common.utils.IDef;
+import com.gproject.common.utils.IDef.InitParame;
 import com.gproject.common.utils.common.GClassUtil;
 
 /**

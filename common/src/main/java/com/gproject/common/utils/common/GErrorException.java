@@ -1,4 +1,4 @@
-package com.gproject.common;
+package com.gproject.common.utils.common;
 
 import com.gproject.common.dto.proto.TipDTO.TipCode;
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import com.gproject.common.IDef;
+import com.gproject.common.utils.IDef;
 
 public class GClassUtil {
 

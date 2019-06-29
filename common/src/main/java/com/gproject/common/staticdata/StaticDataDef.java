@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.gproject.common.IDef.IAPPInit;
-import com.gproject.common.IDef.InitParame;
+import com.gproject.common.utils.IDef.IAPPInit;
+import com.gproject.common.utils.IDef.InitParame;
 
 public interface StaticDataDef {
 

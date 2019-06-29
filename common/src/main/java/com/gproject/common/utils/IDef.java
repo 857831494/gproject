@@ -1,4 +1,4 @@
-package com.gproject.common;
+package com.gproject.common.utils;
 
 import org.springframework.context.ApplicationContext;
 

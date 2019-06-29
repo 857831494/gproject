@@ -1,4 +1,4 @@
-package com.gproject.common;
+package com.gproject.common.utils.common;
 
 public class PathUtil {
 
