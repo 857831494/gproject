@@ -1,5 +1,7 @@
 package com.gproject.gate.event.player;
 
+import com.gproject.gate.event.IEventDef.GEvent;
+
 public interface RegRoleEventDEef {
 
 	
@@ -12,7 +14,7 @@ public interface RegRoleEventDEef {
 	 * @author YW1825
 	 *
 	 */
-	public interface RegRoleEvent{
-		public void doRegRoleEvent();
+	public interface RegRoleEvent extends GEvent{
+		
 	}
 }

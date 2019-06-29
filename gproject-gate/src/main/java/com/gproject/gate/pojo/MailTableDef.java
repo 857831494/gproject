@@ -52,6 +52,15 @@ public interface MailTableDef {
 	public class MailRet{
 		public int curId;
 		public List<MailModel> list=new ArrayList<>();
+		
+		public MailModel getMailModel(int mailId) {
+			for (MailModel mailModel : list) {
+				if (mailModel.mailId==mailId) {
+					return mailModel;
+				}
+			}
+			return null;
+		}
 	}
 	
 	//物理表

@@ -1,4 +1,4 @@
-package com.gproject.gate.service.item.hander;
+package com.gproject.gate.service.item.addhander;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
 import com.gproject.gate.service.item.model.AddItemOrder;
 
-@Component(ItemDef.ITEM_HANDLER+AddItemHandlerType.attar)
+@Component(ItemDef.ADD_ITEM_HANDLER+AddItemHandlerType.attar)
 public class AttarAddHandler implements AddItemHandler{
 
 	

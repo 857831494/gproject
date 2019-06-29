@@ -1,4 +1,4 @@
-package com.gproject.gate.service.item.hander;
+package com.gproject.gate.service.item.addhander;
 
 import java.util.Date;
 
@@ -16,7 +16,7 @@ import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
 import com.gproject.gate.service.item.model.AddItemOrder;
 
-@Component(ItemDef.ITEM_HANDLER+AddItemHandlerType.card)
+@Component(ItemDef.ADD_ITEM_HANDLER+AddItemHandlerType.card)
 public class CardHandler implements AddItemHandler{
 
 	@Autowired

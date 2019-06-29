@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.gproject.gate.cache.MailCache;
 import com.gproject.gate.pojo.MailTableDef.MailModel;
 import com.gproject.gate.pojo.MailTableDef.MailPojo;
+import com.gproject.gate.service.item.AddItemService;
 import com.gproject.gate.service.item.model.AddItemOrder;
 
 @Service
@@ -20,6 +21,9 @@ public class MailService {
 	@Autowired
 	MailCache mailCache;
 
+	@Autowired
+	AddItemService addItemService;
+	
 	Logger logger=LoggerFactory.getLogger(MailService.class);
 	/**
 	 * 物品添加不了，发到邮件 判断 成功数量是否全部添加 全部添加表示成功 不需要发邮件
@@ -87,5 +91,24 @@ public class MailService {
 		mailModel.addItemOrderLst=list;
 		mailPojo.mailRet.list.add(mailModel);
 		mailCache.update(mailPojo);
+	}
+	
+	
+	/**
+	 * 领取附件
+	 * @param playerId
+	 */
+	public void receiveAttachment(long playerId,int mailId) {
+		//小心抛出错误码
+		MailPojo mailPojo=mailCache.getData(playerId);
+		MailModel mailModel=mailPojo.mailRet.getMailModel(mailId);
+		//检查邮件是否可以加到属性，或者背包
+		if (mailModel.addItemOrder!=null) {
+			addItemService.canAdd(mailModel.addItemOrder);
+		}
+		if (mailModel.addItemOrderLst!=null) {
+			addItemService.canAdd(mailModel.addItemOrderLst);
+		}
+		
 	}
 }

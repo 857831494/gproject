@@ -1,6 +1,6 @@
 package com.gproject.gate.event.player;
 
-
+import com.gproject.gate.event.IEventDef.GEvent;
 
 /**
  * 
@@ -14,7 +14,7 @@ public interface PlayerWeekEventDef {
 		
 	}
 	
-	public interface PlayerWeekEvent{
-		public void doPlayerWeekEvent(PlayerWeekEventParame parame);
+	public interface PlayerWeekEvent extends GEvent{
+		
 	}
 }

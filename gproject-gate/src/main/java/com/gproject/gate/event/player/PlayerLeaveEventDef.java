@@ -1,6 +1,6 @@
 package com.gproject.gate.event.player;
 
-
+import com.gproject.gate.event.IEventDef.GEvent;
 
 /**
  * 玩家离开事件   分主动离开  掉线离开
@@ -13,7 +13,7 @@ public interface PlayerLeaveEventDef {
 		
 	}
 	
-	public interface PlayerLeaveEvent{
-		public void doPlayerLeaveEvent(PlayerLeaveEventParame parame);
+	public interface PlayerLeaveEvent extends GEvent{
+		
 	}
 }

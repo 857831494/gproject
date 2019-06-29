@@ -2,6 +2,8 @@ package com.gproject.gate.event.player;
 
 import java.util.Date;
 
+import com.gproject.gate.event.IEventDef.GEvent;
+
 /**
  * 
  * 玩家每天执行一次事件，可能会隔天执行
@@ -18,7 +20,7 @@ public interface PlayerDailyEventDef {
 		}
 	}
 	
-	public interface PlayerDailyEvent{
-		public void doPlayerDailyEvent(PlayerDailyEventParame parame);
+	public interface PlayerDailyEvent extends GEvent{
+		
 	}
 }

@@ -1,12 +1,13 @@
 package com.gproject.gate.service.item;
 
 import com.gproject.gate.service.item.model.AddItemOrder;
+import com.gproject.gate.service.item.model.ConsumeOrder;
 
 public interface ItemDef {
 
-	public final static String ITEM_HANDLER="com.gproject.gate.service.item"; 
+	public final static String ADD_ITEM_HANDLER="com.gproject.gate.service.item.add"; 
 	
-	
+	public final static String CONSUME_ITEM_HANDLER="com.gproject.gate.service.item.consume"; 
 	/**
 	 *  加  物品处理器
 	 * @author YW1825
@@ -18,6 +19,14 @@ public interface ItemDef {
 		int card=3;//月卡类型
 	}
 
+	/**
+	 *    物品 处理器 背包满了不需要抛出错误码  满了开始走邮件
+	 * @author YW1825
+	 *
+	 */
+	public interface AddItemHandler{
+		public void add(AddItemOrder addItemOrder) ;
+	}
 	
 	
 	/**
@@ -31,14 +40,13 @@ public interface ItemDef {
 		int bag_hasAttar=3;//带属性===需要扩展   背包
 	}
 	
-	
 	/**
 	 *    物品 处理器 背包满了不需要抛出错误码  满了开始走邮件
 	 * @author YW1825
 	 *
 	 */
-	public interface AddItemHandler{
-		public void add(AddItemOrder addItemOrder) ;
+	public interface ConsumeItemHandler{
+		public boolean consume(ConsumeOrder consumeOrder) ;
 	}
 	
 }

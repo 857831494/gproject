@@ -12,6 +12,7 @@ public class ConsumeOrder{
 	 */
 	public int bagModelId;
 	
+	public long playerId;
 
 	public ConSumeType Type;
 }

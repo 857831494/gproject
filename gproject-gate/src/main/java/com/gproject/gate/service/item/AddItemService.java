@@ -7,9 +7,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.gproject.common.GErrorException;
 import com.gproject.common.config.AppinitHandler;
 import com.gproject.common.dto.proto.ItemDTO.ClientItem;
 import com.gproject.common.dto.proto.ItemDTO.S2CAddItem;
@@ -17,6 +17,7 @@ import com.gproject.common.dto.proto.TipDTO.TipCode;
 import com.gproject.common.net.PushService;
 import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HItemConfig;
+import com.gproject.common.utils.common.GErrorException;
 import com.gproject.gate.cache.AttarCache;
 import com.gproject.gate.cache.BagCache;
 import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
@@ -45,6 +46,9 @@ public class AddItemService {
 	@Autowired
 	BagCache bagCache;
 
+	@Autowired
+	ApplicationContext applicationContext;
+	
 	Logger logger = LoggerFactory.getLogger(AddItemService.class);
 
 	/**
@@ -56,8 +60,8 @@ public class AddItemService {
 		// GlobalManager.IOC;//ioc 读取配置 实例化出，物品处理器
 		HItemConfig hItemConfig = excelService.getById(HItemConfig.class, itemOrder.itemId);
 
-		AddItemHandler itemHandler = (AddItemHandler) AppinitHandler.IOC
-				.getBean(ItemDef.ITEM_HANDLER + hItemConfig.addHandlerType);
+		AddItemHandler itemHandler = (AddItemHandler)applicationContext
+				.getBean(ItemDef.ADD_ITEM_HANDLER + hItemConfig.addHandlerType);
 		itemHandler.add(itemOrder);
 		// 检查是否加到数值
 		List<AddItemOrder> list = new ArrayList<AddItemOrder>();
@@ -171,8 +175,8 @@ public class AddItemService {
 		for (AddItemOrder addItemOrder : itemOrders) {
 			HItemConfig hItemConfig = excelService.getById(HItemConfig.class, addItemOrder.itemId);
 
-			AddItemHandler itemHandler = (AddItemHandler) AppinitHandler.IOC
-					.getBean(ItemDef.ITEM_HANDLER + hItemConfig.addHandlerType);
+			AddItemHandler itemHandler = (AddItemHandler) applicationContext
+					.getBean(ItemDef.ADD_ITEM_HANDLER + hItemConfig.addHandlerType);
 			itemHandler.add(addItemOrder);
 		}
 		// 开始遍历物品订单，看看，哪个没有添加成功

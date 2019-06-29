@@ -2,6 +2,8 @@ package com.gproject.gate.event.player;
 
 import java.util.Date;
 
+import com.gproject.gate.event.IEventDef.GEvent;
+
 /**
  * 
  * 玩家进入游戏,玩家掉线，一样是跟一打开游戏一样的处理逻辑,
@@ -22,7 +24,7 @@ public interface PlayerEnterEventDef {
 		
 	}
 	
-	public interface PlayerEnterEvent{
-		public void doPlayerEnterEvent(PlayerEnterEventParame parame);
+	public interface PlayerEnterEvent extends GEvent{
+		
 	}
 }

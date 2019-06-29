@@ -1,6 +1,6 @@
 package com.gproject.gate.event.player;
 
-
+import com.gproject.gate.event.IEventDef.GEvent;
 
 /**
  * 
@@ -18,7 +18,7 @@ public interface PlayerCardDailyEventDef {
 		public long execTime;
 	}
 	
-	public interface PlayerCardDailyEvent{
-		public void doPlayerCardDailyEvent(PlayerCardDailyEventParame parame);
+	public interface PlayerCardDailyEvent extends GEvent{
+		
 	}
 }
