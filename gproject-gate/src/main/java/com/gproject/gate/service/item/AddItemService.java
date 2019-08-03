@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.gproject.common.config.AppinitHandler;
+import com.gproject.common.db.LockService;
 import com.gproject.common.dto.proto.ItemDTO.ClientItem;
 import com.gproject.common.dto.proto.ItemDTO.S2CAddItem;
 import com.gproject.common.dto.proto.TipDTO.TipCode;
@@ -51,24 +52,30 @@ public class AddItemService {
 	
 	Logger logger = LoggerFactory.getLogger(AddItemService.class);
 
+	@Autowired
+	LockService lockService;
+	
 	/**
 	 * 添加物品，百分百成功 背包满了的东西，直接发到邮件
 	 * 
 	 * @param itemOrder
 	 */
-	public synchronized void addItem(AddItemOrder itemOrder) {
-		// GlobalManager.IOC;//ioc 读取配置 实例化出，物品处理器
-		HItemConfig hItemConfig = excelService.getById(HItemConfig.class, itemOrder.itemId);
+	public  void addItem(AddItemOrder itemOrder) {
+		Integer lock=lockService.getLockBy(itemOrder.playerId);
+		synchronized (lock) {
+			// GlobalManager.IOC;//ioc 读取配置 实例化出，物品处理器
+			HItemConfig hItemConfig = excelService.getById(HItemConfig.class, itemOrder.itemId);
 
-		AddItemHandler itemHandler = (AddItemHandler)applicationContext
-				.getBean(ItemDef.ADD_ITEM_HANDLER + hItemConfig.addHandlerType);
-		itemHandler.add(itemOrder);
-		// 检查是否加到数值
-		List<AddItemOrder> list = new ArrayList<AddItemOrder>();
-		list.add(itemOrder);
-		synClient(list);
-		// 没有全部添加成功，发到邮件
-		mailService.itemMail(itemOrder);
+			AddItemHandler itemHandler = (AddItemHandler)applicationContext
+					.getBean(ItemDef.ADD_ITEM_HANDLER + hItemConfig.addHandlerType);
+			itemHandler.add(itemOrder);
+			// 检查是否加到数值
+			List<AddItemOrder> list = new ArrayList<AddItemOrder>();
+			list.add(itemOrder);
+			synClient(list);
+			// 没有全部添加成功，发到邮件
+			mailService.itemMail(itemOrder);
+		}
 		this.doTip(itemOrder);
 	}
 
