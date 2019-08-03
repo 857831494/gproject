@@ -21,6 +21,11 @@ public class HItemConfig implements ConfigExcel{
 	public int addHandlerType;
 	
 	/**
+	 * 减 法 处理器
+	 */
+	public int consumeHandlerType;
+	
+	/**
 	 * 是否有属性
 	 */
 	public boolean hasAttar=false;

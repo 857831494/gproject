@@ -27,10 +27,7 @@ import com.gproject.common.utils.common.GClassUtil;
 public abstract class GPCache<E,ID> implements  IAPPInit {
 
 	Logger logger=LoggerFactory.getLogger(this.getClass());
-	/**
-	 * 最大锁数量
-	 */
-	final long MAX_LOCK_NUM = 1000;
+	
 	/**
 	 * 最大缓存数量
 	 */
@@ -43,7 +40,6 @@ public abstract class GPCache<E,ID> implements  IAPPInit {
 
 	final int INIT_NUM=100;
 	
-	private Integer[] lockArray = new Integer[(int) MAX_LOCK_NUM];
 	public static boolean DEBUG = true;
 	/**
 	 * 入库队列
@@ -52,7 +48,8 @@ public abstract class GPCache<E,ID> implements  IAPPInit {
 	
 	public abstract CrudRepository<E,ID> getCrudRepository();
 	
-	
+	@Autowired
+	LockService lockService;
 
 	Class<E> entityType;
 	
@@ -72,16 +69,15 @@ public abstract class GPCache<E,ID> implements  IAPPInit {
 			if (e!=null) {
 				return e;
 			}
-			int mod=0;
+			Integer lock=null;
 			if (id instanceof String) {
-				mod=((String)id).length();
-				mod=(int) (mod%MAX_LOCK_NUM);
+				lock=lockService.getLockBy((String) id);
 			}
 			if (id instanceof Long) {
-				mod=(int) ((Long)id%MAX_LOCK_NUM);
+				lock=lockService.getLockBy((String) id);
 			}
 			
-			Integer lock=lockArray[mod];
+			
 			synchronized (lock) {
 				e=this.cache.getIfPresent(id);
 				if (e==null) {
@@ -119,9 +115,6 @@ public abstract class GPCache<E,ID> implements  IAPPInit {
 	@Override
 	public void init(InitParame initParame) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < lockArray.length; i++) {
-			lockArray[i] = i;
-		}
 		initEntityType();
 		// CacheBuilder的构造函数是私有的，只能通过其静态方法newBuilder()来获得CacheBuilder的实例
 		cache = CacheBuilder.newBuilder()
