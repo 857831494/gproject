@@ -33,32 +33,32 @@ public class EventService {
 	
 	ExecutorService executorService=Executors.newFixedThreadPool(MAX_THREAD_NUM);
 	
-	/**
-	 * 同步，发布事件
-	 * @param classType
-	 * @param object
-	 */
-	public void publish(Class<? extends GEvent> classType,Object object) {
-		Collection<GEvent> list=(Collection<GEvent>) 
-				applicationContext.getBeansOfType(classType).values();
-		for (GEvent gEvent : list) {
-			try {
-				gEvent.doEvent(object);
-			} catch (Exception e) {
-				// TODO: handle exception
-				if (e instanceof GErrorException) {
-					if (object instanceof PlayerEnterEvent) {
-						PlayerEventParame playerEventParame=(PlayerEventParame) object;
-						GErrorException errorException=(GErrorException) e;
-						pushService.pushError(playerEventParame.playerId, errorException.tipCode);
-					}
-				}else {
-					logger.error("发布事件===发生未知错误============");
-					logger.error(ExceptionUtils.getStackTrace(e));
-				}
-			}
-		}
-	}
+//	/**
+//	 * 同步，发布事件
+//	 * @param classType
+//	 * @param object
+//	 */
+//	public void publish(Class<? extends GEvent> classType,Object object) {
+//		Collection<GEvent> list=(Collection<GEvent>) 
+//				applicationContext.getBeansOfType(classType).values();
+//		for (GEvent gEvent : list) {
+//			try {
+//				gEvent.doEvent(object);
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				if (e instanceof GErrorException) {
+//					if (object instanceof PlayerEnterEvent) {
+//						PlayerEventParame playerEventParame=(PlayerEventParame) object;
+//						GErrorException errorException=(GErrorException) e;
+//						pushService.pushError(playerEventParame.playerId, errorException.tipCode);
+//					}
+//				}else {
+//					logger.error("发布事件===发生未知错误============");
+//					logger.error(ExceptionUtils.getStackTrace(e));
+//				}
+//			}
+//		}
+//	}
 	
 	/**
 	 * 同步，发布事件

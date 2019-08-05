@@ -36,7 +36,7 @@ public class EnterServie {
 		playerEnterEventParame.lastLoginTime=playerInfoPojo.playerInfo.lastLoginTime;
 		
 		//发布玩家进入事件
-		eventService.publish(PlayerEnterEvent.class, playerEnterEventParame);
+		eventService.asyn_publish(PlayerEnterEvent.class, playerEnterEventParame);
 		
 		//发布，玩家每日执行事件
 		playerDailyEventService.doLogic(playerEnterEventParame);

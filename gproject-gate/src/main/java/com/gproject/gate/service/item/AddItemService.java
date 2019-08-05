@@ -56,6 +56,14 @@ public class AddItemService {
 	LockService lockService;
 	
 	/**
+	 * 获取背包详情
+	 * @param playerId
+	 */
+	public void getBagInfo(long playerId) {
+		
+	}
+	
+	/**
 	 * 添加物品，百分百成功 背包满了的东西，直接发到邮件
 	 * 
 	 * @param itemOrder
