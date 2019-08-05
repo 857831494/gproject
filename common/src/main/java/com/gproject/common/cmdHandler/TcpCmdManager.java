@@ -18,6 +18,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.RemovalListener;
 import com.google.common.cache.RemovalNotification;
+import com.google.protobuf.MessageLite;
 import com.gproject.common.cmdHandler.CMDDef.TCPCommandInfo;
 import com.gproject.common.cmdHandler.CMDDef.TcpParame;
 import com.gproject.common.net.PushService;
@@ -131,9 +132,12 @@ public class TcpCmdManager implements IAPPInit {
 		tcpParame.netPack=netPack;
 		tcpParame.playerId=pushService.getPlayerId(session);
 		try {
-			tCommandInfo.method.invoke(tCommandInfo.handler, tcpParame);
+			Object ret=tCommandInfo.method.invoke(tCommandInfo.handler, tcpParame);
 			if (tCommandInfo.tcpCommand.needPrintLog()) {
 				logger.info("执行协议="+cmdCode+"====="+"耗时 ms=="+(System.currentTimeMillis()-now));
+			}
+			if (ret!=null&&(ret instanceof MessageLite)) {
+				pushService.pushOnline(tCommandInfo.tcpCommand.cmdCode(), (MessageLite) ret);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
