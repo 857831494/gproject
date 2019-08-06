@@ -14,7 +14,7 @@ import com.gproject.common.utils.IDef.InitParame;
 
 public class AppinitHandler implements ApplicationListener<ApplicationReadyEvent> {
 	
-    private Logger logger = LoggerFactory.getLogger(AppinitHandler.class);
+    Logger logger = LoggerFactory.getLogger(AppinitHandler.class);
 
    
     

@@ -25,6 +25,30 @@ public final class StatusDTO {
      * <code>busy = 3;</code>
      */
     busy(2, 3),
+    /**
+     * <code>proccess = 4;</code>
+     *
+     * <pre>
+     *未完成
+     * </pre>
+     */
+    proccess(3, 4),
+    /**
+     * <code>finish = 5;</code>
+     *
+     * <pre>
+     *完成
+     * </pre>
+     */
+    finish(4, 5),
+    /**
+     * <code>receive = 6;</code>
+     *
+     * <pre>
+     *已经领取
+     * </pre>
+     */
+    receive(5, 6),
     ;
 
     /**
@@ -39,6 +63,30 @@ public final class StatusDTO {
      * <code>busy = 3;</code>
      */
     public static final int busy_VALUE = 3;
+    /**
+     * <code>proccess = 4;</code>
+     *
+     * <pre>
+     *未完成
+     * </pre>
+     */
+    public static final int proccess_VALUE = 4;
+    /**
+     * <code>finish = 5;</code>
+     *
+     * <pre>
+     *完成
+     * </pre>
+     */
+    public static final int finish_VALUE = 5;
+    /**
+     * <code>receive = 6;</code>
+     *
+     * <pre>
+     *已经领取
+     * </pre>
+     */
+    public static final int receive_VALUE = 6;
 
 
     public final int getNumber() { return value; }
@@ -48,6 +96,9 @@ public final class StatusDTO {
         case 1: return idle;
         case 2: return fight;
         case 3: return busy;
+        case 4: return proccess;
+        case 5: return finish;
+        case 6: return receive;
         default: return null;
       }
     }
@@ -108,9 +159,10 @@ public final class StatusDTO {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014Status.proto\022\003gsp*+\n\nStatusCode\022\010\n\004idl" +
-      "e\020\001\022\t\n\005fight\020\002\022\010\n\004busy\020\003B*\n\035com.gproject" +
-      ".common.dto.protoB\tStatusDTO"
+      "\n\014Status.proto\022\003gsp*R\n\nStatusCode\022\010\n\004idl" +
+      "e\020\001\022\t\n\005fight\020\002\022\010\n\004busy\020\003\022\014\n\010proccess\020\004\022\n" +
+      "\n\006finish\020\005\022\013\n\007receive\020\006B*\n\035com.gproject." +
+      "common.dto.protoB\tStatusDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
