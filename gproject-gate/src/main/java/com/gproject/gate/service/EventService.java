@@ -29,9 +29,8 @@ public class EventService {
 	@Autowired
 	PushService pushService;
 	
-	final static int MAX_THREAD_NUM=4;
-	
-	ExecutorService executorService=Executors.newFixedThreadPool(MAX_THREAD_NUM);
+	@Autowired
+	ThreadPoolService threadPoolService;
 	
 //	/**
 //	 * 同步，发布事件
@@ -69,7 +68,7 @@ public class EventService {
 		Collection<GEvent> list=(Collection<GEvent>) 
 				applicationContext.getBeansOfType(classType).values();
 		for (GEvent gEvent : list) {
-			executorService.execute(()->{
+			threadPoolService.getExecutorService().execute(()->{
 				try {
 					gEvent.doEvent(object);
 				} catch (Exception e) {

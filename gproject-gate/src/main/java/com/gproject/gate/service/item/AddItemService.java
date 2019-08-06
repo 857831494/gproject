@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.gproject.common.config.AppinitHandler;
 import com.gproject.common.db.LockService;
@@ -186,19 +187,25 @@ public class AddItemService {
 	 * 
 	 * @param itemOrder
 	 */
-	public synchronized void addItem(List<AddItemOrder> itemOrders) {
-		for (AddItemOrder addItemOrder : itemOrders) {
-			HItemConfig hItemConfig = excelService.getById(HItemConfig.class, addItemOrder.itemId);
-
-			AddItemHandler itemHandler = (AddItemHandler) applicationContext
-					.getBean(ItemDef.ADD_ITEM_HANDLER + hItemConfig.addHandlerType);
-			itemHandler.add(addItemOrder);
+	public  void addItem(List<AddItemOrder> itemOrders) {
+		if (CollectionUtils.isEmpty(itemOrders)) {
+			return;
 		}
-		// 开始遍历物品订单，看看，哪个没有添加成功
-		mailService.itemsMail(itemOrders);
-		// 发到邮件
-		doItemsTip(itemOrders);
-		this.synClient(itemOrders);
+		Integer lock=lockService.getLockBy(itemOrders.get(0).playerId);
+		synchronized (lock) {
+			for (AddItemOrder addItemOrder : itemOrders) {
+				HItemConfig hItemConfig = excelService.getById(HItemConfig.class, addItemOrder.itemId);
+
+				AddItemHandler itemHandler = (AddItemHandler) applicationContext
+						.getBean(ItemDef.ADD_ITEM_HANDLER + hItemConfig.addHandlerType);
+				itemHandler.add(addItemOrder);
+			}
+			// 开始遍历物品订单，看看，哪个没有添加成功
+			mailService.itemsMail(itemOrders);
+			// 发到邮件
+			doItemsTip(itemOrders);
+			this.synClient(itemOrders);
+		}
 	}
 
 	private void doItemsTip(List<AddItemOrder> itemOrders) {

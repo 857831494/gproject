@@ -36,11 +36,31 @@ public class CDService implements PlayerDailyEvent,PlayerWeekEvent{
 	CDNumCache cdNumCache;
 	
 	
-	public void doCDNum(int cdId) {
+	/**
+	 * 直接，减掉次数，如果发现超过，直接抛错误码
+	 * @param cdId
+	 */
+	public void doCDNum(int cdId,long playerId) {
 		
 	}
 
+	/**
+	 * 检查cd次数，不够，抛错误码
+	 * @param playerId
+	 * @param cdId
+	 */
+	public void checkCDNum(long playerId,int cdId) {
+		
+	}
 	
+	/**
+	 * 减少cd 数量
+	 * @param playerId
+	 * @param cdId
+	 */
+	public void HincrbyCDNum(long playerId,int cdId) {
+		
+	}
 	
 	public List<HCDConfig> getList(int type) {
 		ArrayList<HCDConfig> list=new ArrayList<>();
