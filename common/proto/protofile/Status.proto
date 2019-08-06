@@ -7,4 +7,7 @@ enum StatusCode{
     idle=1;
     fight=2;
     busy=3;
+    proccess=4;//未完成
+    finish=5;//完成
+    receive=6;//已经领取
 }
