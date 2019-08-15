@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 
 
-import com.gproject.common.db.DBEvent;
+import com.gproject.common.db.AbstratorDBTable;
 import com.gproject.common.utils.common.JSONUtil;
 
 public interface BagTableDef {
@@ -48,34 +48,23 @@ public interface BagTableDef {
 	
 	//物理表
 	@Entity(name = "tb_bag")
-	public class BagPojo implements DBEvent{
+	public class BagPojo extends AbstratorDBTable{
 		@Id
 		public long playerId;
 		
 		@Column(columnDefinition = "text")
 		String logicData;
-		
-		@Transient
-		public BagRet bagRet;
 
-	
-		
 		@Override
-		public void initAfterQueryDB() {
+		public void setLogicDataStr(String logicData) {
 			// TODO Auto-generated method stub
-			this.bagRet=JSONUtil.getObjectType(logicData, BagRet.class);
-			if (bagRet==null) {
-				bagRet=new BagRet();
-			}
+			this.logicData=logicData;
 		}
 
 		@Override
-		public void beforeSaveDB() {
+		public String getLogicDataStr() {
 			// TODO Auto-generated method stub
-			if (bagRet==null) {
-				bagRet=new BagRet();
-			}
-			this.logicData=JSONUtil.toJsonString(bagRet);
+			return logicData;
 		}
 
 		@Override
@@ -83,5 +72,13 @@ public interface BagTableDef {
 			// TODO Auto-generated method stub
 			this.playerId=(long) ID;
 		}
+
+		@Override
+		public Object getID() {
+			// TODO Auto-generated method stub
+			return playerId;
+		}
+		
+		
 	}
 }

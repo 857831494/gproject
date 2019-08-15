@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import com.gproject.common.db.DBEvent;
+import com.gproject.common.db.AbstratorDBTable;
 import com.gproject.common.utils.common.JSONUtil;
 import com.gproject.gate.service.item.model.AddItemOrder;
 
@@ -65,32 +65,23 @@ public interface MailTableDef {
 	
 	//物理表
 	@Entity(name = "tb_mail")
-	public class MailPojo implements DBEvent{
+	public class MailPojo extends AbstratorDBTable{
 		@Id
 		public long playerId;
 		
 		@Column(columnDefinition = "text")
 		String logicData;
-		
-		@Transient
-		public MailRet mailRet;
 
 		@Override
-		public void initAfterQueryDB() {
+		public void setLogicDataStr(String logicData) {
 			// TODO Auto-generated method stub
-			this.mailRet=JSONUtil.getObjectType(logicData, MailRet.class);
-			if (mailRet==null) {
-				mailRet=new MailRet();
-			}
+			this.logicData=logicData;
 		}
 
 		@Override
-		public void beforeSaveDB() {
+		public String getLogicDataStr() {
 			// TODO Auto-generated method stub
-			if (mailRet==null) {
-				mailRet=new MailRet();
-			}
-			this.logicData=JSONUtil.toJsonString(mailRet);
+			return logicData;
 		}
 
 		@Override
@@ -98,5 +89,13 @@ public interface MailTableDef {
 			// TODO Auto-generated method stub
 			this.playerId=(long) ID;
 		}
+
+		@Override
+		public Object getID() {
+			// TODO Auto-generated method stub
+			return playerId;
+		}
+		
+		
 	}
 }

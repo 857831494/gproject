@@ -12,16 +12,20 @@ import com.gproject.common.db.LockService;
 import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HCDConfigDef.CDType;
 import com.gproject.common.staticdata.excelmodel.HCDConfigDef.HCDConfig;
+import com.gproject.common.utils.date.DateUtils;
 import com.gproject.gate.cache.CDNumCache;
-import com.gproject.gate.event.player.PlayerDailyEventDef.PlayerDailyEvent;
-import com.gproject.gate.event.player.PlayerDailyEventDef.PlayerDailyEventParame;
-import com.gproject.gate.event.player.PlayerWeekEventDef.PlayerWeekEvent;
-import com.gproject.gate.event.player.PlayerWeekEventDef.PlayerWeekEventParame;
+import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
+import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEventParame;
 import com.gproject.gate.pojo.CDTableDef.CDNumPojo;
 import com.gproject.gate.pojo.CDTableDef.CDNumRet;
 
+/**
+ * 周数据重置，月数据重置,日数据重置
+ * @author YW1825
+ *
+ */
 @Service
-public class CDService implements PlayerDailyEvent,PlayerWeekEvent{
+public class CDService implements PlayerEnterEvent{
 
 	Logger logger=LoggerFactory.getLogger(CDService.class);
 	
@@ -37,10 +41,10 @@ public class CDService implements PlayerDailyEvent,PlayerWeekEvent{
 	
 	
 	/**
-	 * 直接，减掉次数，如果发现超过，直接抛错误码
+	 * 增加数量，根据配置表，决定是否抛错误码,
 	 * @param cdId
 	 */
-	public void doCDNum(int cdId,long playerId) {
+	public void addCDNum(int cdId,long playerId) {
 		
 	}
 
@@ -58,7 +62,7 @@ public class CDService implements PlayerDailyEvent,PlayerWeekEvent{
 	 * @param playerId
 	 * @param cdId
 	 */
-	public void HincrbyCDNum(long playerId,int cdId) {
+	public void consumeCDNum(long playerId,int cdId) {
 		
 	}
 	
@@ -73,36 +77,40 @@ public class CDService implements PlayerDailyEvent,PlayerWeekEvent{
 		return list;
 	}
 	
-	private void resetCDNum(long playerid,int type) {
-		Integer lockInteger=lockService.getLockBy(playerid);
-		List<HCDConfig> list=getList(CDType.Daily);
-		synchronized (lockInteger) {
-			CDNumPojo cdNumPojo=cdNumCache.getData(playerid);
-			CDNumRet cdNumRet=cdNumPojo.cdNumRet;
-			for (HCDConfig hcdConfig : list) {
-				
-				cdNumRet.map.put(hcdConfig.cdId, 0);
-			}
-			cdNumCache.update(cdNumPojo);
+	
+	/**
+	 * 玩家进来的时候，就调用
+	 * @param playerEnterEventParame
+	 */
+	public void doDataReSet(PlayerEnterEventParame playerEnterEventParame) {
+		if (!DateUtils.isSameDate(playerEnterEventParame.lastLoginTime)) {
+			this.resetCDNum(playerEnterEventParame.playerId, CDType.Daily);
+		}
+		if (!DateUtils.isSameWeek(playerEnterEventParame.lastLoginTime)) {
+			this.resetCDNum(playerEnterEventParame.playerId, CDType.Week);
+		}
+		if (!DateUtils.isSameMonth(playerEnterEventParame.lastLoginTime)) {
+			this.resetCDNum(playerEnterEventParame.playerId, CDType.Month);
 		}
 	}
 	
-	
-	
+	private void resetCDNum(long playerid,int type) {
+		List<HCDConfig> list=getList(CDType.Daily);
+		CDNumPojo cdNumPojo=cdNumCache.getPojo(playerid);
+		CDNumRet cdNumRet=cdNumPojo.getLogicObj();
+		for (HCDConfig hcdConfig : list) {
+			cdNumRet.map.put(hcdConfig.cdId, 0);
+		}
+		cdNumCache.update(cdNumPojo);
+	}
+
 	@Override
 	public void doEvent(Object object) {
 		// TODO Auto-generated method stub
-		//事件都是并发，注意加锁
-		if (object instanceof PlayerDailyEventParame) {
-			PlayerDailyEventParame dailyEventParame=(PlayerDailyEventParame) object;
-			this.resetCDNum(dailyEventParame.playerId, CDType.Daily);
-		}
-		
-		if (object instanceof PlayerWeekEventParame) {
-			PlayerWeekEventParame weekEventParame=(PlayerWeekEventParame) object;
-			this.resetCDNum(weekEventParame.playerId, CDType.Week);
-		}
-		
-		
+		this.doDataReSet((PlayerEnterEventParame) object);
 	}
+	
+	
+	
+	
 }

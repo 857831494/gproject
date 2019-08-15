@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import com.gproject.common.db.DBEvent;
+import com.gproject.common.db.AbstratorDBTable;
 import com.gproject.common.utils.common.JSONUtil;
 
 public interface PlayerInfoTableDef {
@@ -18,37 +18,28 @@ public interface PlayerInfoTableDef {
 	public class PlayerInfo{
 		public String nickName;
 		
-		public Date lastLoginTime;
+		public Date lastLoginTime=new Date();
 	}
 	
 	//物理表
 	@Entity(name = "tb_player_info")
-	public class PlayerInfoPojo implements DBEvent{
+	public class PlayerInfoPojo extends AbstratorDBTable{
 		@Id
 		public long playerId;
 		
 		@Column(columnDefinition = "text")
 		String logicData;
-		
-		@Transient
-		public PlayerInfo playerInfo;
 
 		@Override
-		public void initAfterQueryDB() {
+		public void setLogicDataStr(String logicData) {
 			// TODO Auto-generated method stub
-			this.playerInfo=JSONUtil.getObjectType(logicData, PlayerInfo.class);
-			if (playerInfo==null) {
-				playerInfo=new PlayerInfo();
-			}
+			this.logicData=logicData;
 		}
 
 		@Override
-		public void beforeSaveDB() {
+		public String getLogicDataStr() {
 			// TODO Auto-generated method stub
-			if (playerInfo==null) {
-				playerInfo=new PlayerInfo();
-			}
-			this.logicData=JSONUtil.toJsonString(playerInfo);
+			return logicData;
 		}
 
 		@Override
@@ -56,5 +47,13 @@ public interface PlayerInfoTableDef {
 			// TODO Auto-generated method stub
 			this.playerId=(long) ID;
 		}
+
+		@Override
+		public Object getID() {
+			// TODO Auto-generated method stub
+			return playerId;
+		}
+		
+		
 	}
 }

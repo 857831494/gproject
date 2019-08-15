@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.gproject.gate.cache.MailCache;
 import com.gproject.gate.pojo.MailTableDef.MailModel;
 import com.gproject.gate.pojo.MailTableDef.MailPojo;
+import com.gproject.gate.pojo.MailTableDef.MailRet;
 import com.gproject.gate.service.item.AddItemService;
 import com.gproject.gate.service.item.model.AddItemOrder;
 
@@ -36,8 +37,8 @@ public class MailService {
 		}
 		int maxDay=10;
 		// 处理逻辑
-		MailPojo mailPojo=mailCache.getData(addItemOrder.playerId);
-		
+		MailPojo mailPojo=mailCache.getPojo(addItemOrder.playerId);
+		MailRet mailRet=mailPojo.getLogicObj();
 		long createTime=System.currentTimeMillis();
 		if (addItemOrder.mailTime>0) {
 			createTime=addItemOrder.mailTime;
@@ -48,11 +49,11 @@ public class MailService {
 			return;
 		}
 		MailModel mailModel=new MailModel(inDate, MailType.MAX_ITEM, createTime);
-		mailPojo.mailRet.curId++;
-		mailModel.mailId=mailPojo.mailRet.curId;
+		mailRet.curId++;
+		mailModel.mailId=mailRet.curId;
 		//加itemid
 		mailModel.addItemOrder=addItemOrder;
-		mailPojo.mailRet.list.add(mailModel);
+		mailRet.list.add(mailModel);
 		mailCache.update(mailPojo);
 	}
 
@@ -73,8 +74,8 @@ public class MailService {
 		}
 		int maxDay=10;
 		// 处理逻辑
-		MailPojo mailPojo=mailCache.getData(list.get(0).playerId);
-		
+		MailPojo mailPojo=mailCache.getPojo(list.get(0).playerId);
+		MailRet mailRet=mailPojo.getLogicObj();
 		long createTime=System.currentTimeMillis();
 		if (list.get(0).mailTime>0) {
 			createTime=list.get(0).mailTime;
@@ -85,11 +86,11 @@ public class MailService {
 			return;
 		}
 		MailModel mailModel=new MailModel(inDate, MailType.MAX_ITEM, createTime);
-		mailPojo.mailRet.curId++;
-		mailModel.mailId=mailPojo.mailRet.curId;
+		mailRet.curId++;
+		mailModel.mailId=mailRet.curId;
 		//加itemid
 		mailModel.addItemOrderLst=list;
-		mailPojo.mailRet.list.add(mailModel);
+		mailRet.list.add(mailModel);
 		mailCache.update(mailPojo);
 	}
 	
@@ -100,8 +101,9 @@ public class MailService {
 	 */
 	public void receiveAttachment(long playerId,int mailId) {
 		//小心抛出错误码
-		MailPojo mailPojo=mailCache.getData(playerId);
-		MailModel mailModel=mailPojo.mailRet.getMailModel(mailId);
+		MailPojo mailPojo=mailCache.getPojo(playerId);
+		MailRet mailRet=mailPojo.getLogicObj();
+		MailModel mailModel=mailRet.getMailModel(mailId);
 		//检查邮件是否可以加到属性，或者背包
 		if (mailModel.addItemOrder!=null) {
 			addItemService.canAdd(mailModel.addItemOrder);

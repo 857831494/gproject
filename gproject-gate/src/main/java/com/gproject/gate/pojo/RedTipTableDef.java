@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import com.gproject.common.db.DBEvent;
+import com.gproject.common.db.AbstratorDBTable;
 import com.gproject.common.dto.proto.RedTipDTO.RedTipCode;
 import com.gproject.common.utils.common.JSONUtil;
 import com.gproject.gate.service.item.model.AddItemOrder;
@@ -51,38 +51,37 @@ public interface RedTipTableDef {
 
 	// 物理表
 	@Entity(name = "tb_redhot")
-	public class RedTipPojo implements DBEvent {
+	public class RedTipPojo extends AbstratorDBTable {
 		@Id
 		public long playerId;
 
 		@Column(columnDefinition = "text")
 		String logicData;
 
-		@Transient
-		public RedTipRet redTipRet;
-
 		@Override
-		public void initAfterQueryDB() {
+		public void setLogicDataStr(String logicData) {
 			// TODO Auto-generated method stub
-			this.redTipRet = JSONUtil.getObjectType(logicData, RedTipRet.class);
-			if (redTipRet == null) {
-				redTipRet = new RedTipRet();
-			}
+			this.logicData=logicData;
 		}
 
 		@Override
-		public void beforeSaveDB() {
+		public String getLogicDataStr() {
 			// TODO Auto-generated method stub
-			if (redTipRet == null) {
-				redTipRet = new RedTipRet();
-			}
-			this.logicData = JSONUtil.toJsonString(redTipRet);
+			return logicData;
 		}
 
 		@Override
 		public void setID(Object ID) {
 			// TODO Auto-generated method stub
-			this.playerId = (long) ID;
+			this.playerId=(long) ID;
 		}
+
+		@Override
+		public Object getID() {
+			// TODO Auto-generated method stub
+			return playerId;
+		}
+
+		
 	}
 }

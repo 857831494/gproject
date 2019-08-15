@@ -30,8 +30,8 @@ public class AddBagHandler implements AddItemHandler{
 	
 	
 	private BagModel getBagModel(AddItemOrder addItemOrder) {
-		BagPojo bagPojo=bagCache.getData(addItemOrder.playerId);
-		BagRet bagRet=bagPojo.bagRet;
+		BagPojo bagPojo=bagCache.getPojo(addItemOrder.playerId);
+		BagRet bagRet=bagPojo.getLogicObj();
 		for (BagModel bagModel : bagRet.bagMap.values()) {
 			if (bagModel.itemId==addItemOrder.itemId) {
 				return bagModel;
@@ -45,8 +45,8 @@ public class AddBagHandler implements AddItemHandler{
 	 * @param addItemOrder
 	 */
 	private void doUnHasAttar(AddItemOrder addItemOrder) {
-		BagPojo bagPojo=bagCache.getData(addItemOrder.playerId);
-		BagRet bagRet=bagPojo.bagRet;
+		BagPojo bagPojo=bagCache.getPojo(addItemOrder.playerId);
+		BagRet bagRet=bagPojo.getLogicObj();
 		HItemConfig hItemConfig=excelService.getById(HItemConfig.class, 
 				addItemOrder.itemId);
 		BagModel bagModel=getBagModel(addItemOrder);
@@ -79,8 +79,9 @@ public class AddBagHandler implements AddItemHandler{
 	
 	@Override
 	public synchronized void add(AddItemOrder addItemOrder) {
+		BagPojo bagPojo=bagCache.getPojo(addItemOrder.playerId);
 		// TODO Auto-generated method stub
-		BagRet bagRet=bagCache.getData(addItemOrder.playerId).bagRet;
+		BagRet bagRet=bagPojo.getLogicObj();
 		//检查背包是否满了
 		if (bagRet.bagMap.size()>max_bag) {
 			return;

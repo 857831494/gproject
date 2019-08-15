@@ -1,16 +1,12 @@
 package com.gproject.gate.pojo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
-import com.gproject.common.db.DBEvent;
-import com.gproject.common.utils.common.JSONUtil;
+import com.gproject.common.db.AbstratorDBTable;
 
 public interface CDTableDef {
 
@@ -21,38 +17,36 @@ public interface CDTableDef {
 
 	// 物理表
 	@Entity(name = "tb_cd_num")
-	public class CDNumPojo implements DBEvent {
+	public class CDNumPojo extends AbstratorDBTable {
 		@Id
 		public long playerId;
 
 		@Column(columnDefinition = "text")
 		String logicData;
 
-		@Transient
-		public CDNumRet cdNumRet;
-
 		@Override
-		public void initAfterQueryDB() {
+		public void setLogicDataStr(String logicData) {
 			// TODO Auto-generated method stub
-			this.cdNumRet = JSONUtil.getObjectType(logicData, CDNumRet.class);
-			if (cdNumRet == null) {
-				cdNumRet = new CDNumRet();
-			}
+			this.logicData=logicData;
 		}
 
 		@Override
-		public void beforeSaveDB() {
+		public String getLogicDataStr() {
 			// TODO Auto-generated method stub
-			if (cdNumRet == null) {
-				cdNumRet = new CDNumRet();
-			}
-			this.logicData = JSONUtil.toJsonString(cdNumRet);
+			return logicData;
 		}
 
 		@Override
 		public void setID(Object ID) {
 			// TODO Auto-generated method stub
-			this.playerId = (long) ID;
+			this.playerId=(long) ID;
 		}
+
+		@Override
+		public Object getID() {
+			// TODO Auto-generated method stub
+			return playerId;
+		}
+
 	}
 }

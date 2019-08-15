@@ -28,8 +28,8 @@ public class AttarAddHandler implements AddItemHandler{
 	@Override
 	public synchronized void add(AddItemOrder addItemOrder) {
 		// TODO Auto-generated method stub
-		AttarPojo attarPojo=attarDAO.getData(addItemOrder.playerId);
-		AttarRet attarRet=attarPojo.attarRet;
+		AttarPojo attarPojo=attarDAO.getPojo(addItemOrder.playerId);
+		AttarRet attarRet=attarPojo.getLogicObj();
 		HItemConfig hItemConfig=excelService.getById(HItemConfig.class, addItemOrder.itemId);
 		Long curVal=attarRet.attarMap.get(hItemConfig.itemId);
 		if (curVal==null) {

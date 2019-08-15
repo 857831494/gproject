@@ -10,15 +10,13 @@ import com.gproject.common.dto.proto.RedTipDTO.C2SDelRedTip;
 import com.gproject.common.dto.proto.RedTipDTO.RedTipCode;
 import com.gproject.common.net.PushService;
 import com.gproject.gate.cache.RedTipCache;
-import com.gproject.gate.event.player.PlayerDailyEventDef.PlayerDailyEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
-import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEventParame;
 import com.gproject.gate.pojo.RedTipTableDef.RedTipModel;
 import com.gproject.gate.pojo.RedTipTableDef.RedTipPojo;
 import com.gproject.gate.pojo.RedTipTableDef.RedTipRet;
 
 @Service
-public class RedTipService {
+public class RedTipService implements PlayerEnterEvent{
 
 	@Autowired
 	PushService pushService;
@@ -36,9 +34,9 @@ public class RedTipService {
 	 * @param redTipCode
 	 */
 	public void addTips(long playerId, RedTipCode redTipCode) {
-		RedTipPojo redTipPojo = redTipCache.getData(playerId);
-		RedTipRet redTipRet = redTipPojo.redTipRet;
-		Integer lock = lockService.getLockBy(playerId);
+		RedTipPojo redTipPojo = redTipCache.getPojo(playerId);
+		RedTipRet redTipRet = redTipPojo.getLogicObj();
+		Integer lock = lockService.getLock(playerId);
 		synchronized (lock) {
 			if (redTipRet.isExist(redTipCode)) {
 				return;
@@ -56,9 +54,9 @@ public class RedTipService {
 	 * @param itemId
 	 */
 	public void addBagTips(long playerId,int itemId) {
-		RedTipPojo redTipPojo = redTipCache.getData(playerId);
-		RedTipRet redTipRet = redTipPojo.redTipRet;
-		Integer lock = lockService.getLockBy(playerId);
+		RedTipPojo redTipPojo = redTipCache.getPojo(playerId);
+		RedTipRet redTipRet = redTipPojo.getLogicObj();
+		Integer lock = lockService.getLock(playerId);
 		RedTipCode redTipCode=RedTipCode.Bag;
 		synchronized (lock) {
 			if (redTipRet.isExist(redTipCode,itemId)) {
@@ -72,9 +70,9 @@ public class RedTipService {
 	}
 
 	public void addBagTips(long playerId,List<Integer> itemIds) {
-		RedTipPojo redTipPojo = redTipCache.getData(playerId);
-		RedTipRet redTipRet = redTipPojo.redTipRet;
-		Integer lock = lockService.getLockBy(playerId);
+		RedTipPojo redTipPojo = redTipCache.getPojo(playerId);
+		RedTipRet redTipRet = redTipPojo.getLogicObj();
+		Integer lock = lockService.getLock(playerId);
 		RedTipCode redTipCode=RedTipCode.Bag;
 		synchronized (lock) {
 			for (Integer itemId : itemIds) {
@@ -104,8 +102,13 @@ public class RedTipService {
 	 * @param playerId
 	 */
 	public void getAllRedTip(long playerId) {
-		RedTipPojo redTipPojo = redTipCache.getData(playerId);
-		RedTipRet redTipRet = redTipPojo.redTipRet;
+		
+	}
+
+	@Override
+	public void doEvent(Object object) {
+		// TODO Auto-generated method stub
+		//推送玩家大厅数据
 	}
 
 	

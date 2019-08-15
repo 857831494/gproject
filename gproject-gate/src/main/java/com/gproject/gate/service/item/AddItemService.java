@@ -23,8 +23,10 @@ import com.gproject.common.utils.common.GErrorException;
 import com.gproject.gate.cache.AttarCache;
 import com.gproject.gate.cache.BagCache;
 import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
+import com.gproject.gate.pojo.AttarTableDef.AttarRet;
 import com.gproject.gate.pojo.BagTableDef.BagModel;
 import com.gproject.gate.pojo.BagTableDef.BagPojo;
+import com.gproject.gate.pojo.BagTableDef.BagRet;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
 import com.gproject.gate.service.item.model.AddItemOrder;
@@ -57,20 +59,12 @@ public class AddItemService {
 	LockService lockService;
 	
 	/**
-	 * 获取背包详情
-	 * @param playerId
-	 */
-	public void getBagInfo(long playerId) {
-		
-	}
-	
-	/**
 	 * 添加物品，百分百成功 背包满了的东西，直接发到邮件
 	 * 
 	 * @param itemOrder
 	 */
 	public  void addItem(AddItemOrder itemOrder) {
-		Integer lock=lockService.getLockBy(itemOrder.playerId);
+		Integer lock=lockService.getLock(itemOrder.playerId);
 		synchronized (lock) {
 			// GlobalManager.IOC;//ioc 读取配置 实例化出，物品处理器
 			HItemConfig hItemConfig = excelService.getById(HItemConfig.class, itemOrder.itemId);
@@ -95,17 +89,19 @@ public class AddItemService {
 	 * @return
 	 */
 	public void canAdd(AddItemOrder itemOrder) {
-		AttarPojo attarPojo = attarCache.getData(itemOrder.playerId);
-		BagPojo bagPojo = bagCache.getData(itemOrder.playerId);
+		AttarPojo attarPojo = attarCache.getPojo(itemOrder.playerId);
+		BagPojo bagPojo = bagCache.getPojo(itemOrder.playerId);
 		HItemConfig hItemConfig = excelService.getById(HItemConfig.class, itemOrder.itemId);
 		long curVal = 0;
 		int maxBag = 200;
+		AttarRet attarRet=attarPojo.getLogicObj();
+		BagRet bagRet=bagPojo.getLogicObj();
 		if (hItemConfig.addHandlerType == AddItemHandlerType.bag) {
-			if (bagPojo.bagRet.bagMap.size() >= maxBag) {
+			if (bagRet.bagMap.size() >= maxBag) {
 				// 失败，达到最大数量
 				throw new GErrorException(TipCode.Max_bag_num);
 			}
-			BagModel bagModel = bagPojo.bagRet.getBagModel(itemOrder.itemId);
+			BagModel bagModel = bagRet.getBagModel(itemOrder.itemId);
 			if (bagModel != null) {
 				curVal = bagModel.num;
 			}
@@ -114,7 +110,7 @@ public class AddItemService {
 			}
 		} else {
 			// 属性加不进去
-			curVal = attarPojo.attarRet.getVal(itemOrder.itemId);
+			curVal = attarRet.getVal(itemOrder.itemId);
 			if (curVal + itemOrder.addVal > hItemConfig.getMaxNum()) {
 				throw new GErrorException(TipCode.Max_Item_num);
 			}
@@ -131,7 +127,8 @@ public class AddItemService {
 		//检查背包是否满了
 		//需要占用格子
 	    int bagNum=0;
-		BagPojo bagPojo=bagCache.getData(itemOrders.get(0).playerId);
+		BagPojo bagPojo=bagCache.getPojo(itemOrders.get(0).playerId);
+		BagRet  bagRet= bagPojo.getLogicObj();
 		for (AddItemOrder itemOrder : itemOrders) {
 			HItemConfig hItemConfig=excelService.getById(AddItemOrder.class, itemOrder.itemId);
 			if (hItemConfig.addHandlerType==AddItemHandlerType.bag) {
@@ -141,7 +138,7 @@ public class AddItemService {
 		}
 		
 		int maxNum=200;
-		if (bagNum+bagPojo.bagRet.bagMap.size()>maxNum) {
+		if (bagNum+bagRet.bagMap.size()>maxNum) {
 			throw new GErrorException(TipCode.Max_bag_num);
 		}
 		
@@ -191,7 +188,7 @@ public class AddItemService {
 		if (CollectionUtils.isEmpty(itemOrders)) {
 			return;
 		}
-		Integer lock=lockService.getLockBy(itemOrders.get(0).playerId);
+		Integer lock=lockService.getLock(itemOrders.get(0).playerId);
 		synchronized (lock) {
 			for (AddItemOrder addItemOrder : itemOrders) {
 				HItemConfig hItemConfig = excelService.getById(HItemConfig.class, addItemOrder.itemId);

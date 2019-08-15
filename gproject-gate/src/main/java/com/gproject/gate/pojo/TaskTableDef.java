@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-import com.gproject.common.db.DBEvent;
+import com.gproject.common.db.AbstratorDBTable;
 import com.gproject.common.dto.proto.StatusDTO.StatusCode;
 import com.gproject.common.utils.common.JSONUtil;
 
@@ -40,38 +40,37 @@ public interface TaskTableDef {
 
 	// 物理表
 	@Entity(name = "tb_task")
-	public class TaskPojo implements DBEvent {
+	public class TaskPojo extends AbstratorDBTable {
 		@Id
 		public long playerId;
 
 		@Column(columnDefinition = "text")
 		String logicData;
 
-		@Transient
-		public TaskRet taskRet;
-
 		@Override
-		public void initAfterQueryDB() {
+		public void setLogicDataStr(String logicData) {
 			// TODO Auto-generated method stub
-			this.taskRet = JSONUtil.getObjectType(logicData, TaskRet.class);
-			if (taskRet == null) {
-				taskRet = new TaskRet();
-			}
+			this.logicData=logicData;
 		}
 
 		@Override
-		public void beforeSaveDB() {
+		public String getLogicDataStr() {
 			// TODO Auto-generated method stub
-			if (taskRet == null) {
-				taskRet = new TaskRet();
-			}
-			this.logicData = JSONUtil.toJsonString(taskRet);
+			return logicData;
 		}
 
 		@Override
 		public void setID(Object ID) {
 			// TODO Auto-generated method stub
-			this.playerId = (long) ID;
+			this.playerId=(long) ID;
 		}
+
+		@Override
+		public Object getID() {
+			// TODO Auto-generated method stub
+			return playerId;
+		}
+
+		
 	}
 }
