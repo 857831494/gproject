@@ -12,7 +12,8 @@ public interface TaskDef {
 	public class HTask{
 		public int TaskId;//活动id
 		public int TaskType;//活动类型
+		public int num;//目标
 		public int[] parames;//参数
-		public int formulaType;//公式类型id
+		
 	}
 }

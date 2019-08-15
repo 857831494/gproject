@@ -24,12 +24,22 @@ public class LockService implements IAPPInit{
 		}
 	}
 
+	public Integer getLock(Object id) {
+		if (id instanceof Long) {
+			return this.getLongLockBy( (long) id);
+		}
+		if (id instanceof String) {
+			return this.getStrLockBy((String) id);
+		}
+		return null;
+	}
+	
 	/**
 	 * 获取锁
 	 * @param key
 	 * @return
 	 */
-	public Integer getLockBy(String key) {
+	public Integer getStrLockBy(String key) {
 		int size=0;
 		if (!StringUtils.isBlank(key)) {
 			size=key.length();
@@ -43,7 +53,7 @@ public class LockService implements IAPPInit{
 	 * @param key
 	 * @return
 	 */
-	public Integer getLockBy(long key) {
+	public Integer getLongLockBy(long key) {
 		
 		int index=(int) (key/MAX_LOCK_NUM);
 		return lockArray[index];

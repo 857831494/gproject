@@ -14,7 +14,9 @@ public interface HCDConfigDef {
 		int Month=3;
 	}
 	
-	
+	public interface CDID{
+		
+	}
 	/**
 	 * cd 次数配置
 	 * @author YW1825
@@ -23,6 +25,10 @@ public interface HCDConfigDef {
 	public class HCDConfig{
 		public int cdType;
 		public int cdId;
-		public int max_num;
+		public long max_num;
+		/**
+		 * 抛错误码
+		 */
+		public boolean showError;
 	}
 }

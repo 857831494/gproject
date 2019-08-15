@@ -79,9 +79,53 @@ public class DateUtils {
 	 * @return
 	 */
 	public static boolean isSameWeek(Date time1, Date time2, final int firstDayOfWeek) {
+		if (time1==null&&time2==null) {
+			return true;
+		}
+		if (time1==null&&time2!=null) {
+			return false;
+		}
+		if (time1!=null&&time2==null) {
+			return false;
+		}
 		return calcWeekIntervals(time1, time2, firstDayOfWeek) == 0;
 	}
 
+	/**
+	 * 比较两个时间是不是同一周
+	 * 
+	 * @param time1
+	 * @param time2
+	 * @param firstDayOfWeek
+	 *            周的第一天设置值，{@see Calendar#DAY_OF_WEEK}
+	 * @return
+	 */
+	public static boolean isSameWeek(Date time1, Date time2) {
+		if (time1==null&&time2==null) {
+			return true;
+		}
+		if (time1==null&&time2!=null) {
+			return false;
+		}
+		if (time1!=null&&time2==null) {
+			return false;
+		}
+		return calcWeekIntervals(time1, time2, Calendar.MONDAY) == 0;
+	}
+	
+	/**
+	 * 比较两个时间是不是同一周
+	 * 
+	 * @param time1
+	 * @param time2
+	 * @param firstDayOfWeek
+	 *            周的第一天设置值，{@see Calendar#DAY_OF_WEEK}
+	 * @return
+	 */
+	public static boolean isSameWeek(Date time2) {
+		return calcWeekIntervals(new Date(), time2, Calendar.MONDAY) == 0;
+	}
+	
 	private static final List<Integer> DAY_IN_WEEK_LIST = new ArrayList<Integer>(Arrays.asList(Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY, Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY));
 
 	/**
@@ -218,6 +262,15 @@ public class DateUtils {
 	 * @return
 	 */
 	public static boolean isSameMonth(Date time1, Date time2) {
+		if (time1==null&&time2==null) {
+			return true;
+		}
+		if (time1==null&&time2!=null) {
+			return false;
+		}
+		if (time1!=null&&time2==null) {
+			return false;
+		}
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(time1);
 		int year1 = cal.get(Calendar.YEAR);
@@ -230,6 +283,16 @@ public class DateUtils {
 		return year1 == year2 && month1 == month2;
 	}
 
+	/**
+	 * 判断两个时间是不是同一个月
+	 * 
+	 * @param time1
+	 * @param time2
+	 * @return
+	 */
+	public static boolean isSameMonth( Date time2) {
+		return isSameMonth(new Date(),time2);
+	}
 	/**
 	 * 当前时间是否在起始时间和终止时间之间
 	 * 
@@ -322,6 +385,15 @@ public class DateUtils {
 	 * @return
 	 */
 	public static boolean isSameDate(Date time1, Date time2) {
+		if (time1==null&&time2==null) {
+			return true;
+		}
+		if (time1==null&&time2!=null) {
+			return false;
+		}
+		if (time1!=null&&time2==null) {
+			return false;
+		}
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(time1);
 		int year1 = cal.get(Calendar.YEAR);
@@ -336,6 +408,16 @@ public class DateUtils {
 		return year1 == year2 && month1 == month2 && date1 == date2;
 	}
 
+	/**
+	 * 判断两个时间是不是同一天
+	 * 
+	 * @param time1
+	 * @param time2
+	 * @return
+	 */
+	public static boolean isSameDate(Date  time2) {
+		return isSameDate(new Date(), time2);
+	}
 	/**
 	 * 日期转换成字符串格式
 	 * 

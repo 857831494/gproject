@@ -1,154 +1,150 @@
 package com.gproject.common.db;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.List;
+import java.util.Date;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import javax.persistence.Table;
-
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.util.ClassUtils;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.RemovalListener;
-import com.google.common.cache.RemovalNotification;
-import com.gproject.common.utils.IDef;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gproject.common.utils.IDef.IAPPInit;
 import com.gproject.common.utils.IDef.InitParame;
-import com.gproject.common.utils.common.GClassUtil;
+import com.gproject.common.utils.date.DateUtils;
 
-public abstract class GPCache<E,ID> implements  IAPPInit {
+/**
+ * @author YW1825
+ *
+ * @param <POJO> 数据库表
+ * @param <LogicModel>  业务逻辑
+ */
+public abstract class GPCache<POJO,LogicModel> implements  IAPPInit {
 
 	Logger logger=LoggerFactory.getLogger(this.getClass());
 	
-	/**
-	 * 最大缓存数量
-	 */
-	final int MAX_OBJECT_NUM = 5000;
 
-	/**
-	 * 最大缓存时间，分钟
-	 */
-	final int MAX_TIME = 10;
-
-	final int INIT_NUM=100;
+	static final int HEART_TIME=1;
 	
+	static final int THREAD_NUM=6;
+	static final int INIT_NUM=100;
+	static final  long DELAY_TIME=3*60*1000l;
 	public static boolean DEBUG = true;
+	  // 创建线程池
+    static ScheduledExecutorService THREAD_POOL = Executors.newScheduledThreadPool(THREAD_NUM);
 	/**
 	 * 入库队列
 	 */
-	private ConcurrentHashMap<ID, E> dataMap=new ConcurrentHashMap<>(INIT_NUM);
+	private ConcurrentHashMap<Object, AbstratorDBTable> db_Map=new ConcurrentHashMap<>(INIT_NUM);
 	
-	public abstract CrudRepository<E,ID> getCrudRepository();
+	public abstract CrudRepository getCrudRepository();
 	
 	@Autowired
 	LockService lockService;
 
-	Class<E> entityType;
+	Class<LogicModel> logicModelClass;
 	
+	Class<POJO> pojoClass;
 	
-	private void initEntityType() {
+	@Autowired
+	ApplicationContext applicationContext;
+	
+	private void initEntityType(InitParame initParame) {
 		ParameterizedType parameterizedType=(ParameterizedType)this.getClass().getGenericSuperclass();
-		entityType=(Class<E>) parameterizedType.getActualTypeArguments()[0];
+		logicModelClass=(Class<LogicModel>) parameterizedType.getActualTypeArguments()[1];
+		pojoClass=(Class<POJO>) parameterizedType.getActualTypeArguments()[0];
 	}
 	
-	// 缓存接口这里是LoadingCache，LoadingCache在缓存项不存在时可以自动加载缓存
-	Cache<ID, E> cache;
 	
-	public E getData(ID id) {
-		E e=null;
+
+	/**
+	 * 需要注解阿里的缓存组件
+	 * @param id
+	 * @return
+	 */
+	public <E> E getPojo(Object id) {
+		AbstratorDBTable ret=db_Map.get(id);
+		if (null!=ret) {
+			return (E) ret;
+		}
 		try {
-			e=this.cache.getIfPresent(id);
-			if (e!=null) {
-				return e;
-			}
-			Integer lock=null;
-			if (id instanceof String) {
-				lock=lockService.getLockBy((String) id);
-			}
-			if (id instanceof Long) {
-				lock=lockService.getLockBy((String) id);
-			}
-			
-			
+			ObjectMapper objectMapper=new ObjectMapper();
+			Integer lock=lockService.getLock(id);
 			synchronized (lock) {
-				e=this.cache.getIfPresent(id);
-				if (e==null) {
-					//存储数据
-					E oldE=dataMap.get(id);
-					if (oldE!=null) {
-						((DBEvent)oldE).beforeSaveDB();
-						getCrudRepository().save(oldE);
-						this.cache.put(id, oldE);
+				//先检查是否数据库存在
+				Optional list=this.getCrudRepository().findById(id);
+				if (list.isPresent()) {
+					AbstratorDBTable pojoObj=(AbstratorDBTable) list.get();
+					if (StringUtils.isBlank(pojoObj.getLogicDataStr())) {
+						pojoObj.tempObj=logicModelClass.newInstance();
 					}else {
-						Optional<E> dbEntitys=getCrudRepository().findById(id);
-						if (dbEntitys.isPresent()) {
-							e=dbEntitys.get();
-						}else {
-							e=entityType.newInstance();
-							((DBEvent)e).setID(id);
-							((DBEvent)e).beforeSaveDB();
-							getCrudRepository().save(e);
-						}
-						((DBEvent)e).initAfterQueryDB();
-						this.cache.put(id, e);
+						pojoObj.tempObj=objectMapper.readValue(pojoObj.getLogicDataStr(), logicModelClass);
 					}
+					return (E) pojoObj;
+				}else {
+					AbstratorDBTable pojoObj=(AbstratorDBTable) this.pojoClass.newInstance();
+					Object logicObj=this.logicModelClass.newInstance();
+					pojoObj.setID(id);
+					pojoObj.setLogicDataStr(objectMapper.writeValueAsString(logicObj));
+					pojoObj.tempObj=logicObj;
+					this.getCrudRepository().save(pojoObj);
+					return  (E) pojoObj;
 				}
 			}
-		} catch (Exception exception) {
+		} catch (Exception e) {
 			// TODO: handle exception
-			logger.error("获取数据发生错误=================");
-			logger.error(ExceptionUtils.getStackTrace(exception));
+			logger.error("存储数据报错===============id:"+id);
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
-		return e;
+		return null;
 	}
 
-	
+	public boolean needLoad() {
+		return true;
+	}
 
 	@Override
 	public void init(InitParame initParame) {
 		// TODO Auto-generated method stub
-		initEntityType();
-		// CacheBuilder的构造函数是私有的，只能通过其静态方法newBuilder()来获得CacheBuilder的实例
-		cache = CacheBuilder.newBuilder()
-				// 设置并发级别为8，并发级别是指可以同时写缓存的线程数
-				.concurrencyLevel(Runtime.getRuntime().availableProcessors()*2)
-				// 设置写缓存后8秒钟过期
-				.expireAfterWrite(MAX_TIME, TimeUnit.MINUTES)
-				// 设置缓存容器的初始容量为10
-				.initialCapacity(INIT_NUM)
-				// 设置缓存最大容量为100，超过100之后就会按照LRU最近虽少使用算法来移除缓存项
-				.maximumSize(MAX_OBJECT_NUM)
-				// 设置要统计缓存的命中率
-				.recordStats()
-				// 设置缓存的移除通知
-				.removalListener(new RemovalListener<ID, E>() {
-					@Override
-					public void onRemoval(RemovalNotification<ID, E> notification) {
-						// TODO Auto-generated method stub
-
-					}
-				}).build();
+		initEntityType(initParame);
+		this.THREAD_POOL.scheduleAtFixedRate(()->{
+			saveDB();
+		}, 0, HEART_TIME,TimeUnit.SECONDS);
 	}
 
+	private void saveDB() {
+		if (db_Map.isEmpty()) {
+			return;
+		}
+		for (AbstratorDBTable table : db_Map.values()) {
+			if (System.currentTimeMillis()<table.saveDBTime) {
+				continue;
+			}
+			this.getCrudRepository().save(table);
+		}
+	}
+	
 	/**
 	 * @param e
 	 */
-	public void update(E e) {
+	public void update(AbstratorDBTable abstratorDBTable) {
 		// 调试模式下，直接入库
-		if (e==null) {
+		if (abstratorDBTable==null) {
 			return;
 		}
 		if (DEBUG) {
-			((DBEvent)e).beforeSaveDB();
-			getCrudRepository().save(e);
+			getCrudRepository().save(abstratorDBTable);
+		}else {
+			abstratorDBTable.saveDBTime=System.currentTimeMillis()+DELAY_TIME;
+			db_Map.put(abstratorDBTable.getID(), abstratorDBTable);
 		}
 
 	}

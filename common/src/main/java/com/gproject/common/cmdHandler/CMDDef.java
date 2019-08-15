@@ -7,7 +7,6 @@ public interface CMDDef {
 
 	public long NO_ID = 0;
 
-	
 	public class TCPCommandInfo {
 		public Object handler;
 		public TCPCommand tcpCommand;
@@ -17,5 +16,9 @@ public interface CMDDef {
 	public class TcpParame{
 		public long playerId;
 		public byte[] netPack;
+	}
+	
+	public class CDModel{
+		public long lastCDTime=System.currentTimeMillis();
 	}
 }

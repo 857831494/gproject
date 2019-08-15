@@ -23,7 +23,7 @@ public class AppinitHandler implements ApplicationListener<ApplicationReadyEvent
 		// TODO Auto-generated method stub
 		
 		InitParame initParame=new InitParame();
-		
+		initParame.applicationContext=event.getApplicationContext();
 		ExcelService excelManager=event.getApplicationContext().getBean(ExcelService.class);
 		excelManager.init(initParame);
 		//加载所有启动类

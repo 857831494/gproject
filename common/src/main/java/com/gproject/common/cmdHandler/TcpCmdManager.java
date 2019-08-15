@@ -3,8 +3,6 @@ package com.gproject.common.cmdHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -14,11 +12,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.RemovalListener;
-import com.google.common.cache.RemovalNotification;
+import com.alicp.jetcache.anno.CacheType;
+import com.alicp.jetcache.anno.Cached;
 import com.google.protobuf.MessageLite;
+import com.gproject.common.cmdHandler.CMDDef.CDModel;
 import com.gproject.common.cmdHandler.CMDDef.TCPCommandInfo;
 import com.gproject.common.cmdHandler.CMDDef.TcpParame;
 import com.gproject.common.net.PushService;
@@ -42,7 +39,11 @@ public class TcpCmdManager implements IAPPInit {
 	
 	private PushService pushService;
 	
-	Cache<Object, ConcurrentHashMap<Integer, Long>> cdMap;
+	
+	@Cached(cacheType = CacheType.LOCAL,localLimit = 10000,expire =300)
+	private CDModel getCDModel(Object session,int cmdCode) {
+		return new CDModel();
+	}
 	
 	@Override
 	public void init(InitParame initParame) {
@@ -59,25 +60,7 @@ public class TcpCmdManager implements IAPPInit {
 			pushString=PushService.WEBSCOKET;
 		}
 		this.pushService=(PushService) initParame.applicationContext.getBean(pushString);
-		cdMap = CacheBuilder.newBuilder()
-				// 设置并发级别为8，并发级别是指可以同时写缓存的线程数
-				.concurrencyLevel(Runtime.getRuntime().availableProcessors()*2)
-				// 设置写缓存后8秒钟过期
-				.expireAfterWrite(MAX_TIME, TimeUnit.MINUTES)
-				// 设置缓存容器的初始容量为10
-				.initialCapacity(INIT_NUM)
-				// 设置缓存最大容量为100，超过100之后就会按照LRU最近虽少使用算法来移除缓存项
-				.maximumSize(MAX_OBJECT_NUM)
-				// 设置要统计缓存的命中率
-				.recordStats()
-				// 设置缓存的移除通知
-				.removalListener(new RemovalListener<Object, ConcurrentHashMap<Integer, Long>>() {
-					@Override
-					public void onRemoval(RemovalNotification<Object, ConcurrentHashMap<Integer, Long>> notification) {
-						// TODO Auto-generated method stub
-
-					}
-				}).build();
+		
 	}
 	
 	private void addMethodMap(Object object) {
@@ -110,21 +93,11 @@ public class TcpCmdManager implements IAPPInit {
 		}
 		long now=System.currentTimeMillis();
 		if (tCommandInfo.tcpCommand.needCD()) {
-			ConcurrentHashMap<Integer, Long> map=cdMap.getIfPresent(cmdCode);
-			if (map==null) {
-				map=new ConcurrentHashMap<Integer, Long>();
-			}
-			Long lashTime=map.get(cmdCode);
-			if (lashTime!=null) {
-				
-				long cd=now-lashTime;
-				
-				if (tCommandInfo.tcpCommand.CDTime()>cd) {
-					logger.info("cd中============");
-					return;
-				}
-				map.put(cmdCode, now);
-				cdMap.put(session,map);
+			
+			long cd=now-getCDModel(session, cmdCode).lastCDTime;
+			if (tCommandInfo.tcpCommand.CDTime()>cd) {
+				logger.info("cd中============");
+				return;
 			}
 		}
 		now=System.currentTimeMillis();
