@@ -16,12 +16,5 @@ public class PlayerInitService {
 	@Autowired
 	PlayerRoleCache playerRoleDAO;
 	
-	public void addRole() {
-		PlayerRole_Table playerRole_Table=playerRoleDAO.
-				getData(RandomUtils.nextInt(1000, 9000)+"");
-		PlayerRole playerRole=new PlayerRole();
-		playerRole.playerId=this.hashCode();
-		playerRole_Table.list.add(playerRole);
-		playerRoleDAO.update(playerRole_Table);
-	}
+	
 }

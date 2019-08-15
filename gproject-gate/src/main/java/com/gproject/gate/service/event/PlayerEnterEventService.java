@@ -1,4 +1,4 @@
-package com.gproject.gate.service;
+package com.gproject.gate.service.event;
 
 import java.util.Collection;
 import java.util.Date;
@@ -11,36 +11,36 @@ import org.springframework.stereotype.Service;
 import com.gproject.gate.cache.PlayerInfoCache;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEventParame;
+import com.gproject.gate.pojo.PlayerInfoTableDef.PlayerInfo;
 import com.gproject.gate.pojo.PlayerInfoTableDef.PlayerInfoPojo;
-import com.gproject.gate.service.event.PlayerDailyEventService;
+import com.gproject.gate.service.LobbyDataService;
 
 
 @Service
-public class EnterServie {
+public class PlayerEnterEventService {
 
 	@Autowired
 	PlayerInfoCache playerInfoDAO;
 	
-	@Autowired
-	PlayerDailyEventService playerDailyEventService;
 	
 	
 	@Autowired
-	EventService eventService;
+	PlayerEventService eventService;
 	
-	Logger logger=LoggerFactory.getLogger(EnterServie.class);
+	Logger logger=LoggerFactory.getLogger(PlayerEnterEventService.class);
+	
+	
 	
 	public void doEnterEvent(long playerId) {
-		PlayerInfoPojo playerInfoPojo=playerInfoDAO.getData(playerId);
+		PlayerInfoPojo playerInfoPojo=playerInfoDAO.getPojo(playerId);
 		PlayerEnterEventParame playerEnterEventParame=new PlayerEnterEventParame(playerId);
-		playerEnterEventParame.lastLoginTime=playerInfoPojo.playerInfo.lastLoginTime;
+		PlayerInfo playerInfo=playerInfoPojo.getLogicObj();
+		playerEnterEventParame.lastLoginTime=playerInfo.lastLoginTime;
 		
 		//发布玩家进入事件
 		eventService.asyn_publish(PlayerEnterEvent.class, playerEnterEventParame);
 		
-		//发布，玩家每日执行事件
-		playerDailyEventService.doLogic(playerEnterEventParame);
-		playerInfoPojo.playerInfo.lastLoginTime=new Date();
+		playerInfo.lastLoginTime=new Date();
 		playerInfoDAO.update(playerInfoPojo);
 		logger.info(playerId+"===玩家进来==============");
 	}

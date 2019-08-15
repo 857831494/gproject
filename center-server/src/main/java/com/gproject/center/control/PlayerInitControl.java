@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gproject.center.cache.PlayerRoleCache;
 import com.gproject.center.pojo.PlayerRole_Table_DEF.PlayerRole;
+import com.gproject.center.pojo.PlayerRole_Table_DEF.PlayerRoleRet;
+import com.gproject.center.pojo.PlayerRole_Table_DEF.PlayerRole_Table;
 import com.gproject.center.service.PlayerInitService;
 import com.gproject.common.config.AuthHandler;
 import com.gproject.common.dto.proto.TipDTO.GameTip;
@@ -34,11 +37,18 @@ public class PlayerInitControl {
 	@Autowired
 	ApplicationContext applicationContext;
 	
+	@Autowired
+	PlayerRoleCache playerRoleCache;
+	
 	@RequestMapping("/cai")
 	public void doTest() throws Exception {
-		System.out.println(applicationContext);
-		//logger.info("ccccc-------------"+applicationContext);
-		
+		String openId="cffffvvvvgggg";
+		PlayerRole_Table playerRole_Table= playerRoleCache.getPojo(openId);
+		PlayerRole playerRole=new PlayerRole();
+		playerRole.playerId=System.currentTimeMillis();
+		PlayerRoleRet playerRoleRet=playerRole_Table.getLogicObj();
+		playerRoleRet.set.put((int) System.currentTimeMillis(), playerRole);
+		playerRoleCache.update(playerRole_Table);
 	}
 	
 	

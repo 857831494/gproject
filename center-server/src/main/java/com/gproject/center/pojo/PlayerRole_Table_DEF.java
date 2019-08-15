@@ -1,66 +1,62 @@
 package com.gproject.center.pojo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
-import org.apache.commons.lang3.StringUtils;
 
-import com.gproject.common.db.DBEvent;
-import com.gproject.common.utils.common.JSONUtil;
-
+import com.gproject.common.db.AbstratorDBTable;
 
 public interface PlayerRole_Table_DEF {
 
-	//json  表
-		public class PlayerRole{
-			public long playerId;
-			public String roleName;
-			public int serverId;
-		}
-	
-	//物理表
+	public class PlayerRole {
+		public long playerId;
+		public String roleName;
+		public int serverId;
+	}
+
+	public class PlayerRoleRet {
+		public HashMap<Integer, PlayerRole> set = new HashMap<>();
+	}
+
+	// 数据库表,只有2个字段，可以理解是单纯的文本
 	@Entity(name = "tb_PlayerRole")
-	public class PlayerRole_Table implements DBEvent{
+	public class PlayerRole_Table extends AbstratorDBTable {
 
 		@Id
-		String GID;
+		@Column(length=80)
+		public String tID;
 		
 		@Column(columnDefinition = "text")
 		String logicData;
-
-		@Transient
-		public List<PlayerRole> list=new ArrayList<>();
 		
+
 		@Override
-		public void initAfterQueryDB() {
+		public void setLogicDataStr(String logicData) {
 			// TODO Auto-generated method stub
-			this.list=JSONUtil.getListType(this.logicData, PlayerRole.class);
-			if (list==null) {
-				list=new ArrayList<>();
-			}
+			this.logicData=logicData;
 		}
 
 		@Override
-		public void beforeSaveDB() {
+		public String getLogicDataStr() {
 			// TODO Auto-generated method stub
-			this.logicData=JSONUtil.toJsonString(list);
+			return logicData;
 		}
 
 		@Override
 		public void setID(Object ID) {
 			// TODO Auto-generated method stub
-			this.GID=(String) ID;
+			this.tID=(String) ID;
 		}
 
-		
+		@Override
+		public Object getID() {
+			// TODO Auto-generated method stub
+			return tID;
+		}
+
 	}
-	
-	
-	
-	
+
 }

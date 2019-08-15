@@ -1,4 +1,4 @@
-package com.gproject.gate.service;
+package com.gproject.gate.service.event;
 
 import java.util.Collection;
 import java.util.concurrent.ExecutorService;
@@ -15,16 +15,17 @@ import com.gproject.common.net.PushService;
 import com.gproject.common.utils.common.GErrorException;
 import com.gproject.gate.event.IEventDef.GEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
+import com.gproject.gate.service.ThreadPoolService;
 import com.gproject.gate.event.player.PlayerEventParame;
 
 @Service
-public class EventService {
+public class PlayerEventService {
 
 	
 	@Autowired
 	ApplicationContext applicationContext;
 	
-	Logger logger=LoggerFactory.getLogger(EventService.class);
+	Logger logger=LoggerFactory.getLogger(PlayerEventService.class);
 	
 	@Autowired
 	PushService pushService;
@@ -68,9 +69,14 @@ public class EventService {
 		Collection<GEvent> list=(Collection<GEvent>) 
 				applicationContext.getBeansOfType(classType).values();
 		for (GEvent gEvent : list) {
+			
 			threadPoolService.getExecutorService().execute(()->{
 				try {
+					long now=System.currentTimeMillis();
 					gEvent.doEvent(object);
+					if (gEvent instanceof PlayerEnterEvent) {
+						logger.info(gEvent+"事件执行=============耗时ms:"+(System.currentTimeMillis()-now));
+					}
 				} catch (Exception e) {
 					// TODO: handle exception
 					if (e instanceof GErrorException) {
