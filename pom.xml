@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com</groupId>
@@ -12,8 +14,8 @@
 	<modules>
 		<module>common</module>
 		<module>center-server</module>
-    <module>gproject-gate</module>
-  </modules>
+		<module>gproject-gate</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -39,11 +41,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>18.0</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -59,6 +57,11 @@
 			<version>2.5.0</version>
 		</dependency>
 		<dependency>
+			<groupId>com.alicp.jetcache</groupId>
+			<artifactId>jetcache-starter-redis</artifactId>
+			<version>2.4.4</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
@@ -70,8 +73,7 @@
 
 
 	<build>
-		<!-- 打包输出的根目录 
-		<directory>target/${project.version}</directory>-->
+		<!-- 打包输出的根目录 <directory>target/${project.version}</directory> -->
 		<plugins>
 			<!-- 把项目依赖的第三方包打包在target/lib下 -->
 			<plugin>
@@ -96,13 +98,8 @@
 		</plugins>
 
 		<resources>
-			<!-- 打包src/main/java下的xml文件 
-			<resource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/*.xml</include>
-				</includes>
-			</resource>-->
+			<!-- 打包src/main/java下的xml文件 <resource> <directory>src/main/java</directory> 
+				<includes> <include>**/*.xml</include> </includes> </resource> -->
 			<!-- 排除resources下的配置文件 -->
 			<resource>
 				<filtering>true</filtering>
