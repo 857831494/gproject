@@ -1,31 +1,37 @@
 package com.gproject.gate.pojo;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
 import com.gproject.common.db.AbstratorDBTable;
-import com.gproject.common.utils.common.JSONUtil;
 
-public interface PlayerInfoTableDef {
+public interface UnionTableDef {
 
-	public class PlayerInfo{
-		public String nickName;
-		public long unionId;
-		public Date lastLoginTime=new Date();
+	public interface UnionRoleType{
+		int master=1;
+	}
+	
+	
+	public class UnionModel{
+		public long playerId;
+		public int roleType;
+	}
+	
+	public class UnionRet{
+		public HashSet<Long> applySet=new HashSet<>();
+		
+		public HashMap<Long, UnionModel> teams=new HashMap<>();
 	}
 	
 	//物理表
-	@Entity(name = "tb_player_info")
-	public class PlayerInfoPojo extends AbstratorDBTable{
+	@Entity(name = "tb_union")
+	public class UnionPojo extends AbstratorDBTable{
 		@Id
-		public long playerId;
+		public long unionId;
 		
 		@Column(columnDefinition = "text")
 		String logicData;
@@ -45,13 +51,13 @@ public interface PlayerInfoTableDef {
 		@Override
 		public void setID(Object ID) {
 			// TODO Auto-generated method stub
-			this.playerId=(long) ID;
+			unionId=(long) ID;
 		}
 
 		@Override
 		public Object getID() {
 			// TODO Auto-generated method stub
-			return playerId;
+			return unionId;
 		}
 		
 		

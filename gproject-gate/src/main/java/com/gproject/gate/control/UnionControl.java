@@ -8,10 +8,14 @@ import com.gproject.common.dto.proto.CommandCodeDTO.CommandCode;
 import com.gproject.common.net.netty.NetPack;
 
 @RestController
-public class BagControl {
+public class UnionControl {
 
-	@TCPCommand(cmdType = CmdType.player, cmdCode =CommandCode.C2SCreateRoleCode )
-	public void getBag(NetPack netPack) {
+	/**
+	 * 工会命令
+	 * @param netPack
+	 */
+	@TCPCommand(cmdType = CmdType.union, cmdCode =CommandCode.C2SCreateRoleCode )
+	public void applyUnion(NetPack netPack) {
 		
 	}
 }
