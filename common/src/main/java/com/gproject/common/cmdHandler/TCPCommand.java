@@ -45,5 +45,9 @@ public @interface TCPCommand {
 	 */
 	public long CDTime() default 1000;
 	
-	
+	/**
+	 * 命令类型
+	 * @return
+	 */
+	public int cmdType() default CmdType.player;
 }

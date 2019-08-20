@@ -20,10 +20,6 @@ enum CommandCode{
    S2SEnterFightServer=14;//进入战斗服,上报，连接服务器id
    C2SEnterUnion=15;//进入公会
    C2SEXitUnion=16;//离开公会
-   W2SLogin=17;//gm web 登录
-   W2SGetExcelData=18;//gm 获取excel表格数据，详情
    S2SRmCurrentInstanceCode=19;
    S2COffline=20;//服务器呼叫客户端，注销当前账号
-   W2SSynData=21;//同步全部excel表格数据
-   S2SSynData=22;//同步全部excel表格数据
 }

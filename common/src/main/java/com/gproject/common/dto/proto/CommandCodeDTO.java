@@ -133,25 +133,9 @@ public final class CommandCodeDTO {
      */
     C2SEXitUnion(15, 16),
     /**
-     * <code>W2SLogin = 17;</code>
-     *
-     * <pre>
-     *gm web 登录
-     * </pre>
-     */
-    W2SLogin(16, 17),
-    /**
-     * <code>W2SGetExcelData = 18;</code>
-     *
-     * <pre>
-     *gm 获取excel表格数据，详情
-     * </pre>
-     */
-    W2SGetExcelData(17, 18),
-    /**
      * <code>S2SRmCurrentInstanceCode = 19;</code>
      */
-    S2SRmCurrentInstanceCode(18, 19),
+    S2SRmCurrentInstanceCode(16, 19),
     /**
      * <code>S2COffline = 20;</code>
      *
@@ -159,23 +143,7 @@ public final class CommandCodeDTO {
      *服务器呼叫客户端，注销当前账号
      * </pre>
      */
-    S2COffline(19, 20),
-    /**
-     * <code>W2SSynData = 21;</code>
-     *
-     * <pre>
-     *同步全部excel表格数据
-     * </pre>
-     */
-    W2SSynData(20, 21),
-    /**
-     * <code>S2SSynData = 22;</code>
-     *
-     * <pre>
-     *同步全部excel表格数据
-     * </pre>
-     */
-    S2SSynData(21, 22),
+    S2COffline(17, 20),
     ;
 
     /**
@@ -298,22 +266,6 @@ public final class CommandCodeDTO {
      */
     public static final int C2SEXitUnion_VALUE = 16;
     /**
-     * <code>W2SLogin = 17;</code>
-     *
-     * <pre>
-     *gm web 登录
-     * </pre>
-     */
-    public static final int W2SLogin_VALUE = 17;
-    /**
-     * <code>W2SGetExcelData = 18;</code>
-     *
-     * <pre>
-     *gm 获取excel表格数据，详情
-     * </pre>
-     */
-    public static final int W2SGetExcelData_VALUE = 18;
-    /**
      * <code>S2SRmCurrentInstanceCode = 19;</code>
      */
     public static final int S2SRmCurrentInstanceCode_VALUE = 19;
@@ -325,22 +277,6 @@ public final class CommandCodeDTO {
      * </pre>
      */
     public static final int S2COffline_VALUE = 20;
-    /**
-     * <code>W2SSynData = 21;</code>
-     *
-     * <pre>
-     *同步全部excel表格数据
-     * </pre>
-     */
-    public static final int W2SSynData_VALUE = 21;
-    /**
-     * <code>S2SSynData = 22;</code>
-     *
-     * <pre>
-     *同步全部excel表格数据
-     * </pre>
-     */
-    public static final int S2SSynData_VALUE = 22;
 
 
     public final int getNumber() { return value; }
@@ -363,12 +299,8 @@ public final class CommandCodeDTO {
         case 14: return S2SEnterFightServer;
         case 15: return C2SEnterUnion;
         case 16: return C2SEXitUnion;
-        case 17: return W2SLogin;
-        case 18: return W2SGetExcelData;
         case 19: return S2SRmCurrentInstanceCode;
         case 20: return S2COffline;
-        case 21: return W2SSynData;
-        case 22: return S2SSynData;
         default: return null;
       }
     }
@@ -429,7 +361,7 @@ public final class CommandCodeDTO {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021CommandCode.proto\022\003gsp*\251\003\n\013CommandCode" +
+      "\n\021CommandCode.proto\022\003gsp*\346\002\n\013CommandCode" +
       "\022\020\n\014C2SLoginCode\020\001\022\014\n\010C2SHeart\020\002\022\021\n\rC2SE" +
       "nterWorld\020\003\022\025\n\021C2SCreateRoleCode\020\004\022\022\n\016C2" +
       "SGetRankData\020\005\022\021\n\rS2CBrocastAll\020\006\022\025\n\021S2C" +
@@ -437,11 +369,9 @@ public final class CommandCodeDTO {
       "ApplyJoinUnion\020\t\022\n\n\006S2CTip\020\n\022\r\n\tC2Slogou" +
       "t\020\013\022\021\n\rC2SGetAllRole\020\014\022\r\n\tS2SReload\020\r\022\027\n" +
       "\023S2SEnterFightServer\020\016\022\021\n\rC2SEnterUnion\020" +
-      "\017\022\020\n\014C2SEXitUnion\020\020\022\014\n\010W2SLogin\020\021\022\023\n\017W2S" +
-      "GetExcelData\020\022\022\034\n\030S2SRmCurrentInstanceCo",
-      "de\020\023\022\016\n\nS2COffline\020\024\022\016\n\nW2SSynData\020\025\022\016\n\n" +
-      "S2SSynData\020\026B/\n\035com.gproject.common.dto." +
-      "protoB\016CommandCodeDTO"
+      "\017\022\020\n\014C2SEXitUnion\020\020\022\034\n\030S2SRmCurrentInsta" +
+      "nceCode\020\023\022\016\n\nS2COffline\020\024B/\n\035com.gprojec",
+      "t.common.dto.protoB\016CommandCodeDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
