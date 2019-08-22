@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../lib/ligerUI/skins/Aqua/css/ligerui-all.css" type="text/css" />
+		<script type="text/javascript" src="../lib/jquery/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="../lib/ligerUI/js/ligerui.min.js"></script>
+	</head>
+
+	<script type="text/javascript">
+		var navtab = null;
+
+		function getUserId() {
+			return parent.getUserId();
+		}
+
+		var griddata = [{
+				id: '01',
+				name: '部门01',
+				createTime: "2018-01-12",
+				money: 46666
+			},
+			{
+				id: '02',
+				name: '部门02',
+				createTime: '2017-01-12',
+				money: 33466
+			},
+			{
+				id: '03',
+				name: '部门03',
+
+				createTime: "2011-12-12",
+				money: 2466
+			},
+			{
+				id: '04',
+				name: '部门04',
+
+				createTime: "2011-12-01",
+				money: 5466
+			},
+			{
+				id: '05',
+				name: '部门05',
+
+				createTime: "2019-12-12",
+				money: 7466
+			},
+			{
+				id: '06',
+				name: '部门06',
+
+				createTime: "2016-12-12",
+				money: 677466
+			},
+			{
+				id: '07',
+				name: '部门07',
+
+				createTime: "2013-12-12",
+				money: 224466
+			}
+		];
+
+		function initTab() {
+			$("#center").ligerTab();
+			navtab = $("#center").ligerGetTabManager();
+			navtab.addTabItem({
+				url: "detail.html",
+				showClose: false,
+				text: "详细信息1",
+				height: $("#center").height(),
+				tabid: "tabid1"
+			});
+
+			navtab.addTabItem({
+				url: "index.html",
+				showClose: false,
+				text: "详细信息2",
+				tabid: "tabid2",
+				height: $("#center").height()
+			});
+
+			navtab.selectTabItem("tabid1");
+
+		}
+
+		$(function() {
+			$("#layout1").ligerLayout({
+				leftWidth: 300,
+				allowLeftCollapse: false
+			});
+
+			initTab();
+			var grid = $("#left").ligerGrid({
+				columns: [{
+						name: 'id',
+						display: '序号',
+						width: 200
+					},
+					{
+						name: 'name',
+						display: '名称',
+						width: 300
+					}
+				],
+				data: {
+					Rows: griddata
+				},
+				width: "100%",
+				height: "98%",
+				onSelectRow: function(data, rowindex, rowobj) {
+					var imdata = window.frames['tabid1'].getForm();
+					imdata.setData(data);
+				}
+			});
+		});
+	</script>
+
+	<body>
+
+		<div id="layout1">
+			<div position="left" id="left"></div>
+			<div id="center" position="center" ">
+           </div>
+			
+		</div>
+
+</html>

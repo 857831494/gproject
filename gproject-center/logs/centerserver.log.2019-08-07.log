@@ -1,0 +1,309 @@
+2019-08-07 14:41:02.227 [main] INFO  com.gproject.center.CenterBoot - Starting CenterBoot on YW-01B-0535 with PID 8992 (E:\cai-code\git\gproject\center-server\target\classes started by YW1825 in E:\cai-code\git\gproject\center-server)
+2019-08-07 14:41:02.233 [main] INFO  com.gproject.center.CenterBoot - No active profile set, falling back to default profiles: default
+2019-08-07 14:41:02.274 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@123ef382: startup date [Wed Aug 07 14:41:02 CST 2019]; root of context hierarchy
+2019-08-07 14:41:04.543 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-08-07 14:41:04.577 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-08-07 14:41:04.617 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-07 14:41:04.618 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-08-07 14:41:04.630 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_141\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_141/bin/server;C:/Program Files/Java/jre1.8.0_141/bin;C:/Program Files/Java/jre1.8.0_141/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_141\bin;C:\Program Files\Java\jdk1.8.0_141\jre\bin;C:\Program Files\TortoiseGit\bin;E:\BaiduNetdiskDownload\spring-tool-suite-4-4.2.1.RELEASE-e4.11.0-win32.win32.x86_64\sts-4.2.1.RELEASE;;.]
+2019-08-07 14:41:04.786 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-07 14:41:04.786 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2512 ms
+2019-08-07 14:41:04.851 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-08-07 14:41:04.856 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-08-07 14:41:04.857 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-08-07 14:41:04.857 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-08-07 14:41:04.857 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-08-07 14:41:04.923 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'playerRoleCache': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'java.lang.Object' available: expected single matching bean but found 3: systemEnvironment,contextParameters,contextAttributes
+2019-08-07 14:41:04.926 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-08-07 14:41:04.953 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-08-07 14:41:04.958 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field dao in com.gproject.common.db.GPCache required a single bean, but 3 were found:
+	- systemEnvironment: a programmatically registered singleton	- contextParameters: a programmatically registered singleton	- contextAttributes: a programmatically registered singleton
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2019-08-07 14:50:03.951 [main] INFO  com.gproject.center.CenterBoot - Starting CenterBoot on YW-01B-0535 with PID 3756 (E:\cai-code\git\gproject\center-server\target\classes started by YW1825 in E:\cai-code\git\gproject\center-server)
+2019-08-07 14:50:03.956 [main] INFO  com.gproject.center.CenterBoot - No active profile set, falling back to default profiles: default
+2019-08-07 14:50:03.990 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@59fd97a8: startup date [Wed Aug 07 14:50:03 CST 2019]; root of context hierarchy
+2019-08-07 14:50:05.070 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-08-07 14:50:05.081 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-08-07 14:50:05.092 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-07 14:50:05.092 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-08-07 14:50:05.096 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_141\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_141/bin/server;C:/Program Files/Java/jre1.8.0_141/bin;C:/Program Files/Java/jre1.8.0_141/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_141\bin;C:\Program Files\Java\jdk1.8.0_141\jre\bin;C:\Program Files\TortoiseGit\bin;E:\BaiduNetdiskDownload\spring-tool-suite-4-4.2.1.RELEASE-e4.11.0-win32.win32.x86_64\sts-4.2.1.RELEASE;;.]
+2019-08-07 14:50:05.191 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-07 14:50:05.192 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1202 ms
+2019-08-07 14:50:05.253 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-08-07 14:50:05.258 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-08-07 14:50:05.258 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-08-07 14:50:05.259 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-08-07 14:50:05.259 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-08-07 14:50:05.445 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:50:05.731 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@59fd97a8: startup date [Wed Aug 07 14:50:03 CST 2019]; root of context hierarchy
+2019-08-07 14:50:05.738 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in APIRetAdvice
+2019-08-07 14:50:05.791 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/reload]}" onto public void com.gproject.center.control.GMControl.reload(java.lang.String) throws java.lang.Exception
+2019-08-07 14:50:05.792 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/getToken]}" onto public com.gproject.common.dto.json.GMLoginDTO$GMLoginResp com.gproject.center.control.GMControl.getToken(com.gproject.common.dto.json.GMLoginDTO$GMLoginReq)
+2019-08-07 14:50:05.792 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/uploadExcel]}" onto public java.util.HashSet<java.lang.String> com.gproject.center.control.GMControl.uploadExcel(java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2019-08-07 14:50:05.793 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/cai]}" onto public void com.gproject.center.control.PlayerInitControl.doTest() throws java.lang.Exception
+2019-08-07 14:50:05.793 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getRoles]}" onto public byte[] com.gproject.center.control.PlayerInitControl.getRoles(byte[])
+2019-08-07 14:50:05.795 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-08-07 14:50:05.796 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-08-07 14:50:05.818 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:50:05.818 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:50:05.830 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in APIRetAdvice
+2019-08-07 14:50:05.831 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in APIRetAdvice
+2019-08-07 14:50:05.860 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-08-07 14:50:06.055 [main] INFO  o.s.w.s.server.standard.ServerEndpointExporter - Registering @ServerEndpoint class: class com.gproject.common.net.GWebSocket
+2019-08-07 14:50:06.075 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-08-07 14:50:06.088 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-08-07 14:50:06.096 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-08-07 14:50:06.115 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-08-07 14:50:06.118 [main] INFO  com.gproject.center.CenterBoot - Started CenterBoot in 2.408 seconds (JVM running for 3.05)
+2019-08-07 14:50:06.194 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HCommonConfig.json==========开始加载数据======
+2019-08-07 14:50:06.368 [http-nio-9090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-08-07 14:50:06.368 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-08-07 14:50:06.386 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2019-08-07 14:50:06.415 [main] INFO  com.gproject.common.staticdata.ExcelService - [{"id":1,"val":"1.0.0","remark":"客户端版本"}]
+2019-08-07 14:50:06.469 [main] INFO  com.gproject.common.staticdata.ExcelService - HCommonConfig数据加载成功
+2019-08-07 14:50:06.470 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HItemConfig.json==========开始加载数据======
+2019-08-07 14:50:06.533 [main] INFO  com.gproject.common.staticdata.ExcelService - null
+2019-08-07 14:50:06.534 [main] ERROR com.gproject.common.staticdata.ExcelService - 加载数据报错 :HItemConfig
+2019-08-07 14:50:06.536 [main] ERROR com.gproject.common.staticdata.ExcelService - java.lang.NullPointerException
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:889)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3042)
+	at com.gproject.common.staticdata.ExcelService.loadData(ExcelService.java:57)
+	at com.gproject.common.staticdata.ExcelService.loadAll(ExcelService.java:116)
+	at com.gproject.common.staticdata.ExcelService.init(ExcelService.java:128)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:28)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:1)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354)
+	at org.springframework.boot.context.event.EventPublishingRunListener.running(EventPublishingRunListener.java:103)
+	at org.springframework.boot.SpringApplicationRunListeners.running(SpringApplicationRunListeners.java:78)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:349)
+	at com.gproject.center.CenterBoot.main(CenterBoot.java:25)
+
+2019-08-07 14:50:06.536 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HServerConfig.json==========开始加载数据======
+2019-08-07 14:50:06.542 [main] INFO  com.gproject.common.staticdata.ExcelService - [
+{"logicId":1,"realId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"天下无贼"},
+{"logicId":2,"realId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"钢铁天下"}
+]
+2019-08-07 14:50:06.548 [main] INFO  com.gproject.common.staticdata.ExcelService - HServerConfig数据加载成功
+2019-08-07 14:50:06.556 [main] INFO  com.gproject.common.config.AppinitHandler - 启动类报错======
+2019-08-07 14:50:06.556 [main] ERROR com.gproject.common.config.AppinitHandler - org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.gproject.center.dao.PlayerRoleDAO' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:346)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:333)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1107)
+	at com.gproject.common.db.GPCache.initEntityType(GPCache.java:64)
+	at com.gproject.common.db.GPCache.init(GPCache.java:124)
+	at com.gproject.common.db.GPCache$$FastClassBySpringCGLIB$$b61684fd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.gproject.center.cache.PlayerRoleCache$$EnhancerBySpringCGLIB$$ac2e1cf3.init(<generated>)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:33)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:1)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354)
+	at org.springframework.boot.context.event.EventPublishingRunListener.running(EventPublishingRunListener.java:103)
+	at org.springframework.boot.SpringApplicationRunListeners.running(SpringApplicationRunListeners.java:78)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:349)
+	at com.gproject.center.CenterBoot.main(CenterBoot.java:25)
+
+2019-08-07 14:50:06.576 [main] INFO  com.gproject.common.config.AppinitHandler - 执行完毕启动类==================
+2019-08-07 14:51:19.903 [RMI TCP Connection(5)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-08-07 14:51:19.903 [RMI TCP Connection(5)-127.0.0.1] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@59fd97a8: startup date [Wed Aug 07 14:50:03 CST 2019]; root of context hierarchy
+2019-08-07 14:51:19.905 [RMI TCP Connection(5)-127.0.0.1] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2019-08-07 14:51:52.850 [main] INFO  com.gproject.center.CenterBoot - Starting CenterBoot on YW-01B-0535 with PID 7228 (E:\cai-code\git\gproject\center-server\target\classes started by YW1825 in E:\cai-code\git\gproject\center-server)
+2019-08-07 14:51:52.852 [main] INFO  com.gproject.center.CenterBoot - No active profile set, falling back to default profiles: default
+2019-08-07 14:51:52.887 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a451d4d: startup date [Wed Aug 07 14:51:52 CST 2019]; root of context hierarchy
+2019-08-07 14:51:53.924 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-08-07 14:51:53.935 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-08-07 14:51:53.944 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-07 14:51:53.945 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-08-07 14:51:53.948 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_141\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_141/bin/server;C:/Program Files/Java/jre1.8.0_141/bin;C:/Program Files/Java/jre1.8.0_141/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_141\bin;C:\Program Files\Java\jdk1.8.0_141\jre\bin;C:\Program Files\TortoiseGit\bin;E:\BaiduNetdiskDownload\spring-tool-suite-4-4.2.1.RELEASE-e4.11.0-win32.win32.x86_64\sts-4.2.1.RELEASE;;.]
+2019-08-07 14:51:54.042 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-07 14:51:54.043 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1156 ms
+2019-08-07 14:51:54.105 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-08-07 14:51:54.109 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-08-07 14:51:54.110 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-08-07 14:51:54.110 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-08-07 14:51:54.110 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-08-07 14:51:54.279 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:51:54.460 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a451d4d: startup date [Wed Aug 07 14:51:52 CST 2019]; root of context hierarchy
+2019-08-07 14:51:54.467 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in APIRetAdvice
+2019-08-07 14:51:54.504 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/reload]}" onto public void com.gproject.center.control.GMControl.reload(java.lang.String) throws java.lang.Exception
+2019-08-07 14:51:54.505 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/getToken]}" onto public com.gproject.common.dto.json.GMLoginDTO$GMLoginResp com.gproject.center.control.GMControl.getToken(com.gproject.common.dto.json.GMLoginDTO$GMLoginReq)
+2019-08-07 14:51:54.505 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/uploadExcel]}" onto public java.util.HashSet<java.lang.String> com.gproject.center.control.GMControl.uploadExcel(java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2019-08-07 14:51:54.506 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/cai]}" onto public void com.gproject.center.control.PlayerInitControl.doTest() throws java.lang.Exception
+2019-08-07 14:51:54.506 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getRoles]}" onto public byte[] com.gproject.center.control.PlayerInitControl.getRoles(byte[])
+2019-08-07 14:51:54.509 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-08-07 14:51:54.509 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-08-07 14:51:54.531 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:51:54.531 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:51:54.543 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in APIRetAdvice
+2019-08-07 14:51:54.543 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in APIRetAdvice
+2019-08-07 14:51:54.574 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-08-07 14:51:54.722 [main] INFO  o.s.w.s.server.standard.ServerEndpointExporter - Registering @ServerEndpoint class: class com.gproject.common.net.GWebSocket
+2019-08-07 14:51:54.728 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-08-07 14:51:54.755 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-08-07 14:51:54.764 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-08-07 14:51:54.777 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-08-07 14:51:54.780 [main] INFO  com.gproject.center.CenterBoot - Started CenterBoot in 2.15 seconds (JVM running for 2.802)
+2019-08-07 14:51:54.847 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HCommonConfig.json==========开始加载数据======
+2019-08-07 14:51:54.981 [http-nio-9090-exec-3] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-08-07 14:51:54.982 [http-nio-9090-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-08-07 14:51:54.999 [http-nio-9090-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2019-08-07 14:51:55.025 [main] INFO  com.gproject.common.staticdata.ExcelService - [{"id":1,"val":"1.0.0","remark":"客户端版本"}]
+2019-08-07 14:51:55.064 [main] INFO  com.gproject.common.staticdata.ExcelService - HCommonConfig数据加载成功
+2019-08-07 14:51:55.064 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HItemConfig.json==========开始加载数据======
+2019-08-07 14:51:55.113 [main] INFO  com.gproject.common.staticdata.ExcelService - null
+2019-08-07 14:51:55.113 [main] ERROR com.gproject.common.staticdata.ExcelService - 加载数据报错 :HItemConfig
+2019-08-07 14:51:55.115 [main] ERROR com.gproject.common.staticdata.ExcelService - java.lang.NullPointerException
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:889)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3042)
+	at com.gproject.common.staticdata.ExcelService.loadData(ExcelService.java:57)
+	at com.gproject.common.staticdata.ExcelService.loadAll(ExcelService.java:116)
+	at com.gproject.common.staticdata.ExcelService.init(ExcelService.java:128)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:28)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:1)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354)
+	at org.springframework.boot.context.event.EventPublishingRunListener.running(EventPublishingRunListener.java:103)
+	at org.springframework.boot.SpringApplicationRunListeners.running(SpringApplicationRunListeners.java:78)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:349)
+	at com.gproject.center.CenterBoot.main(CenterBoot.java:25)
+
+2019-08-07 14:51:55.115 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HServerConfig.json==========开始加载数据======
+2019-08-07 14:51:55.121 [main] INFO  com.gproject.common.staticdata.ExcelService - [
+{"logicId":1,"realId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"天下无贼"},
+{"logicId":2,"realId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"钢铁天下"}
+]
+2019-08-07 14:51:55.127 [main] INFO  com.gproject.common.staticdata.ExcelService - HServerConfig数据加载成功
+2019-08-07 14:51:55.134 [main] INFO  com.gproject.common.config.AppinitHandler - 启动类报错======
+2019-08-07 14:51:55.135 [main] ERROR com.gproject.common.config.AppinitHandler - org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.gproject.center.dao.PlayerRoleDAO' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:346)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:333)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1107)
+	at com.gproject.common.db.GPCache.initEntityType(GPCache.java:64)
+	at com.gproject.common.db.GPCache.init(GPCache.java:124)
+	at com.gproject.common.db.GPCache$$FastClassBySpringCGLIB$$b61684fd.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.gproject.center.cache.PlayerRoleCache$$EnhancerBySpringCGLIB$$38285581.init(<generated>)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:33)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:1)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354)
+	at org.springframework.boot.context.event.EventPublishingRunListener.running(EventPublishingRunListener.java:103)
+	at org.springframework.boot.SpringApplicationRunListeners.running(SpringApplicationRunListeners.java:78)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:349)
+	at com.gproject.center.CenterBoot.main(CenterBoot.java:25)
+
+2019-08-07 14:51:55.154 [main] INFO  com.gproject.common.config.AppinitHandler - 执行完毕启动类==================
+2019-08-07 14:53:09.375 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-08-07 14:53:09.376 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a451d4d: startup date [Wed Aug 07 14:51:52 CST 2019]; root of context hierarchy
+2019-08-07 14:53:09.378 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2019-08-07 14:54:55.693 [main] INFO  com.gproject.center.CenterBoot - Starting CenterBoot on YW-01B-0535 with PID 2044 (E:\cai-code\git\gproject\center-server\target\classes started by YW1825 in E:\cai-code\git\gproject\center-server)
+2019-08-07 14:54:55.695 [main] INFO  com.gproject.center.CenterBoot - No active profile set, falling back to default profiles: default
+2019-08-07 14:54:55.739 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1afd44cb: startup date [Wed Aug 07 14:54:55 CST 2019]; root of context hierarchy
+2019-08-07 14:54:56.776 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-08-07 14:54:56.786 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-08-07 14:54:56.796 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-08-07 14:54:56.796 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-08-07 14:54:56.800 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_141\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_141/bin/server;C:/Program Files/Java/jre1.8.0_141/bin;C:/Program Files/Java/jre1.8.0_141/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_141\bin;C:\Program Files\Java\jdk1.8.0_141\jre\bin;C:\Program Files\TortoiseGit\bin;E:\BaiduNetdiskDownload\spring-tool-suite-4-4.2.1.RELEASE-e4.11.0-win32.win32.x86_64\sts-4.2.1.RELEASE;;.]
+2019-08-07 14:54:56.896 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-08-07 14:54:56.896 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1157 ms
+2019-08-07 14:54:56.957 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-08-07 14:54:56.961 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-08-07 14:54:56.961 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-08-07 14:54:56.961 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-08-07 14:54:56.961 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-08-07 14:54:57.118 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:54:57.304 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1afd44cb: startup date [Wed Aug 07 14:54:55 CST 2019]; root of context hierarchy
+2019-08-07 14:54:57.312 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in APIRetAdvice
+2019-08-07 14:54:57.350 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/reload]}" onto public void com.gproject.center.control.GMControl.reload(java.lang.String) throws java.lang.Exception
+2019-08-07 14:54:57.351 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/getToken]}" onto public com.gproject.common.dto.json.GMLoginDTO$GMLoginResp com.gproject.center.control.GMControl.getToken(com.gproject.common.dto.json.GMLoginDTO$GMLoginReq)
+2019-08-07 14:54:57.351 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/uploadExcel]}" onto public java.util.HashSet<java.lang.String> com.gproject.center.control.GMControl.uploadExcel(java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2019-08-07 14:54:57.352 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/cai]}" onto public void com.gproject.center.control.PlayerInitControl.doTest() throws java.lang.Exception
+2019-08-07 14:54:57.352 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getRoles]}" onto public byte[] com.gproject.center.control.PlayerInitControl.getRoles(byte[])
+2019-08-07 14:54:57.354 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-08-07 14:54:57.355 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-08-07 14:54:57.376 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:54:57.376 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-08-07 14:54:57.388 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in APIRetAdvice
+2019-08-07 14:54:57.388 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in APIRetAdvice
+2019-08-07 14:54:57.419 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-08-07 14:54:57.567 [main] INFO  o.s.w.s.server.standard.ServerEndpointExporter - Registering @ServerEndpoint class: class com.gproject.common.net.GWebSocket
+2019-08-07 14:54:57.573 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-08-07 14:54:57.587 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-08-07 14:54:57.596 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-08-07 14:54:57.613 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-08-07 14:54:57.616 [main] INFO  com.gproject.center.CenterBoot - Started CenterBoot in 2.145 seconds (JVM running for 2.81)
+2019-08-07 14:54:57.703 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HCommonConfig.json==========开始加载数据======
+2019-08-07 14:54:57.754 [http-nio-9090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-08-07 14:54:57.754 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-08-07 14:54:57.834 [http-nio-9090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 80 ms
+2019-08-07 14:54:57.860 [main] INFO  com.gproject.common.staticdata.ExcelService - [{"id":1,"val":"1.0.0","remark":"客户端版本"}]
+2019-08-07 14:54:57.899 [main] INFO  com.gproject.common.staticdata.ExcelService - HCommonConfig数据加载成功
+2019-08-07 14:54:57.899 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HItemConfig.json==========开始加载数据======
+2019-08-07 14:54:57.946 [main] INFO  com.gproject.common.staticdata.ExcelService - null
+2019-08-07 14:54:57.946 [main] ERROR com.gproject.common.staticdata.ExcelService - 加载数据报错 :HItemConfig
+2019-08-07 14:54:57.949 [main] ERROR com.gproject.common.staticdata.ExcelService - java.lang.NullPointerException
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:889)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3042)
+	at com.gproject.common.staticdata.ExcelService.loadData(ExcelService.java:57)
+	at com.gproject.common.staticdata.ExcelService.loadAll(ExcelService.java:116)
+	at com.gproject.common.staticdata.ExcelService.init(ExcelService.java:128)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:28)
+	at com.gproject.common.config.AppinitHandler.onApplicationEvent(AppinitHandler.java:1)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354)
+	at org.springframework.boot.context.event.EventPublishingRunListener.running(EventPublishingRunListener.java:103)
+	at org.springframework.boot.SpringApplicationRunListeners.running(SpringApplicationRunListeners.java:78)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:349)
+	at com.gproject.center.CenterBoot.main(CenterBoot.java:25)
+
+2019-08-07 14:54:57.949 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/cai/HServerConfig.json==========开始加载数据======
+2019-08-07 14:54:57.955 [main] INFO  com.gproject.common.staticdata.ExcelService - [
+{"logicId":1,"realId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"天下无贼"},
+{"logicId":2,"realId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"钢铁天下"}
+]
+2019-08-07 14:54:57.960 [main] INFO  com.gproject.common.staticdata.ExcelService - HServerConfig数据加载成功
+2019-08-07 14:54:57.966 [main] INFO  com.gproject.center.cache.PlayerRoleCache - ==========locksercom.gproject.common.db.LockService@ea27e34
+2019-08-07 14:54:57.985 [main] INFO  com.gproject.common.config.AppinitHandler - 执行完毕启动类==================
+2019-08-07 14:55:27.822 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2019-08-07 14:55:27.823 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1afd44cb: startup date [Wed Aug 07 14:54:55 CST 2019]; root of context hierarchy
+2019-08-07 14:55:27.825 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
