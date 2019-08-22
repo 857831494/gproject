@@ -12,9 +12,11 @@
 	<url>http://maven.apache.org</url>
 
 	<modules>
-		<module>common</module>
-		<module>center-server</module>
+	    
 		<module>gproject-gate</module>
+		<module>gproject-match</module>
+		<module>gproject-common</module>
+		<module>gproject-center</module>
 	</modules>
 
 	<properties>
@@ -68,6 +70,11 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.java-websocket</groupId>
+			<artifactId>Java-WebSocket</artifactId>
+			<version>1.3.8</version>
 		</dependency>
 	</dependencies>
 
