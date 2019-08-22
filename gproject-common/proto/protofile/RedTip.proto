@@ -1,0 +1,24 @@
+syntax="proto2";
+package gsp;
+option java_package="com.gproject.common.dto.proto";
+option java_outer_classname="RedTipDTO";
+
+
+enum RedTipCode{
+    Mail=1;//未知错误
+    Bag=2;
+}
+
+message RedTipDto{
+   required RedTipCode code=1;
+   optional int32  parameLst=2;//参数id列表，背包可能需要多个红点提示
+}
+
+//推送红点提示======进入，服务端自动推送
+message S2CRedTip{
+   repeated RedTipDto data=1;
+}
+//删除红点提示
+message C2SDelRedTip{
+   required RedTipDto parame=1;
+}
