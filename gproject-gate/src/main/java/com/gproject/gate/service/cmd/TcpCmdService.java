@@ -1,4 +1,4 @@
-package com.gproject.common.cmdHandler;
+package com.gproject.gate.service.cmd;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -16,17 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.Cached;
 import com.google.protobuf.MessageLite;
+import com.gproject.common.cmdHandler.CMDDef;
+import com.gproject.common.cmdHandler.TCPCommand;
 import com.gproject.common.cmdHandler.CMDDef.CDModel;
 import com.gproject.common.cmdHandler.CMDDef.TCPCommandInfo;
 import com.gproject.common.cmdHandler.CMDDef.TcpParame;
-import com.gproject.common.net.PushService;
 import com.gproject.common.net.netty.NetPack;
 import com.gproject.common.utils.IDef.IAPPInit;
 import com.gproject.common.utils.IDef.InitParame;
 import com.gproject.common.utils.common.GErrorException;
+import com.gproject.gate.service.socket.PushService;
 
 
-public abstract class TcpCmdManager implements IAPPInit {
+public abstract class TcpCmdService implements IAPPInit {
 
 	private static final long MAX_TIME = 15;
 
@@ -37,7 +39,7 @@ public abstract class TcpCmdManager implements IAPPInit {
 	
 	private HashMap<Integer,TCPCommandInfo> handlerMap=new HashMap<>();
 	
-	static Logger logger=LoggerFactory.getLogger(TcpCmdManager.class);
+	static Logger logger=LoggerFactory.getLogger(TcpCmdService.class);
 	
 	
 	@Autowired

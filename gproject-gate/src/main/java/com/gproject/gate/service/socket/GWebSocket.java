@@ -1,4 +1,4 @@
-package com.gproject.common.net;
+package com.gproject.gate.service.socket;
 
 
 import javax.websocket.OnClose;
@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 @Component
 @ServerEndpoint(value = "/" + PushService.WEBSCOKET)
 public class GWebSocket  {
@@ -24,8 +25,6 @@ public class GWebSocket  {
 	final static int MAX_SESSION_NUM=5000;
 	
 	final static int IDLE_TIME=30*1000;
-	@Autowired
-	WebSocketManager webSocketManager;
 	
 	/**
 	 * 连接建立成功调用的方法
@@ -33,11 +32,11 @@ public class GWebSocket  {
 	 */
 	@OnOpen
 	public void onOpen(Session session) throws Exception {
-		if (webSocketManager.sessionMap.size()>MAX_SESSION_NUM) {
-			session.close();
-			logger.info("当前服务器已经超出最大数量=================");
-			return;
-		}
+//		if (webSocketManager.sessionMap.size()>MAX_SESSION_NUM) {
+//			session.close();
+//			logger.info("当前服务器已经超出最大数量=================");
+//			return;
+//		}
 		session.setMaxIdleTimeout(IDLE_TIME);
 	}
 

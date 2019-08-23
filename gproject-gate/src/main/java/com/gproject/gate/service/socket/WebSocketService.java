@@ -1,4 +1,4 @@
-package com.gproject.common.net;
+package com.gproject.gate.service.socket;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,9 +17,9 @@ import com.gproject.common.dto.proto.TipDTO.GameTip;
 import com.gproject.common.dto.proto.TipDTO.TipCode;
 
 @Component(PushService.WEBSCOKET)
-public class WebSocketManager implements PushService{
+public class WebSocketService implements PushService{
 
-	static Logger logger = LoggerFactory.getLogger(WebSocketManager.class);
+	static Logger logger = LoggerFactory.getLogger(WebSocketService.class);
 
 	@Override
 	public void push(long playerId, CommandCode cmdCode, MessageLite dto) {

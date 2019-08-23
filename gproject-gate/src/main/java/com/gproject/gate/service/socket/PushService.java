@@ -1,4 +1,4 @@
-package com.gproject.common.net;
+package com.gproject.gate.service.socket;
 
 import java.util.List;
 

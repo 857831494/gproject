@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.gproject.common.cmdHandler.TcpCmdManager;
 import com.gproject.common.net.netty.NetPack;
 
 @Service
@@ -20,7 +19,7 @@ public class CmdService {
 	static Logger logger=LoggerFactory.getLogger(CmdService.class);
 	
 	public void doReq(NetPack netPack) {
-		TcpCmdManager tcpCmdManager=(TcpCmdManager) applicationContext.getBean(PACK_NAME+netPack.cmdType);
+		TcpCmdService tcpCmdManager=(TcpCmdService) applicationContext.getBean(PACK_NAME+netPack.cmdType);
 		if (tcpCmdManager==null) {
 			logger.info("找不到命令==========");
 			return;

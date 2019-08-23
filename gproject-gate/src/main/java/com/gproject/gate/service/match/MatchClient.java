@@ -8,7 +8,7 @@ import org.java_websocket.handshake.ServerHandshake;
 import org.springframework.context.ApplicationContext;
 
 import com.gproject.common.net.ByteUtil;
-import com.gproject.common.net.PushService;
+import com.gproject.gate.service.socket.PushService;
 
 public class MatchClient extends WebSocketClient{
 

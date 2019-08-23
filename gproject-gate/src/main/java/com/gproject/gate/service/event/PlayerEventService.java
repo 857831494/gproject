@@ -11,11 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.gproject.common.net.PushService;
 import com.gproject.common.utils.common.GErrorException;
 import com.gproject.gate.event.IEventDef.GEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
 import com.gproject.gate.service.ThreadPoolService;
+import com.gproject.gate.service.socket.PushService;
 import com.gproject.gate.event.player.PlayerEventParame;
 
 @Service

@@ -7,14 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gproject.common.cmdHandler.CmdType;
-import com.gproject.common.cmdHandler.TcpCmdManager;
 import com.gproject.common.net.netty.NetPack;
 import com.gproject.gate.cache.PlayerInfoCache;
 import com.gproject.gate.pojo.PlayerInfoTableDef.PlayerInfo;
 import com.gproject.gate.pojo.PlayerInfoTableDef.PlayerInfoPojo;
 
 @Service(CmdService.PACK_NAME+CmdType.union)
-public class UnionCmdService extends TcpCmdManager{
+public class UnionCmdService extends TcpCmdService{
 
 	static int MAX=10;
 	private UnionTask[] taskDeques=new UnionTask[MAX];

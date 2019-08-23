@@ -16,7 +16,6 @@ import com.gproject.common.db.LockService;
 import com.gproject.common.dto.proto.ItemDTO.ClientItem;
 import com.gproject.common.dto.proto.ItemDTO.S2CAddItem;
 import com.gproject.common.dto.proto.TipDTO.TipCode;
-import com.gproject.common.net.PushService;
 import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HItemConfig;
 import com.gproject.common.utils.common.GErrorException;
@@ -31,6 +30,7 @@ import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
 import com.gproject.gate.service.item.model.AddItemOrder;
 import com.gproject.gate.service.mail.MailService;
+import com.gproject.gate.service.socket.PushService;
 
 @Service
 public class AddItemService {

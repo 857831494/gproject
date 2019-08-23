@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import com.gproject.common.db.LockService;
 import com.gproject.common.dto.proto.RedTipDTO.C2SDelRedTip;
 import com.gproject.common.dto.proto.RedTipDTO.RedTipCode;
-import com.gproject.common.net.PushService;
 import com.gproject.gate.cache.RedTipCache;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
 import com.gproject.gate.pojo.RedTipTableDef.RedTipModel;
 import com.gproject.gate.pojo.RedTipTableDef.RedTipPojo;
 import com.gproject.gate.pojo.RedTipTableDef.RedTipRet;
+import com.gproject.gate.service.socket.PushService;
 
 @Service
 public class RedTipService implements PlayerEnterEvent{

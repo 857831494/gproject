@@ -13,13 +13,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.gproject.common.cmdHandler.CmdType;
-import com.gproject.common.cmdHandler.TcpCmdManager;
 import com.gproject.common.net.netty.NetPack;
 import com.gproject.common.utils.IDef.InitParame;
 import com.gproject.gate.service.match.MatchClient;
 
 @Service(CmdService.PACK_NAME + CmdType.match)
-public class MatchCmdService extends TcpCmdManager implements Runnable {
+public class MatchCmdService extends TcpCmdService implements Runnable {
 
 	@Override
 	public int getCmdType() {
