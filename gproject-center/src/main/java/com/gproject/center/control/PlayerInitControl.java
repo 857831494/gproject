@@ -21,13 +21,10 @@ import com.gproject.center.pojo.PlayerRole_Table_DEF.PlayerRole_Table;
 import com.gproject.center.service.PlayerInitService;
 import com.gproject.common.config.AuthHandler;
 import com.gproject.common.dto.proto.TipDTO.GameTip;
-import com.gproject.common.net.PushService;
 
 @RestController
 public class PlayerInitControl {
 
-	@Resource(name=PushService.WEBSCOKET)
-	PushService pushService;
 	
 	Logger logger=LoggerFactory.getLogger(PlayerInitControl.class);
 	
