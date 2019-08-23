@@ -13,6 +13,15 @@ public class NetPack {
 	
 	public long unionId;
 	
+	/**
+	 * 房间id,专用
+	 */
+	public String roomId;
+	
+	/**
+	 * 房间处理队列，定位
+	 */
+	public int room_random;
 	
 	public NetPack(int cmdCode, byte[] data) {
 		super();
