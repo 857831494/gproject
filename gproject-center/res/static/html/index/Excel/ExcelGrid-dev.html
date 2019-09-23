@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../lib/ligerUI/skins/Aqua/css/ligerui-all.css" type="text/css" />
+		<link href="../../lib/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../../lib/jquery/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../lib/ligerUI/js/ligerui.min.js"></script>
+		<script type="text/javascript" src="../CommandCode.js"></script>
+		<script type="text/javascript" src="json/HServerConfig.json"></script>
+		<script type="text/javascript" src="../APIManager.js"></script>
+		<link href="../../lib/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<script type="text/javascript">
+		var grid;
+
+		$(function() {
+			window['g']  = $("#maingrid4").ligerGrid({
+				columns: [{
+						name: 'logicId',
+						display: '服务器id',
+						width: 200
+					},
+					{
+						name: 'name',
+						display: '区服名称',
+						width: 200
+					}
+				],
+				pkName: 'serverId',
+				rownumbers: true,
+				width: "100%",
+				height: "100%",
+				url:"../../../"+AUTH+ "getFiles",
+				checkbox: true
+			});
+
+		});
+
+		
+	</script>
+
+	<body>
+                    <input type="file" id="file1" />
+		<a class="l-button" style="width:120px" onclick="synClick()">开始同步服务器数据</a>
+
+		<div id="maingrid4" style="margin:0; padding:0"></div>
+
+		</div>
+
+</html>
