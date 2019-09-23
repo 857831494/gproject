@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
+import com.alicp.jetcache.anno.config.EnableMethodCache;
 import com.gproject.common.config.AppinitHandler;
 import com.gproject.common.utils.IDef;
 
@@ -13,6 +15,8 @@ import com.gproject.common.utils.IDef;
  */
 @SpringBootApplication()
 @ComponentScan(IDef.ROOT_PACKAGE)
+@EnableMethodCache(basePackages = IDef.ROOT_PACKAGE) 
+@EnableCreateCacheAnnotation
 public class App 
 {
     public static void main( String[] args )

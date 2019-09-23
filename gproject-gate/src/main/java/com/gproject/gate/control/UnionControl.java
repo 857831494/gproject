@@ -18,4 +18,14 @@ public class UnionControl {
 	public void applyUnion(NetPack netPack) {
 		
 	}
+
+	@TCPCommand(cmdType = CmdType.union, cmdCode =CommandCode.C2SCreateRoleCode )
+	public void joinUnion() {
+		
+	}
+	
+	@TCPCommand(cmdType = CmdType.union, cmdCode =CommandCode.C2SCreateRoleCode )
+	public void joinUnionCallBack() {
+		
+	}
 }
