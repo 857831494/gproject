@@ -10,6 +10,7 @@ public class HServerConfig implements ConfigExcel{
 	
 	public final static int BATTLE_SERVER=3;
 	
+	
 	/**
 	 * 逻辑id
 	 */

@@ -14,8 +14,11 @@ public interface StaticDataDef {
 	final static String RES_URL="resUrl";
 	
 	
-	
+	public final static String JSON_PATH = "json";
 
+	public final static String FILE_PATH = "file";
+
+	
 	final static String INT_TYPE = "int";
 
 	final static String STRING_TYPE = "string";

@@ -1,0 +1,19 @@
+syntax="proto2";
+package gsp;
+option java_package="com.gproject.common.dto.proto";
+option java_outer_classname="RoomDTO";
+
+
+//创建房间
+message C2SCreateRoom{
+   required int32 roomType=1;
+}
+//房间信息
+message S2CRoomInfo{
+
+
+}
+//离开房间
+message C2SExitRoom{
+
+}

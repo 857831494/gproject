@@ -2,6 +2,11 @@ package com.gproject.common.net;
 
 public class ByteUtil {
 
+	public final static int INT_LEN=4;
+	
+
+	public final static int LONG_LEN=8;
+	
 	public static byte[] LongToBytes(long values) {
 		byte[] buffer = new byte[8];
 		for (int i = 0; i < 8; i++) {

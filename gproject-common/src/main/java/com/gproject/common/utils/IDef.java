@@ -10,6 +10,13 @@ public interface IDef {
 	public final static String ROOT_PACKAGE="com.gproject";
 	
 	/**
+	 * 包根目录
+	 */
+	public final static String RPC_URL="/RPC/WebSocket";
+	
+	
+	
+	/**
 	 * 系统根目录
 	 */
 	public final static String SYS_BASE_PATH=System.getProperty("user.dir");
