@@ -15,9 +15,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.gproject.center.service.FileService;
 import com.gproject.center.service.GMService;
 import com.gproject.common.config.AuthHandler;
+import com.gproject.common.dto.json.ServersResp;
+import com.gproject.common.dto.json.FileNameDef.FileNameDto;
 import com.gproject.common.dto.json.GMLoginDTO.GMLoginReq;
 import com.gproject.common.dto.json.GMLoginDTO.GMLoginResp;
 import com.gproject.common.staticdata.ExcelService;
+import com.gproject.common.staticdata.excelmodel.HServerConfig;
 
 @RestController
 public class GMControl {
@@ -31,6 +34,17 @@ public class GMControl {
 	@Autowired
 	ExcelService excelManager;
 	
+	@RequestMapping(path =AuthHandler.NEED_AUTH_PATH+"getServers")
+	public ServersResp getServers() {
+		ServersResp serversResp=new ServersResp();
+		serversResp.Rows.addAll(excelManager.getAll(HServerConfig.class));
+		return serversResp;
+	}
+	
+	@RequestMapping(path =AuthHandler.NEED_AUTH_PATH+"getFiles")
+	public FileNameDto getFiles() {
+		return fileService.getFileLst();
+	}
 	
 	
 	Logger logger=LoggerFactory.getLogger(GMControl.class);

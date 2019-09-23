@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gproject.common.dto.json.FileNameDef.FileNameDto;
+import com.gproject.common.dto.json.FileNameDef.FileNameModel;
 import com.gproject.common.staticdata.StaticDataDef.SheetData;
 import com.gproject.common.staticdata.writejson.UploadExcelManager;
 import com.gproject.common.utils.common.PathUtil;
@@ -57,6 +59,20 @@ public class FileService {
 	}
 	
 	
+	public FileNameDto	getFileLst() {
+		FileNameDto dto=new FileNameDto();
+		File json=new File(getFilePath()+EXCEL_PATH);
+		for (File file : json.listFiles()) {
+			if (!file.isFile()) {
+				continue;
+			}
+			FileNameModel fileNameModel=new FileNameModel();
+			fileNameModel.name=file.getName();
+			dto.Rows.add(fileNameModel);
+		}
+		return dto;
+	}
+	
 	public HashSet<String> saveFile(String path, MultipartFile file) throws Exception {
 		List<SheetData> list=uploadExcelManager.getJson(file.getInputStream());
 		ObjectMapper mapper=new ObjectMapper();
@@ -64,7 +80,7 @@ public class FileService {
 		HashSet<String> hashSet=new HashSet<>();
 		logger.info("文件写入目录============"+basePath);
 		for (SheetData sheetData : list) {
-			File json=new File(basePath+EXCEL_PATH+path+"/"+sheetData.fileName+".json");
+			File json=new File(basePath+EXCEL_PATH+sheetData.fileName+".json");
 			String content=mapper.writeValueAsString(sheetData.dataMap);
 			if (!json.exists()) {
 				writeFile(json, content);
