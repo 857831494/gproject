@@ -42,42 +42,60 @@
 
 		function synClick() {
 			var rows = g.getSelectedRow();
-			if(rows==undefind||rows==null){
+			if(rows==undefined||rows==null){
 				$.ligerDialog.error("没有选中任何资源服");
 				return;
 			}
 			var path="../../../"+AUTH+"uploadExcel";
 			console.log(rows);
-			var url=path+"?sessionId="
-			+parent.sessionId+"&time="+parent.time+"&uid="+parent.userId+"&path="+rows.filePath;
-			console.log(url);
-			var formData = new FormData();
-            formData.append("myfile", document.getElementById("file1").files[0]);   
-			jQuery.ajax({url:url,
-				 type: "post",
-				 type: "POST",
-                 data: formData,
-                 /**
-                 *必须false才会自动加上正确的Content-Type
-                 */
-                 contentType: false,
-                 /**
-                 * 必须false才会避开jQuery对 formdata 的默认处理
-                 * XMLHttpRequest会对 formdata 进行正确的处理
-                 */
-                 processData: false,
-					success:function(ret,textStatus,jq){
-				if (ret.code>0) {
-					$.ligerDialog.error('错误码:'+ret.code);
-				}else{
-					$.ligerDialog.warn("上传成功");
+			for(var i=0;i<document.getElementById("file1").files.length;i++){
+				var file=document.getElementById("file1").files[i];
+				var str_name=file.name;
+				if(2!=str_name.split("-").length){
+					$.ligerDialog.error(str_name+"文件名错误");
+					continue;
 				}
-			}});
+				var str_file=str_name.split("-")[1];
+				str_file=str_file.split(".")[0];
+				var url=path+"?sessionId="
+				+parent.sessionId+"&time="+parent.time+"&uid="+parent.userId+"&fileName="+str_file;
+				console.log(url);
+				var formData = new FormData();
+	            formData.append("myfile", file);   
+				jQuery.ajax({url:url,
+					 type: "post",
+					 type: "POST",
+	                 data: formData,
+	                 /**
+	                 *必须false才会自动加上正确的Content-Type
+	                 */
+	                 contentType: false,
+	                 /**
+	                 * 必须false才会避开jQuery对 formdata 的默认处理
+	                 * XMLHttpRequest会对 formdata 进行正确的处理
+	                 */
+	                 processData: false,
+						success:function(ret,textStatus,jq){
+					if (ret.code>0) {
+						$.ligerDialog.error('错误码:'+ret.code);
+					}else{
+						console.log(ret);
+						if(ret.data){
+							$.ligerDialog.warn(str_name+"上传成功");
+						}else{
+							$.ligerDialog.error(str_name+"上传失败");
+						}
+						
+					}
+				}});
+			}
+			
+			
 		}
 	</script>
 
 	<body>
-                    <input type="file" id="file1" />
+                    <input type="file" id="file1" multiple="multiple"/>
 		<a class="l-button" style="width:120px" onclick="synClick()">开始同步服务器数据</a>
 
 		<div id="maingrid4" style="margin:0; padding:0"></div>

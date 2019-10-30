@@ -17,6 +17,7 @@ import com.gproject.center.service.GMService;
 import com.gproject.common.config.AuthHandler;
 import com.gproject.common.dto.json.ServersResp;
 import com.gproject.common.dto.json.FileNameDef.FileNameDto;
+import com.gproject.common.dto.json.FileNameDef.JAVAFileDto;
 import com.gproject.common.dto.json.GMLoginDTO.GMLoginReq;
 import com.gproject.common.dto.json.GMLoginDTO.GMLoginResp;
 import com.gproject.common.staticdata.ExcelService;
@@ -46,6 +47,10 @@ public class GMControl {
 		return fileService.getFileLst();
 	}
 	
+	@RequestMapping(path =AuthHandler.NEED_AUTH_PATH+"getJavaFile")
+	public String getJavaFile(@RequestParam("fileName") String fileName) {
+		return fileService.getJAVAFile(fileName);
+	}
 	
 	Logger logger=LoggerFactory.getLogger(GMControl.class);
 	
@@ -55,9 +60,10 @@ public class GMControl {
 	}
 	
 	@RequestMapping(path =AuthHandler.NEED_AUTH_PATH+"uploadExcel")
-	public HashSet<String> uploadExcel(@RequestParam("path") String path,
+	public boolean uploadExcel(@RequestParam("fileName") String fileName,
 			@RequestParam("myfile") MultipartFile  file) throws Exception {
-		return fileService.saveFile(path, file);
+		
+		return fileService.saveFile(fileName, file);
 	}
 	
 	
