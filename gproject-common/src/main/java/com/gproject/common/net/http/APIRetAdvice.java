@@ -40,6 +40,9 @@ public class APIRetAdvice implements ResponseBodyAdvice<Object>{
 		if (body instanceof NotNeedConvert) {
 			return body;
 		}
+		if (body instanceof String) {
+			return body;
+		}
 		APIRet apiRet=new APIRet();
 		if (body==null) {
 			return apiRet;

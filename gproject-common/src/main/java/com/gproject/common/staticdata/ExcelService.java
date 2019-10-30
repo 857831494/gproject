@@ -35,10 +35,25 @@ public  class ExcelService {
 	
 	private Map<Class,Map<Integer,Object>> dataMap=new HashMap<>();
 	
-	private Map<String, Class> classMap=new HashMap<>();
+	public Map<String, Class> classMap=new HashMap<>();
 	
 	@Value("${resUrl}")
 	String res_url;
+	
+	public List getJson(String fileName) {
+		try {
+			String res_url_path=res_url+"/"+fileName;
+			logger.info(res_url_path+"==========开始加载数据======");
+			String jsonString=HttpUtil.doGet(res_url_path);
+			logger.info(jsonString);
+			ObjectMapper mapper = new ObjectMapper();
+			List list=mapper.readValue(jsonString,ArrayList.class);
+			return list;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
 	
 	public void loadData(String fileName) {
 		try {

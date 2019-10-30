@@ -9,11 +9,19 @@ public interface FileNameDef{
 	
 	public class FileNameModel{
 		public String name;
+		public String detailLink;
+		public String javaFile;
 	}
 	
 	public class FileNameDto extends NotNeedConvert{
 
 		public HashSet<FileNameModel> Rows=new HashSet<>();
+	}
+	
+	
+	public class JAVAFileDto extends NotNeedConvert{
+
+		public String info;
 	}
 }
 
