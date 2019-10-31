@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
+import com.gproject.common.db.AbstractorLogicRet;
 import com.gproject.common.db.AbstratorDBTable;
 
 public interface PlayerRole_Table_DEF {
@@ -17,7 +17,7 @@ public interface PlayerRole_Table_DEF {
 		public int serverId;
 	}
 
-	public class PlayerRoleRet {
+	public class PlayerRoleRet extends AbstractorLogicRet{
 		public HashMap<Integer, PlayerRole> set = new HashMap<>();
 	}
 
