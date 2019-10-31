@@ -41,7 +41,7 @@ public interface CardTableDef {
 		}
 	}
 	
-	public class CardRet{
+	public class CardRet {
 		public HashMap<Integer, CardModel> cardModels=new HashMap<>();
 	}
 	

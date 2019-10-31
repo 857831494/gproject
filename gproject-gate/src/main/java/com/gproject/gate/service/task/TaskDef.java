@@ -25,6 +25,8 @@ public interface TaskDef{
 
 		public int taskId;
 		
+		public boolean needSum=true;
+		
 		public TaskParame( long playerId, long num) {
 			this.playerId = playerId;
 			this.num = num;

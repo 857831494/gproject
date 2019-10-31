@@ -111,11 +111,18 @@ public class TaskService implements PlayerEnterEvent{
 		TaskModel newModel=new TaskModel(parame.taskId, StatusCode.proccess,0);
 		TaskModel retModel=taskRet.taskMap.putIfAbsent(parame.taskId,
 				newModel);
-		if (retModel.num+parame.num>Integer.MAX_VALUE) {
-			retModel.num=Integer.MAX_VALUE;
+		
+		if (parame.needSum) {
+			if (retModel.num+parame.num>Integer.MAX_VALUE) {
+				retModel.num=Integer.MAX_VALUE;
+			}else {
+				retModel.num+=parame.num;
+			}
 		}else {
-			retModel.num+=parame.num;
+			retModel.num=parame.num;
 		}
+		
+		
 		if (retModel.num>=hTask.num) {
 			retModel.code=StatusCode.finish;
 		}
@@ -123,10 +130,12 @@ public class TaskService implements PlayerEnterEvent{
 		return false;
 	}
 
+	
+
 	@Override
-	public void doEvent(Object object) {
+	public void doPlayerEnterEvent(PlayerEnterEventParame playerEnterEventParame) {
 		// TODO Auto-generated method stub
-		PlayerEnterEventParame playerEnterEventParame=(PlayerEnterEventParame) object;
+		//PlayerEnterEventParame playerEnterEventParame=(PlayerEnterEventParame) object;
 		TaskPojo taskPojo=taskCache.getPojo(playerEnterEventParame.playerId);
 		TaskRet taskRet=taskPojo.getLogicObj();
 		List<HTask> all_taskList=excelService.getAll(HTask.class);

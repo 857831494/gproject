@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import com.gproject.common.db.AbstractorLogicRet;
 import com.gproject.common.db.AbstratorDBTable;
 import com.gproject.common.utils.common.JSONUtil;
 import com.gproject.gate.service.item.model.AddItemOrder;
@@ -49,7 +50,7 @@ public interface MailTableDef {
 		
 	}
 	
-	public class MailRet{
+	public class MailRet extends AbstractorLogicRet{
 		public int curId;
 		public List<MailModel> list=new ArrayList<>();
 		

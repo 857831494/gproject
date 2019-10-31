@@ -1,6 +1,7 @@
 package com.gproject.gate.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -83,15 +84,21 @@ public class CDService implements PlayerEnterEvent{
 	 * @param playerEnterEventParame
 	 */
 	public void doDataReSet(PlayerEnterEventParame playerEnterEventParame) {
-		if (!DateUtils.isSameDate(playerEnterEventParame.lastLoginTime)) {
-			this.resetCDNum(playerEnterEventParame.playerId, CDType.Daily);
+		CDNumPojo cdNumPojo=cdNumCache.getPojo(playerEnterEventParame.playerId);
+		CDNumRet cdNumRet=cdNumPojo.getLogicObj();
+		if (cdNumRet.lastflushTime!=null) {
+			if (!DateUtils.isSameDate(cdNumRet.lastflushTime)) {
+				this.resetCDNum(playerEnterEventParame.playerId, CDType.Daily);
+			}
+			if (!DateUtils.isSameWeek(cdNumRet.lastflushTime)) {
+				this.resetCDNum(playerEnterEventParame.playerId, CDType.Week);
+			}
+			if (!DateUtils.isSameMonth(cdNumRet.lastflushTime)) {
+				this.resetCDNum(playerEnterEventParame.playerId, CDType.Month);
+			}
 		}
-		if (!DateUtils.isSameWeek(playerEnterEventParame.lastLoginTime)) {
-			this.resetCDNum(playerEnterEventParame.playerId, CDType.Week);
-		}
-		if (!DateUtils.isSameMonth(playerEnterEventParame.lastLoginTime)) {
-			this.resetCDNum(playerEnterEventParame.playerId, CDType.Month);
-		}
+		cdNumRet.lastflushTime=new Date();
+		cdNumCache.update(cdNumPojo);
 	}
 	
 	private void resetCDNum(long playerid,int type) {
@@ -104,10 +111,12 @@ public class CDService implements PlayerEnterEvent{
 		cdNumCache.update(cdNumPojo);
 	}
 
+	
+
 	@Override
-	public void doEvent(Object object) {
+	public void doPlayerEnterEvent(PlayerEnterEventParame playerEnterEventParame) {
 		// TODO Auto-generated method stub
-		this.doDataReSet((PlayerEnterEventParame) object);
+		this.doDataReSet(playerEnterEventParame);
 	}
 	
 	

@@ -24,7 +24,7 @@ public interface PlayerEnterEventDef {
 		
 	}
 	
-	public interface PlayerEnterEvent extends GEvent{
-		
+	public interface PlayerEnterEvent {
+		public void doPlayerEnterEvent(PlayerEnterEventParame playerEnterEventParame);
 	}
 }

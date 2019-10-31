@@ -29,12 +29,7 @@ public class UnionCmdService extends TcpCmdService{
 		return CmdType.union;
 	}
 
-	@Override
-	public void doCmdReq(NetPack netPack) {
-		// TODO Auto-generated method stub
-		PlayerInfoPojo playerInfoPojo=playerInfoCache.getPojo(netPack.playerId);
-		PlayerInfo playerInfo=playerInfoPojo.getLogicObj();
-		netPack.unionId=playerInfo.unionId;
+	public void doUnionReq(NetPack netPack) {
 		if (0>=netPack.unionId) {
 			return;
 		}
@@ -52,5 +47,14 @@ public class UnionCmdService extends TcpCmdService{
 			unionTask.runFlag.compareAndSet(true, false);
 		}
 		super.doCmdReq(netPack);
+	}
+	
+	@Override
+	public void doCmdReq(NetPack netPack) {
+		// TODO Auto-generated method stub
+		PlayerInfoPojo playerInfoPojo=playerInfoCache.getPojo(netPack.playerId);
+		PlayerInfo playerInfo=playerInfoPojo.getLogicObj();
+		netPack.unionId=playerInfo.unionId;
+		this.doUnionReq(netPack);
 	}
 }

@@ -26,16 +26,7 @@ public class CardDailyTaskService implements PlayerEnterEvent{
 	@Autowired
 	ApplicationContext applicationContext;
 	
-	@Override
-	public void doEvent(Object object) {
-		// TODO Auto-generated method stub
-		PlayerEnterEventParame playerEnterEventParame=(PlayerEnterEventParame) object;
-		CardPojo cardPojo=cardCache.getPojo(playerEnterEventParame.playerId);
-		CardRet cardRet=cardPojo.getLogicObj();
-		for (Entry<Integer, CardModel>	cardModel:cardRet.cardModels.entrySet()) {
-			
-		}
-	}
+	
 
 	private void doCardTask(CardModel cardModel,int cardId,long playerId) {
 		if (DateUtils.isSameDate(new Date(cardModel.lastExceTime))) {
@@ -56,6 +47,17 @@ public class CardDailyTaskService implements PlayerEnterEvent{
 		for (int i = 0; i < day; i++) {
 			Date date=org.apache.commons.lang3.time.DateUtils.addDays(new Date(cardModel.lastExceTime), i+1);
 			cardDailyTask.doLogic(playerId,DateUtils.getDate0AM(date).getTime());
+		}
+	}
+
+	@Override
+	public void doPlayerEnterEvent(PlayerEnterEventParame playerEnterEventParame) {
+		// TODO Auto-generated method stub
+		//PlayerEnterEventParame playerEnterEventParame=(PlayerEnterEventParame) object;
+		CardPojo cardPojo=cardCache.getPojo(playerEnterEventParame.playerId);
+		CardRet cardRet=cardPojo.getLogicObj();
+		for (Entry<Integer, CardModel>	cardModel:cardRet.cardModels.entrySet()) {
+			
 		}
 	}
 }

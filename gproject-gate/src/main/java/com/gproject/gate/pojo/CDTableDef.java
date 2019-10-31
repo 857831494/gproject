@@ -1,5 +1,6 @@
 package com.gproject.gate.pojo;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ public interface CDTableDef {
 
 	public class CDNumRet {
 		public HashMap<Integer, Integer> map=new HashMap<>();
+		public Date lastflushTime;
 	}
 
 	// 物理表
