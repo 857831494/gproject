@@ -14,7 +14,7 @@
 	<modules>
 	    
 		<module>gproject-gate</module>
-		<module>gproject-match</module>
+		
 		<module>gproject-common</module>
 		<module>gproject-center</module>
 	</modules>
