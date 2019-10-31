@@ -57,9 +57,12 @@ public abstract class GPCache<POJO,LogicModel> implements  IAPPInit {
 	@Autowired
 	ApplicationContext applicationContext;
 	
-	private void initEntityType(InitParame initParame) {
+	private void initEntityType(InitParame initParame) throws Exception {
 		ParameterizedType parameterizedType=(ParameterizedType)this.getClass().getGenericSuperclass();
 		logicModelClass=(Class<LogicModel>) parameterizedType.getActualTypeArguments()[1];
+		if (!AbstractorLogicRet.class.isAssignableFrom(logicModelClass)) {
+			throw new Exception(logicModelClass.getName()+"数据模型没有继承AbstractorLogicRet====");
+		}
 		pojoClass=(Class<POJO>) parameterizedType.getActualTypeArguments()[0];
 	}
 	
@@ -112,7 +115,7 @@ public abstract class GPCache<POJO,LogicModel> implements  IAPPInit {
 	}
 
 	@Override
-	public void init(InitParame initParame) {
+	public void init(InitParame initParame) throws Exception {
 		// TODO Auto-generated method stub
 		initEntityType(initParame);
 		this.THREAD_POOL.scheduleAtFixedRate(()->{

@@ -4,7 +4,7 @@ import com.gproject.common.dto.proto.StatusDTO.StatusCode;
 import com.gproject.common.staticdata.StaticDataDef.ConfigExcel;
 
 
-public class HServerConfig implements ConfigExcel{
+public class HServerConfig extends ConfigExcel{
 
 	public final static int CENTER_SERVER=2;
 	

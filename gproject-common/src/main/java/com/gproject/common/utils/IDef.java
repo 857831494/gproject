@@ -30,7 +30,7 @@ public interface IDef {
 	 *
 	 */
 	public interface IAPPInit{
-		public void	init(InitParame initParame);
+		public void	init(InitParame initParame) throws Exception;
 	}
 	
 	

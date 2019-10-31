@@ -2,7 +2,7 @@ package com.gproject.common.staticdata.excelmodel;
 
 import com.gproject.common.staticdata.StaticDataDef.ConfigExcel;
 
-public class HItemConfig implements ConfigExcel{
+public class HItemConfig extends ConfigExcel{
 
 	public final static long MAX_NUM=99999999;
 	

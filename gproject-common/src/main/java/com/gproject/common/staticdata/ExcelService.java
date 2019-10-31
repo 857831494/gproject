@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,13 +67,19 @@ public  class ExcelService {
 			logger.info(res_url_path+"==========开始加载数据======");
 			String jsonString=HttpUtil.doGet(res_url_path);
 			logger.info(jsonString);
+			if (StringUtils.isBlank(jsonString)) {
+				logger.info(fileName+"获取不到数据=====");
+				return;
+			}
 			ObjectMapper mapper = new ObjectMapper();
 			JavaType jt = mapper.getTypeFactory().constructParametricType(ArrayList.class, 
 					typeName);
 			List list=mapper.readValue(jsonString,jt);
 			HashMap<Integer, Object> datas=new HashMap<>(list.size());
 			for (Object object : list) {
-				int id=((ConfigExcel)object).getId();
+				ConfigExcel configExcel=(ConfigExcel) object;
+				int id=configExcel.getId();
+				configExcel.afterLoad();
 				if (id>0) {
 					datas.put(id, object);
 				}
@@ -112,12 +119,10 @@ public  class ExcelService {
 	}
 	
 	private boolean isConfigExcel(Class class1) {
-		for(Class tClass:class1.getInterfaces()) {
-			if (tClass.getSimpleName().equals(ConfigExcel.class.getSimpleName())) {
-				return true;
-			}
+		if (class1.equals(ConfigExcel.class)) {
+			return false;
 		}
-		return false;
+		return ConfigExcel.class.isAssignableFrom(class1);
 	}
 	
 	public void loadAll() {

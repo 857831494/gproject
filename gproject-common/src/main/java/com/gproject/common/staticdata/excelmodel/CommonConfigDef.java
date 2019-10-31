@@ -13,7 +13,7 @@ public interface CommonConfigDef{
 		int client_version=1;
 	}
 	
-	public class HCommonConfig implements ConfigExcel {
+	public class HCommonConfig extends ConfigExcel {
 
 		public int id;
 		

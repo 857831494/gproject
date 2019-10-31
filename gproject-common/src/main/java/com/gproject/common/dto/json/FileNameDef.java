@@ -19,7 +19,7 @@ public interface FileNameDef{
 	}
 	
 	
-	public class JAVAFileDto extends NotNeedConvert{
+	public class JAVAFileDto {
 
 		public String info;
 	}

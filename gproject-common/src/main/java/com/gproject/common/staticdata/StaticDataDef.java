@@ -18,7 +18,7 @@ public interface StaticDataDef {
 
 	public final static String FILE_PATH = "file";
 
-	final static int SHEET_LEN=1;
+	final static int SHEET_LEN=2;
 	
 	final static String INT_TYPE = "int";
 
@@ -30,8 +30,11 @@ public interface StaticDataDef {
 
 	
 
-	public interface ConfigExcel {
-		int getId() ;
+	public abstract class ConfigExcel {
+		public abstract int getId() ;
+		public void afterLoad() {
+			
+		}
 	}
 
 	public class SheetData {

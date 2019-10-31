@@ -41,6 +41,9 @@ public abstract class AbstratorDBTable {
 	 * @return
 	 */
 	public  <E> E getLogicObj() {
+		if (tempObj instanceof AbstractorLogicRet) {
+			((AbstractorLogicRet)tempObj).beforeGet();
+		}
 		return (E) tempObj;
 	}
 	

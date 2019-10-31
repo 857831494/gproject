@@ -8,7 +8,7 @@ public interface RoomDef {
 		
 	}
 	
-	public class HRoom implements ConfigExcel{
+	public class HRoom extends ConfigExcel{
 
 		public int Id;
 		
