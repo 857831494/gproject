@@ -21,10 +21,8 @@ import com.gproject.common.staticdata.excelmodel.HItemConfig;
 import com.gproject.common.utils.common.GErrorException;
 import com.gproject.gate.cache.AttarCache;
 import com.gproject.gate.cache.BagCache;
-import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
-import com.gproject.gate.pojo.AttarTableDef.AttarRet;
+import com.gproject.gate.pojo.AttarRet;
 import com.gproject.gate.pojo.BagTableDef.BagModel;
-import com.gproject.gate.pojo.BagTableDef.BagPojo;
 import com.gproject.gate.pojo.BagTableDef.BagRet;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
@@ -89,13 +87,13 @@ public class AddItemService {
 	 * @return
 	 */
 	public void canAdd(AddItemOrder itemOrder) {
-		AttarPojo attarPojo = attarCache.getPojo(itemOrder.playerId);
-		BagPojo bagPojo = bagCache.getPojo(itemOrder.playerId);
+		
+		BagRet bagRet = bagCache.getPojo(itemOrder.playerId);
 		HItemConfig hItemConfig = excelService.getById(HItemConfig.class, itemOrder.itemId);
 		long curVal = 0;
 		int maxBag = 200;
-		AttarRet attarRet=attarPojo.getLogicObj();
-		BagRet bagRet=bagPojo.getLogicObj();
+		AttarRet attarRet=attarCache.getPojo(itemOrder.playerId);
+		
 		if (hItemConfig.addHandlerType == AddItemHandlerType.bag) {
 			if (bagRet.bagMap.size() >= maxBag) {
 				// 失败，达到最大数量
@@ -127,8 +125,8 @@ public class AddItemService {
 		//检查背包是否满了
 		//需要占用格子
 	    int bagNum=0;
-		BagPojo bagPojo=bagCache.getPojo(itemOrders.get(0).playerId);
-		BagRet  bagRet= bagPojo.getLogicObj();
+	    BagRet  bagRet=bagCache.getPojo(itemOrders.get(0).playerId);
+	
 		for (AddItemOrder itemOrder : itemOrders) {
 			HItemConfig hItemConfig=excelService.getById(AddItemOrder.class, itemOrder.itemId);
 			if (hItemConfig.addHandlerType==AddItemHandlerType.bag) {

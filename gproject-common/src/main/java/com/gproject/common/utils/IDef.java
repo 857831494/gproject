@@ -33,7 +33,9 @@ public interface IDef {
 		public void	init(InitParame initParame) throws Exception;
 	}
 	
+	public final String GATE_BROCAST_CHANNEL="GATE_BROCAST_CHANNEL";
 	
+	public final String FIGHT_BROCAST_CHANNEL="FIGHT_BROCAST_CHANNEL";
 	
 	
 	

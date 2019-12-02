@@ -1,5 +1,8 @@
 package com.gproject.common.net.http;
 
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -53,7 +56,7 @@ public class APIService {
 	 * 从网关获取数据
 	 * @param serverId
 	 * @param path
-	 * @param req
+	 * @param req 必须是试题对象，不可以是 byte[]
 	 * @return
 	 */
 	public APIRet getGateRet(int serverId,String path,Object req) {
@@ -70,5 +73,49 @@ public class APIService {
 			apiRet.code=TipCode.Fail_VALUE;
 		}
 		return apiRet;
+	}
+	
+	/**
+	 * 直接广播数据到指定网关，广播专用
+	 * @param serverId
+	 * @param path
+	 * @param req
+	 */
+	public void postBytes(int serverId,String path,byte[] req) {
+		try {
+			HServerConfig centerConfig=excelManager.getById(HServerConfig.class, serverId);
+			String ADD_URL="http://"+centerConfig.host+":"+centerConfig.httpPort+path;
+		    //创建连接
+		    URL url = new URL(ADD_URL);
+		    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		    connection.setDoOutput(true);
+		    connection.setDoInput(true);
+		    connection.setRequestMethod("POST");
+		    connection.setUseCaches(false);
+		    connection.setInstanceFollowRedirects(true);
+		    //application/x-javascript 
+		    //text/xml->xml数据 
+		    //application/x-javascript->json对象 
+		    //application/x-www-form-urlencoded->表单数据 
+		    //application/json;charset=utf-8 -> json数据
+		    connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+		    connection.setRequestProperty("accept", "*/*");
+		    connection.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+
+		    connection.connect();
+
+		    //POST请求
+		    DataOutputStream out = new DataOutputStream(connection.getOutputStream()); 
+		    out.write(req);
+		    out.flush();
+		    out.close();
+
+		    // 断开连接
+		    connection.disconnect();
+		} catch (Exception e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		}
+		
 	}
 }

@@ -22,8 +22,10 @@ enum CommandCode{
    C2SEXitUnion=16;//离开公会
    S2SRmCurrentInstanceCode=19;
    S2COffline=20;//服务器呼叫客户端，注销当前账号
-   C2SCreateRoom=21;//创建房间
-   C2SExitRoom=22;//离开房间
-   C2SJoinRoom=23;//加入房间
-   S2CJoinEoom=24;//加入房间
+   C2SCreateRoomCode=21;//创建房间
+   C2SExitRoomCode=22;//离开房间
+   C2SJoinRoomCode=23;//加入房间
+   S2CJoinEoomCode=24;//加入房间
+   GateSend=25;//网关发送数据
+   SendToGate=26;//发往网关数据
 }

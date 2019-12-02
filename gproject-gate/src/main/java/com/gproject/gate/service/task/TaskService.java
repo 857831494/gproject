@@ -22,7 +22,6 @@ import com.gproject.gate.cache.TaskCache;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEventParame;
 import com.gproject.gate.pojo.TaskTableDef.TaskModel;
-import com.gproject.gate.pojo.TaskTableDef.TaskPojo;
 import com.gproject.gate.pojo.TaskTableDef.TaskRet;
 import com.gproject.gate.service.task.TaskDef.CreateTask;
 import com.gproject.gate.service.task.TaskDef.TaskParame;
@@ -83,8 +82,7 @@ public class TaskService implements PlayerEnterEvent{
 		synchronized (lockService.getLock(playerId)) {
 			
 			
-			TaskPojo taskPojo=taskCache.getPojo(playerId);
-			TaskRet taskRet=taskPojo.getLogicObj();
+			TaskRet taskRet=taskCache.getPojo(playerId);
 			
 			tasks.forEach((task)->{
 				this.finishTask(task);
@@ -99,8 +97,8 @@ public class TaskService implements PlayerEnterEvent{
 	 * @param parame
 	 */
 	private boolean finishTask(TaskParame parame) {
-		TaskPojo taskPojo=taskCache.getPojo(parame.playerId);
-		TaskRet taskRet=taskPojo.getLogicObj();
+		TaskRet taskRet=taskCache.getPojo(parame.playerId);
+		
 		TaskModel taskModel=taskRet.taskMap.get(parame.taskId);
 		if (null!=taskModel) {
 			if (taskModel.code==StatusCode.finish) {
@@ -126,7 +124,7 @@ public class TaskService implements PlayerEnterEvent{
 		if (retModel.num>=hTask.num) {
 			retModel.code=StatusCode.finish;
 		}
-		taskCache.update(taskPojo);
+		taskCache.update(taskRet,parame.playerId);
 		return false;
 	}
 
@@ -136,8 +134,8 @@ public class TaskService implements PlayerEnterEvent{
 	public void doPlayerEnterEvent(PlayerEnterEventParame playerEnterEventParame) {
 		// TODO Auto-generated method stub
 		//PlayerEnterEventParame playerEnterEventParame=(PlayerEnterEventParame) object;
-		TaskPojo taskPojo=taskCache.getPojo(playerEnterEventParame.playerId);
-		TaskRet taskRet=taskPojo.getLogicObj();
+		TaskRet taskRet=taskCache.getPojo(playerEnterEventParame.playerId);
+		
 		List<HTask> all_taskList=excelService.getAll(HTask.class);
 		boolean update=false;
 		for (HTask task : all_taskList) {
@@ -157,7 +155,7 @@ public class TaskService implements PlayerEnterEvent{
 				update=true;
 			}
 		}
-		taskCache.update(taskPojo);
+		taskCache.update(taskRet,playerEnterEventParame.playerId);
 	}
 
 	

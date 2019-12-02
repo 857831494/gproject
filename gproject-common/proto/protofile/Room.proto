@@ -15,5 +15,5 @@ message S2CRoomInfo{
 }
 //离开房间
 message C2SExitRoom{
-
+  repeated  bytes data=1;
 }

@@ -1,4 +1,4 @@
-package com.gproject.gate.service;
+package com.gproject.gate.service.common;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +17,6 @@ import com.gproject.common.utils.date.DateUtils;
 import com.gproject.gate.cache.CDNumCache;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEventParame;
-import com.gproject.gate.pojo.CDTableDef.CDNumPojo;
 import com.gproject.gate.pojo.CDTableDef.CDNumRet;
 
 /**
@@ -84,8 +83,8 @@ public class CDService implements PlayerEnterEvent{
 	 * @param playerEnterEventParame
 	 */
 	public void doDataReSet(PlayerEnterEventParame playerEnterEventParame) {
-		CDNumPojo cdNumPojo=cdNumCache.getPojo(playerEnterEventParame.playerId);
-		CDNumRet cdNumRet=cdNumPojo.getLogicObj();
+		CDNumRet cdNumRet=cdNumCache.getPojo(playerEnterEventParame.playerId);
+		
 		if (cdNumRet.lastflushTime!=null) {
 			if (!DateUtils.isSameDate(cdNumRet.lastflushTime)) {
 				this.resetCDNum(playerEnterEventParame.playerId, CDType.Daily);
@@ -98,17 +97,17 @@ public class CDService implements PlayerEnterEvent{
 			}
 		}
 		cdNumRet.lastflushTime=new Date();
-		cdNumCache.update(cdNumPojo);
+		cdNumCache.update(cdNumRet,playerEnterEventParame.playerId);
 	}
 	
 	private void resetCDNum(long playerid,int type) {
 		List<HCDConfig> list=getList(CDType.Daily);
-		CDNumPojo cdNumPojo=cdNumCache.getPojo(playerid);
-		CDNumRet cdNumRet=cdNumPojo.getLogicObj();
+		CDNumRet cdNumRet=cdNumCache.getPojo(playerid);
+	
 		for (HCDConfig hcdConfig : list) {
 			cdNumRet.map.put(hcdConfig.cdId, 0);
 		}
-		cdNumCache.update(cdNumPojo);
+		cdNumCache.update(cdNumRet,playerid);
 	}
 
 	

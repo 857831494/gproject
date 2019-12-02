@@ -6,7 +6,6 @@ import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HItemConfig;
 import com.gproject.gate.cache.BagCache;
 import com.gproject.gate.pojo.BagTableDef.BagModel;
-import com.gproject.gate.pojo.BagTableDef.BagPojo;
 import com.gproject.gate.pojo.BagTableDef.BagRet;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
@@ -30,8 +29,8 @@ public class AddBagHandler implements AddItemHandler{
 	
 	
 	private BagModel getBagModel(AddItemOrder addItemOrder) {
-		BagPojo bagPojo=bagCache.getPojo(addItemOrder.playerId);
-		BagRet bagRet=bagPojo.getLogicObj();
+		BagRet bagRet=bagCache.getPojo(addItemOrder.playerId);
+		
 		for (BagModel bagModel : bagRet.bagMap.values()) {
 			if (bagModel.itemId==addItemOrder.itemId) {
 				return bagModel;
@@ -45,8 +44,8 @@ public class AddBagHandler implements AddItemHandler{
 	 * @param addItemOrder
 	 */
 	private void doUnHasAttar(AddItemOrder addItemOrder) {
-		BagPojo bagPojo=bagCache.getPojo(addItemOrder.playerId);
-		BagRet bagRet=bagPojo.getLogicObj();
+		BagRet bagRet=bagCache.getPojo(addItemOrder.playerId);
+		
 		HItemConfig hItemConfig=excelService.getById(HItemConfig.class, 
 				addItemOrder.itemId);
 		BagModel bagModel=getBagModel(addItemOrder);
@@ -74,14 +73,14 @@ public class AddBagHandler implements AddItemHandler{
 		}
 		bagModel.attarMap=addItemOrder.attarMap;
 		addItemOrder.bagModelId=bagModel.bagId;
-		bagCache.update(bagPojo);
+		bagCache.update(bagRet,addItemOrder.playerId);
 	}
 	
 	@Override
 	public synchronized void add(AddItemOrder addItemOrder) {
-		BagPojo bagPojo=bagCache.getPojo(addItemOrder.playerId);
+		BagRet bagRet=bagCache.getPojo(addItemOrder.playerId);
 		// TODO Auto-generated method stub
-		BagRet bagRet=bagPojo.getLogicObj();
+		
 		//检查背包是否满了
 		if (bagRet.bagMap.size()>max_bag) {
 			return;

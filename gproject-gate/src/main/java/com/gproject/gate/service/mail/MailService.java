@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.gproject.gate.cache.MailCache;
 import com.gproject.gate.pojo.MailTableDef.MailModel;
-import com.gproject.gate.pojo.MailTableDef.MailPojo;
 import com.gproject.gate.pojo.MailTableDef.MailRet;
 import com.gproject.gate.service.item.AddItemService;
 import com.gproject.gate.service.item.model.AddItemOrder;
@@ -37,8 +36,8 @@ public class MailService {
 		}
 		int maxDay=10;
 		// 处理逻辑
-		MailPojo mailPojo=mailCache.getPojo(addItemOrder.playerId);
-		MailRet mailRet=mailPojo.getLogicObj();
+		MailRet mailRet=mailCache.getPojo(addItemOrder.playerId);
+		
 		long createTime=System.currentTimeMillis();
 		if (addItemOrder.mailTime>0) {
 			createTime=addItemOrder.mailTime;
@@ -54,7 +53,7 @@ public class MailService {
 		//加itemid
 		mailModel.addItemOrder=addItemOrder;
 		mailRet.list.add(mailModel);
-		mailCache.update(mailPojo);
+		mailCache.update(mailRet,addItemOrder.playerId);
 	}
 
 	/**
@@ -74,8 +73,8 @@ public class MailService {
 		}
 		int maxDay=10;
 		// 处理逻辑
-		MailPojo mailPojo=mailCache.getPojo(list.get(0).playerId);
-		MailRet mailRet=mailPojo.getLogicObj();
+		MailRet mailRet=mailCache.getPojo(list.get(0).playerId);
+		
 		long createTime=System.currentTimeMillis();
 		if (list.get(0).mailTime>0) {
 			createTime=list.get(0).mailTime;
@@ -91,7 +90,7 @@ public class MailService {
 		//加itemid
 		mailModel.addItemOrderLst=list;
 		mailRet.list.add(mailModel);
-		mailCache.update(mailPojo);
+		mailCache.update(mailRet,list.get(0).playerId);
 	}
 	
 	
@@ -101,8 +100,8 @@ public class MailService {
 	 */
 	public void receiveAttachment(long playerId,int mailId) {
 		//小心抛出错误码
-		MailPojo mailPojo=mailCache.getPojo(playerId);
-		MailRet mailRet=mailPojo.getLogicObj();
+		MailRet mailRet=mailCache.getPojo(playerId);
+		
 		MailModel mailModel=mailRet.getMailModel(mailId);
 		//检查邮件是否可以加到属性，或者背包
 		if (mailModel.addItemOrder!=null) {

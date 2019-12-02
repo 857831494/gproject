@@ -144,6 +144,54 @@ public final class CommandCodeDTO {
      * </pre>
      */
     S2COffline(17, 20),
+    /**
+     * <code>C2SCreateRoomCode = 21;</code>
+     *
+     * <pre>
+     *创建房间
+     * </pre>
+     */
+    C2SCreateRoomCode(18, 21),
+    /**
+     * <code>C2SExitRoomCode = 22;</code>
+     *
+     * <pre>
+     *离开房间
+     * </pre>
+     */
+    C2SExitRoomCode(19, 22),
+    /**
+     * <code>C2SJoinRoomCode = 23;</code>
+     *
+     * <pre>
+     *加入房间
+     * </pre>
+     */
+    C2SJoinRoomCode(20, 23),
+    /**
+     * <code>S2CJoinEoomCode = 24;</code>
+     *
+     * <pre>
+     *加入房间
+     * </pre>
+     */
+    S2CJoinEoomCode(21, 24),
+    /**
+     * <code>GateSend = 25;</code>
+     *
+     * <pre>
+     *网关发送数据
+     * </pre>
+     */
+    GateSend(22, 25),
+    /**
+     * <code>SendToGate = 26;</code>
+     *
+     * <pre>
+     *发往网关数据
+     * </pre>
+     */
+    SendToGate(23, 26),
     ;
 
     /**
@@ -277,6 +325,54 @@ public final class CommandCodeDTO {
      * </pre>
      */
     public static final int S2COffline_VALUE = 20;
+    /**
+     * <code>C2SCreateRoomCode = 21;</code>
+     *
+     * <pre>
+     *创建房间
+     * </pre>
+     */
+    public static final int C2SCreateRoomCode_VALUE = 21;
+    /**
+     * <code>C2SExitRoomCode = 22;</code>
+     *
+     * <pre>
+     *离开房间
+     * </pre>
+     */
+    public static final int C2SExitRoomCode_VALUE = 22;
+    /**
+     * <code>C2SJoinRoomCode = 23;</code>
+     *
+     * <pre>
+     *加入房间
+     * </pre>
+     */
+    public static final int C2SJoinRoomCode_VALUE = 23;
+    /**
+     * <code>S2CJoinEoomCode = 24;</code>
+     *
+     * <pre>
+     *加入房间
+     * </pre>
+     */
+    public static final int S2CJoinEoomCode_VALUE = 24;
+    /**
+     * <code>GateSend = 25;</code>
+     *
+     * <pre>
+     *网关发送数据
+     * </pre>
+     */
+    public static final int GateSend_VALUE = 25;
+    /**
+     * <code>SendToGate = 26;</code>
+     *
+     * <pre>
+     *发往网关数据
+     * </pre>
+     */
+    public static final int SendToGate_VALUE = 26;
 
 
     public final int getNumber() { return value; }
@@ -301,6 +397,12 @@ public final class CommandCodeDTO {
         case 16: return C2SEXitUnion;
         case 19: return S2SRmCurrentInstanceCode;
         case 20: return S2COffline;
+        case 21: return C2SCreateRoomCode;
+        case 22: return C2SExitRoomCode;
+        case 23: return C2SJoinRoomCode;
+        case 24: return S2CJoinEoomCode;
+        case 25: return GateSend;
+        case 26: return SendToGate;
         default: return null;
       }
     }
@@ -361,7 +463,7 @@ public final class CommandCodeDTO {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021CommandCode.proto\022\003gsp*\346\002\n\013CommandCode" +
+      "\n\021CommandCode.proto\022\003gsp*\332\003\n\013CommandCode" +
       "\022\020\n\014C2SLoginCode\020\001\022\014\n\010C2SHeart\020\002\022\021\n\rC2SE" +
       "nterWorld\020\003\022\025\n\021C2SCreateRoleCode\020\004\022\022\n\016C2" +
       "SGetRankData\020\005\022\021\n\rS2CBrocastAll\020\006\022\025\n\021S2C" +
@@ -370,8 +472,11 @@ public final class CommandCodeDTO {
       "t\020\013\022\021\n\rC2SGetAllRole\020\014\022\r\n\tS2SReload\020\r\022\027\n" +
       "\023S2SEnterFightServer\020\016\022\021\n\rC2SEnterUnion\020" +
       "\017\022\020\n\014C2SEXitUnion\020\020\022\034\n\030S2SRmCurrentInsta" +
-      "nceCode\020\023\022\016\n\nS2COffline\020\024B/\n\035com.gprojec",
-      "t.common.dto.protoB\016CommandCodeDTO"
+      "nceCode\020\023\022\016\n\nS2COffline\020\024\022\025\n\021C2SCreateRo",
+      "omCode\020\025\022\023\n\017C2SExitRoomCode\020\026\022\023\n\017C2SJoin" +
+      "RoomCode\020\027\022\023\n\017S2CJoinEoomCode\020\030\022\014\n\010GateS" +
+      "end\020\031\022\016\n\nSendToGate\020\032B/\n\035com.gproject.co" +
+      "mmon.dto.protoB\016CommandCodeDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

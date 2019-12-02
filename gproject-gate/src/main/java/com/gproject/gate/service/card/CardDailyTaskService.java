@@ -12,7 +12,6 @@ import com.gproject.gate.cache.CardCache;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEventParame;
 import com.gproject.gate.pojo.CardTableDef.CardModel;
-import com.gproject.gate.pojo.CardTableDef.CardPojo;
 import com.gproject.gate.pojo.CardTableDef.CardRet;
 import com.gproject.gate.service.card.CardTypeDef.CardDailyTask;
 
@@ -54,8 +53,8 @@ public class CardDailyTaskService implements PlayerEnterEvent{
 	public void doPlayerEnterEvent(PlayerEnterEventParame playerEnterEventParame) {
 		// TODO Auto-generated method stub
 		//PlayerEnterEventParame playerEnterEventParame=(PlayerEnterEventParame) object;
-		CardPojo cardPojo=cardCache.getPojo(playerEnterEventParame.playerId);
-		CardRet cardRet=cardPojo.getLogicObj();
+		CardRet cardRet=cardCache.getPojo(playerEnterEventParame.playerId);
+		
 		for (Entry<Integer, CardModel>	cardModel:cardRet.cardModels.entrySet()) {
 			
 		}

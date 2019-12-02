@@ -2,14 +2,8 @@ package com.gproject.gate.pojo;
 
 import java.util.HashMap;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
 
-
-import com.gproject.common.db.AbstratorDBTable;
-import com.gproject.common.utils.common.JSONUtil;
+import com.gproject.common.db.AbstractorLogicRet;
 
 public interface BagTableDef {
 
@@ -32,7 +26,7 @@ public interface BagTableDef {
 		
 	}
 	
-	public class BagRet{
+	public class BagRet extends AbstractorLogicRet{
 		public int curId;
 		public HashMap<Integer, BagModel> bagMap=new HashMap<>();
 		
@@ -46,39 +40,5 @@ public interface BagTableDef {
 		}
 	}
 	
-	//物理表
-	@Entity(name = "tb_bag")
-	public class BagPojo extends AbstratorDBTable{
-		@Id
-		public long playerId;
-		
-		@Column(columnDefinition = "text")
-		String logicData;
-
-		@Override
-		public void setLogicDataStr(String logicData) {
-			// TODO Auto-generated method stub
-			this.logicData=logicData;
-		}
-
-		@Override
-		public String getLogicDataStr() {
-			// TODO Auto-generated method stub
-			return logicData;
-		}
-
-		@Override
-		public void setID(Object ID) {
-			// TODO Auto-generated method stub
-			this.playerId=(long) ID;
-		}
-
-		@Override
-		public Object getID() {
-			// TODO Auto-generated method stub
-			return playerId;
-		}
-		
-		
-	}
+	
 }

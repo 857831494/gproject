@@ -5,12 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
 
-import com.gproject.common.db.AbstratorDBTable;
+import com.gproject.common.db.AbstractorLogicRet;
 import com.gproject.common.dto.proto.StatusDTO.StatusCode;
 import com.gproject.common.utils.common.JSONUtil;
 
@@ -32,45 +28,11 @@ public interface TaskTableDef {
 		
 	}
 
-	public class TaskRet {
+	public class TaskRet extends AbstractorLogicRet{
 		public Map<Integer, TaskModel> taskMap=new HashMap<>();
 		
 		
 	}
 
-	// 物理表
-	@Entity(name = "tb_task")
-	public class TaskPojo extends AbstratorDBTable {
-		@Id
-		public long playerId;
-
-		@Column(columnDefinition = "text")
-		String logicData;
-
-		@Override
-		public void setLogicDataStr(String logicData) {
-			// TODO Auto-generated method stub
-			this.logicData=logicData;
-		}
-
-		@Override
-		public String getLogicDataStr() {
-			// TODO Auto-generated method stub
-			return logicData;
-		}
-
-		@Override
-		public void setID(Object ID) {
-			// TODO Auto-generated method stub
-			this.playerId=(long) ID;
-		}
-
-		@Override
-		public Object getID() {
-			// TODO Auto-generated method stub
-			return playerId;
-		}
-
-		
-	}
+	
 }

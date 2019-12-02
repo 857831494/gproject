@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import com.gproject.common.utils.date.DateUtils;
 import com.gproject.gate.cache.CardCache;
 import com.gproject.gate.pojo.CardTableDef.CardModel;
-import com.gproject.gate.pojo.CardTableDef.CardPojo;
 import com.gproject.gate.pojo.CardTableDef.CardRet;
 import com.gproject.gate.service.card.CardTypeDef;
 import com.gproject.gate.service.card.CardTypeDef.CardDailyTask;
@@ -30,8 +29,7 @@ public class CardHandler implements AddItemHandler{
 	@Override
 	public void add(AddItemOrder addItemOrder) {
 		// TODO Auto-generated method stub
-		CardPojo cardPojo=cardDAO.getPojo(addItemOrder.playerId);
-		CardRet cardRet=cardPojo.getLogicObj();
+		CardRet cardRet=cardDAO.getPojo(addItemOrder.playerId);
 		CardModel cardModel=cardRet.cardModels.get(addItemOrder.itemId);
 		addItemOrder.successVal=addItemOrder.addVal;
 		addItemOrder.canShow=false;
@@ -56,6 +54,6 @@ public class CardHandler implements AddItemHandler{
 		}
 		cardRet.cardModels.put(addItemOrder.itemId, cardModel);
 		addItemOrder.lastVal=(cardModel.expireTime-System.currentTimeMillis())/1000;
-		cardDAO.update(cardPojo);
+		cardDAO.update(cardRet,addItemOrder.playerId);
 	}
 }

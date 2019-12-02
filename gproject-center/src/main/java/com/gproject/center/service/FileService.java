@@ -39,19 +39,7 @@ public class FileService {
 
 	static Logger logger = LoggerFactory.getLogger(FileService.class);
 
-	private void writeFile(File file, String content) {
-		try {
-			FileOutputStream fos = new FileOutputStream(file);
-			OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
-			osw.write(content);
-			osw.flush();
-		} catch (Exception e) {
-			// TODO: handle exception
-			logger.error("写入json报错========");
-			logger.error(ExceptionUtils.getStackTrace(e));
-		}
-
-	}
+	
 
 	private String getFilePath() {
 		//优先检查
@@ -135,11 +123,11 @@ public class FileService {
 		File json=new File(basePath+EXCEL_PATH+sheetData.fileName+".json");
 		String content=mapper.writeValueAsString(sheetData.dataMap);
 		if (!json.exists()) {
-			writeFile(json, content);
+			PathUtil.writeFile(json, content);
 		}else {
 			json.delete();
 			json.createNewFile();
-			writeFile(json, content);
+			PathUtil.writeFile(json, content);
 		}
 		hashSet.add(sheetData.fileName);
 		logger.info("json文件写入成功=========="+sheetData.fileName);

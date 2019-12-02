@@ -16,6 +16,7 @@ public interface CMDDef {
 	public class TcpParame{
 		public long playerId;
 		public byte[] netPack;
+		public int serverId;
 	}
 	
 	public class CDModel{

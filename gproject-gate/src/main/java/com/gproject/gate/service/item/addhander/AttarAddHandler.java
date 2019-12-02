@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import com.gproject.common.staticdata.ExcelService;
 import com.gproject.common.staticdata.excelmodel.HItemConfig;
 import com.gproject.gate.cache.AttarCache;
-import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
-import com.gproject.gate.pojo.AttarTableDef.AttarRet;
+import com.gproject.gate.pojo.AttarRet;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.AddItemHandler;
 import com.gproject.gate.service.item.ItemDef.AddItemHandlerType;
@@ -28,8 +27,8 @@ public class AttarAddHandler implements AddItemHandler{
 	@Override
 	public synchronized void add(AddItemOrder addItemOrder) {
 		// TODO Auto-generated method stub
-		AttarPojo attarPojo=attarDAO.getPojo(addItemOrder.playerId);
-		AttarRet attarRet=attarPojo.getLogicObj();
+		AttarRet attarRet=attarDAO.getPojo(addItemOrder.playerId);
+		
 		HItemConfig hItemConfig=excelService.getById(HItemConfig.class, addItemOrder.itemId);
 		Long curVal=attarRet.attarMap.get(hItemConfig.itemId);
 		if (curVal==null) {
@@ -52,7 +51,7 @@ public class AttarAddHandler implements AddItemHandler{
 			addItemOrder.lastVal=curVal;
 		}
 		attarRet.attarMap.put(addItemOrder.itemId, curVal);
-		attarDAO.update(attarPojo);
+		attarDAO.update(attarRet,addItemOrder.playerId);
 	}
 
 	

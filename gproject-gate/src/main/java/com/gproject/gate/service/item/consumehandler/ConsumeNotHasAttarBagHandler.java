@@ -5,9 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.gproject.gate.cache.AttarCache;
 import com.gproject.gate.cache.BagCache;
-import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
 import com.gproject.gate.pojo.BagTableDef.BagModel;
-import com.gproject.gate.pojo.BagTableDef.BagPojo;
 import com.gproject.gate.pojo.BagTableDef.BagRet;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.ConsumeItemHandler;
@@ -27,8 +25,8 @@ public class ConsumeNotHasAttarBagHandler implements ConsumeItemHandler{
 	
 	@Override
 	public boolean consume(ConsumeOrder consumeOrder) {
-		BagPojo attarPojo=bagCache.getPojo(consumeOrder.playerId);
-		BagRet bagRet=attarPojo.getLogicObj();
+		BagRet bagRet=bagCache.getPojo(consumeOrder.playerId);
+		
 		BagModel bagModel=bagRet.bagMap.get(consumeOrder.bagModelId);
 		if (bagModel==null) {
 			return false;
@@ -40,7 +38,7 @@ public class ConsumeNotHasAttarBagHandler implements ConsumeItemHandler{
 		if (0>=bagModel.num) {
 			bagRet.bagMap.remove(consumeOrder.bagModelId);
 		}
-		bagCache.update(attarPojo);
+		bagCache.update(bagRet,consumeOrder.playerId);
 		return true;
 	}
 

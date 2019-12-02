@@ -1,0 +1,222 @@
+2019-11-01 14:32:05.688 [main] INFO  com.gproject.center.CenterBoot - Starting CenterBoot on YW-01B-0535 with PID 6648 (E:\cai-code\git\gproject\gproject-center\target\classes started by YW1825 in E:\cai-code\git\gproject\gproject-center)
+2019-11-01 14:32:05.741 [main] INFO  com.gproject.center.CenterBoot - No active profile set, falling back to default profiles: default
+2019-11-01 14:32:05.861 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@43195e57: startup date [Fri Nov 01 14:32:05 CST 2019]; root of context hierarchy
+2019-11-01 14:32:08.268 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$63f1476e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-01 14:32:08.314 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.alicp.jetcache.anno.config.JetCacheProxyConfiguration' of type [com.alicp.jetcache.anno.config.JetCacheProxyConfiguration$$EnhancerBySpringCGLIB$$70590a85] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-01 14:32:08.896 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-11-01 14:32:08.922 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-11-01 14:32:08.943 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-11-01 14:32:08.944 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-11-01 14:32:08.954 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_141\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_141/bin/server;C:/Program Files/Java/jre1.8.0_141/bin;C:/Program Files/Java/jre1.8.0_141/lib/amd64;D:\Program Files\x6\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_141\bin;C:\Program Files\Java\jdk1.8.0_141\jre\bin;C:\Program Files\TortoiseGit\bin;C:\Users\YW1825\AppData\Local\BypassRuntm;E:\BaiduNetdiskDownload\spring-tool-suite-4-4.2.1.RELEASE-e4.11.0-win32.win32.x86_64\sts-4.2.1.RELEASE;;.]
+2019-11-01 14:32:09.112 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-11-01 14:32:09.112 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3254 ms
+2019-11-01 14:32:09.190 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-11-01 14:32:09.201 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-11-01 14:32:09.201 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-11-01 14:32:09.201 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-11-01 14:32:09.202 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-11-01 14:32:09.381 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-11-01 14:32:09.642 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-11-01 14:32:09.686 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-11-01 14:32:09.709 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-11-01 14:32:09.828 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.17.Final}
+2019-11-01 14:32:09.830 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-11-01 14:32:09.909 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-11-01 14:32:10.128 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-11-01 14:32:10.709 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-11-01 14:32:11.142 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-11-01 14:32:11.419 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@43195e57: startup date [Fri Nov 01 14:32:05 CST 2019]; root of context hierarchy
+2019-11-01 14:32:11.429 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in APIRetAdvice
+2019-11-01 14:32:11.469 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-01 14:32:11.516 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/reload]}" onto public void com.gproject.center.control.GMControl.reload(java.lang.String) throws java.lang.Exception
+2019-11-01 14:32:11.517 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getServers]}" onto public com.gproject.common.dto.json.ServersResp com.gproject.center.control.GMControl.getServers()
+2019-11-01 14:32:11.517 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getJavaFile]}" onto public java.lang.String com.gproject.center.control.GMControl.getJavaFile(java.lang.String)
+2019-11-01 14:32:11.518 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getFiles]}" onto public com.gproject.common.dto.json.FileNameDef$FileNameDto com.gproject.center.control.GMControl.getFiles()
+2019-11-01 14:32:11.518 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/getToken]}" onto public com.gproject.common.dto.json.GMLoginDTO$GMLoginResp com.gproject.center.control.GMControl.getToken(com.gproject.common.dto.json.GMLoginDTO$GMLoginReq)
+2019-11-01 14:32:11.518 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/uploadExcel]}" onto public boolean com.gproject.center.control.GMControl.uploadExcel(java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2019-11-01 14:32:11.519 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getRoles]}" onto public byte[] com.gproject.center.control.PlayerInitControl.getRoles(byte[])
+2019-11-01 14:32:11.519 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/cai]}" onto public void com.gproject.center.control.PlayerInitControl.doTest() throws java.lang.Exception
+2019-11-01 14:32:11.522 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-11-01 14:32:11.523 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-11-01 14:32:11.562 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-11-01 14:32:11.562 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-11-01 14:32:11.587 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in APIRetAdvice
+2019-11-01 14:32:11.592 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in APIRetAdvice
+2019-11-01 14:32:11.641 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-11-01 14:32:11.808 [main] INFO  c.a.jetcache.autoconfigure.AbstractCacheAutoInit - init cache area default , type= linkedhashmap
+2019-11-01 14:32:11.865 [main] INFO  c.a.jetcache.support.DefaultCacheMonitorManager - cache stat period at 15 MINUTES
+2019-11-01 14:32:12.239 [main] INFO  o.s.w.s.server.standard.ServerEndpointExporter - Registering @ServerEndpoint class: class com.gproject.center.service.rpc.GWebSocket
+2019-11-01 14:32:12.252 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-11-01 14:32:12.255 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-11-01 14:32:12.261 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-11-01 14:32:12.275 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-11-01 14:32:12.287 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-11-01 14:32:12.317 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-11-01 14:32:12.322 [main] INFO  com.gproject.center.CenterBoot - Started CenterBoot in 7.196 seconds (JVM running for 7.622)
+2019-11-01 14:32:12.412 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HCommonConfig.json==========开始加载数据======
+2019-11-01 14:32:12.527 [http-nio-9090-exec-3] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-11-01 14:32:12.528 [http-nio-9090-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-11-01 14:32:12.553 [http-nio-9090-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2019-11-01 14:32:12.621 [main] INFO  com.gproject.common.staticdata.ExcelService - [{"id":1,"val":"1.0.0","remark":"客户端版本"}]
+2019-11-01 14:32:12.690 [main] INFO  com.gproject.common.staticdata.ExcelService - HCommonConfig数据加载成功
+2019-11-01 14:32:12.690 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HItemConfig.json==========开始加载数据======
+2019-11-01 14:32:12.928 [main] INFO  com.gproject.common.staticdata.ExcelService - null
+2019-11-01 14:32:12.928 [main] INFO  com.gproject.common.staticdata.ExcelService - HItemConfig获取不到数据=====
+2019-11-01 14:32:12.929 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HServerConfig.json==========开始加载数据======
+2019-11-01 14:32:12.936 [main] INFO  com.gproject.common.staticdata.ExcelService - [
+{"logicId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"天下无贼"},
+{"logicId":2,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"钢铁天下"}
+]
+2019-11-01 14:32:12.944 [main] INFO  com.gproject.common.staticdata.ExcelService - HServerConfig数据加载成功
+2019-11-01 14:32:12.944 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HRoom.json==========开始加载数据======
+2019-11-01 14:32:12.952 [main] INFO  com.gproject.common.staticdata.ExcelService - null
+2019-11-01 14:32:12.952 [main] INFO  com.gproject.common.staticdata.ExcelService - HRoom获取不到数据=====
+2019-11-01 14:32:12.965 [main] INFO  com.gproject.common.config.AppinitHandler - 执行完毕启动类==================
+2019-11-01 14:38:02.786 [http-nio-9090-exec-9] INFO  com.gproject.center.service.rpc.GWebSocket - 区服开始连接========sss
+2019-11-01 14:38:10.934 [http-nio-9090-exec-5] INFO  com.gproject.center.service.rpc.GWebSocket - 服务器下线============0
+2019-11-01 15:40:22.326 [main] INFO  com.gproject.center.CenterBoot - Starting CenterBoot on YW-01B-0535 with PID 8908 (E:\cai-code\git\gproject\gproject-center\target\classes started by YW1825 in E:\cai-code\git\gproject\gproject-center)
+2019-11-01 15:40:22.329 [main] INFO  com.gproject.center.CenterBoot - No active profile set, falling back to default profiles: default
+2019-11-01 15:40:22.409 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@795cd85e: startup date [Fri Nov 01 15:40:22 CST 2019]; root of context hierarchy
+2019-11-01 15:40:23.745 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$faf1a318] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-01 15:40:23.785 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.alicp.jetcache.anno.config.JetCacheProxyConfiguration' of type [com.alicp.jetcache.anno.config.JetCacheProxyConfiguration$$EnhancerBySpringCGLIB$$759662f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-01 15:40:24.319 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+2019-11-01 15:40:24.347 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2019-11-01 15:40:24.369 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-11-01 15:40:24.370 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-11-01 15:40:24.409 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_141\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_141/bin/server;C:/Program Files/Java/jre1.8.0_141/bin;C:/Program Files/Java/jre1.8.0_141/lib/amd64;D:\Program Files\x6\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_141\bin;C:\Program Files\Java\jdk1.8.0_141\jre\bin;C:\Program Files\TortoiseGit\bin;C:\Users\YW1825\AppData\Local\BypassRuntm;E:\BaiduNetdiskDownload\spring-tool-suite-4-4.2.1.RELEASE-e4.11.0-win32.win32.x86_64\sts-4.2.1.RELEASE;;.]
+2019-11-01 15:40:24.750 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-11-01 15:40:24.751 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2343 ms
+2019-11-01 15:40:24.848 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2019-11-01 15:40:24.853 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-11-01 15:40:24.853 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-11-01 15:40:24.853 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-11-01 15:40:24.853 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-11-01 15:40:25.029 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-11-01 15:40:25.247 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-11-01 15:40:25.290 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-11-01 15:40:25.307 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-11-01 15:40:25.395 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.17.Final}
+2019-11-01 15:40:25.397 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-11-01 15:40:25.446 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-11-01 15:40:25.644 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-11-01 15:40:26.221 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-11-01 15:40:26.697 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-11-01 15:40:26.945 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@795cd85e: startup date [Fri Nov 01 15:40:22 CST 2019]; root of context hierarchy
+2019-11-01 15:40:26.954 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in APIRetAdvice
+2019-11-01 15:40:26.993 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-01 15:40:27.029 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/reload]}" onto public void com.gproject.center.control.GMControl.reload(java.lang.String) throws java.lang.Exception
+2019-11-01 15:40:27.030 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getServers]}" onto public com.gproject.common.dto.json.ServersResp com.gproject.center.control.GMControl.getServers()
+2019-11-01 15:40:27.030 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getJavaFile]}" onto public java.lang.String com.gproject.center.control.GMControl.getJavaFile(java.lang.String)
+2019-11-01 15:40:27.030 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getFiles]}" onto public com.gproject.common.dto.json.FileNameDef$FileNameDto com.gproject.center.control.GMControl.getFiles()
+2019-11-01 15:40:27.031 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/getToken]}" onto public com.gproject.common.dto.json.GMLoginDTO$GMLoginResp com.gproject.center.control.GMControl.getToken(com.gproject.common.dto.json.GMLoginDTO$GMLoginReq)
+2019-11-01 15:40:27.031 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/uploadExcel]}" onto public boolean com.gproject.center.control.GMControl.uploadExcel(java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2019-11-01 15:40:27.031 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/auth/getRoles]}" onto public byte[] com.gproject.center.control.PlayerInitControl.getRoles(byte[])
+2019-11-01 15:40:27.032 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/cai]}" onto public void com.gproject.center.control.PlayerInitControl.doTest() throws java.lang.Exception
+2019-11-01 15:40:27.034 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-11-01 15:40:27.035 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-11-01 15:40:27.070 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-11-01 15:40:27.070 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-11-01 15:40:27.087 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in APIRetAdvice
+2019-11-01 15:40:27.087 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in APIRetAdvice
+2019-11-01 15:40:27.131 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-11-01 15:40:27.216 [main] INFO  c.a.jetcache.autoconfigure.AbstractCacheAutoInit - init cache area default , type= linkedhashmap
+2019-11-01 15:40:27.238 [main] INFO  c.a.jetcache.support.DefaultCacheMonitorManager - cache stat period at 15 MINUTES
+2019-11-01 15:40:27.474 [main] INFO  o.s.w.s.server.standard.ServerEndpointExporter - Registering @ServerEndpoint class: class com.gproject.center.service.rpc.GWebSocket
+2019-11-01 15:40:27.486 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-11-01 15:40:27.488 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-11-01 15:40:27.493 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2019-11-01 15:40:27.503 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2019-11-01 15:40:27.513 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-11-01 15:40:27.572 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+2019-11-01 15:40:27.575 [main] INFO  com.gproject.center.CenterBoot - Started CenterBoot in 5.725 seconds (JVM running for 6.301)
+2019-11-01 15:40:27.658 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HCommonConfig.json==========开始加载数据======
+2019-11-01 15:40:27.727 [http-nio-9090-exec-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-11-01 15:40:27.727 [http-nio-9090-exec-5] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-11-01 15:40:27.752 [http-nio-9090-exec-5] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2019-11-01 15:40:27.830 [main] INFO  com.gproject.common.staticdata.ExcelService - [{"id":1,"val":"1.0.0","remark":"客户端版本"}]
+2019-11-01 15:40:27.886 [main] INFO  com.gproject.common.staticdata.ExcelService - HCommonConfig数据加载成功
+2019-11-01 15:40:27.887 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HItemConfig.json==========开始加载数据======
+2019-11-01 15:40:28.227 [main] INFO  com.gproject.common.staticdata.ExcelService - null
+2019-11-01 15:40:28.227 [main] INFO  com.gproject.common.staticdata.ExcelService - HItemConfig获取不到数据=====
+2019-11-01 15:40:28.228 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HServerConfig.json==========开始加载数据======
+2019-11-01 15:40:28.237 [main] INFO  com.gproject.common.staticdata.ExcelService - [
+{"logicId":1,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"天下无贼"},
+{"logicId":2,"tcpPort":0,"httpPort":9090,"host":"127.0.0.1","name":"钢铁天下"}
+]
+2019-11-01 15:40:28.245 [main] INFO  com.gproject.common.staticdata.ExcelService - HServerConfig数据加载成功
+2019-11-01 15:40:28.245 [main] INFO  com.gproject.common.staticdata.ExcelService - http://127.0.0.1:9090/excel/HRoom.json==========开始加载数据======
+2019-11-01 15:40:28.266 [main] INFO  com.gproject.common.staticdata.ExcelService - null
+2019-11-01 15:40:28.266 [main] INFO  com.gproject.common.staticdata.ExcelService - HRoom获取不到数据=====
+2019-11-01 15:40:28.283 [main] INFO  com.gproject.common.config.AppinitHandler - 执行完毕启动类==================
+2019-11-01 15:41:26.089 [http-nio-9090-exec-10] INFO  com.gproject.common.net.rpc.GRPCWebSocket - 区服开始连接========ssccc
+2019-11-01 15:41:26.090 [http-nio-9090-exec-10] INFO  com.gproject.common.net.rpc.GRPCWebSocket - 服务器发生错误============0
+2019-11-01 15:41:26.092 [http-nio-9090-exec-10] INFO  com.gproject.common.net.rpc.GRPCWebSocket - 服务器下线============0
+2019-11-01 15:45:00.252 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 15:40:27,231 to 2019-11-01 15:45:00,247
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 16:00:01.218 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 15:45:00,247 to 2019-11-01 16:00:01,217
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 16:15:02.970 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 16:00:01,217 to 2019-11-01 16:15:02,970
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 16:30:02.484 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 16:15:02,970 to 2019-11-01 16:30:02,484
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 16:45:15.616 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 16:30:02,484 to 2019-11-01 16:45:15,615
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 17:00:15.953 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 16:45:15,615 to 2019-11-01 17:00:15,953
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 17:15:15.664 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 17:00:15,953 to 2019-11-01 17:15:15,664
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 17:29:59.817 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 17:15:15,664 to 2019-11-01 17:29:59,816
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 17:45:00.397 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 17:29:59,816 to 2019-11-01 17:45:00,396
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 18:00:01.370 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 17:45:00,396 to 2019-11-01 18:00:01,370
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 18:15:02.345 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 18:00:01,370 to 2019-11-01 18:15:02,344
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 18:30:01.171 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 18:15:02,344 to 2019-11-01 18:30:01,170
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+
+2019-11-01 18:45:16.215 [JetCacheDefaultExecutor] INFO  com.alicp.jetcache.support.StatInfoLogger - jetcache stat from 2019-11-01 18:30:01,170 to 2019-11-01 18:45:16,214
+cache|       qps|   rate|           get|           hit|          fail|        expire|avgLoadTime|maxLoadTime
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+-----+----------+-------+--------------+--------------+--------------+--------------+-----------+-----------
+

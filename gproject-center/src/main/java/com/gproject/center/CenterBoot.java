@@ -13,7 +13,8 @@ import com.gproject.common.config.AppinitHandler;
 import com.gproject.common.utils.IDef;
 
 
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class,
+		HibernateJpaAutoConfiguration.class})
 @ComponentScan(IDef.ROOT_PACKAGE)
 @EnableMethodCache(basePackages = IDef.ROOT_PACKAGE) 
 @EnableCreateCacheAnnotation

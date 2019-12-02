@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.gproject.gate.cache.AttarCache;
-import com.gproject.gate.pojo.AttarTableDef.AttarPojo;
-import com.gproject.gate.pojo.AttarTableDef.AttarRet;
+import com.gproject.gate.pojo.AttarRet;
 import com.gproject.gate.service.item.ItemDef;
 import com.gproject.gate.service.item.ItemDef.ConsumeItemHandler;
 import com.gproject.gate.service.item.model.ConsumeOrder;
@@ -24,8 +23,8 @@ public class ConsumeAttarHandler implements ConsumeItemHandler{
 	
 	@Override
 	public boolean consume(ConsumeOrder consumeOrder) {
-		AttarPojo attarPojo=attarCache.getPojo(consumeOrder.playerId);
-		AttarRet attarRet=attarPojo.getLogicObj();
+		AttarRet attarRet=attarCache.getPojo(consumeOrder.playerId);
+		
 		Long curVal=attarRet.getVal(consumeOrder.itemId);
 		if (curVal==null) {
 			return false;
@@ -35,7 +34,7 @@ public class ConsumeAttarHandler implements ConsumeItemHandler{
 		}
 		curVal-=consumeOrder.consumeVal;
 		attarRet.attarMap.put(consumeOrder.itemId, curVal);
-		attarCache.update(attarPojo);
+		attarCache.update(attarRet,consumeOrder.playerId);
 		return true;
 	}
 

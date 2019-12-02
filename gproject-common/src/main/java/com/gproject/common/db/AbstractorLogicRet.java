@@ -5,4 +5,6 @@ public abstract class AbstractorLogicRet {
 	public void beforeGet() {
 		
 	}
+	
+	
 }
