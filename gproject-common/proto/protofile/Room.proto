@@ -13,7 +13,22 @@ message S2CRoomInfo{
 
 
 }
-//离开房间
-message C2SExitRoom{
-  repeated  bytes data=1;
+
+enum RoomOpCode{
+  join=1;
+  exit=2;
+  start=3;//开始匹配
+  stop=4;//停止
 }
+
+message GPlayerInfo{
+  required int64 playerId=1;
+}
+
+message C2SRoomOps{
+  required RoomOpCode opCode=1;
+  optional int64  playerId=2;
+  required string roomId=3;
+  optional GPlayerInfo info=4;
+}
+

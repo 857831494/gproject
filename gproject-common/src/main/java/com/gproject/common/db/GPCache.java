@@ -31,7 +31,7 @@ import com.gproject.common.utils.common.PathUtil;
  * @param <POJO> 数据库表
  * @param <LogicModel>  业务逻辑
  */
-public abstract class GPCache<LogicModel> implements  IAPPInit {
+public abstract class GPCache<LogicModel> extends LockService  {
 
 	Logger logger=LoggerFactory.getLogger(this.getClass());
 	
@@ -50,8 +50,7 @@ public abstract class GPCache<LogicModel> implements  IAPPInit {
 	private ConcurrentHashMap<Object, AbstractorLogicRet> db_Map=new ConcurrentHashMap<>(INIT_NUM);
 	
 	
-	@Autowired
-	LockService lockService;
+	
 
 	Class<LogicModel> logicModelClass;
 	
@@ -79,7 +78,7 @@ public abstract class GPCache<LogicModel> implements  IAPPInit {
 	private String getFilePath() {
 		//优先检查
 		String dir=System.getProperties().getProperty("user.dir");
-		File file=new File(dir+"/logback.xml");
+		File file=new File(dir+"/com");
 		if (file.exists()) {
 			return dir;
 		}
@@ -128,7 +127,7 @@ public abstract class GPCache<LogicModel> implements  IAPPInit {
 		}
 		try {
 			ObjectMapper objectMapper=new ObjectMapper();
-			Integer lock=lockService.getLock(id);
+			Integer lock=this.getLock(id);
 			synchronized (lock) {
 				//先检查是否数据库存在
 				ret=this.getLogicRet(id);
@@ -142,7 +141,7 @@ public abstract class GPCache<LogicModel> implements  IAPPInit {
 		} catch (Exception e) {
 			// TODO: handle exception
 			logger.error("存储数据报错===============id:"+id);
-			logger.error(ExceptionUtils.getStackTrace(e));
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -154,6 +153,7 @@ public abstract class GPCache<LogicModel> implements  IAPPInit {
 	@Override
 	public void init(InitParame initParame) throws Exception {
 		// TODO Auto-generated method stub
+		super.init(initParame);
 		initEntityType(initParame);
 		this.THREAD_POOL.scheduleAtFixedRate(()->{
 			saveDB();

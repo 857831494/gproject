@@ -8,6 +8,122 @@ public final class RoomDTO {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  /**
+   * Protobuf enum {@code gsp.RoomOpCode}
+   */
+  public enum RoomOpCode
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>join = 1;</code>
+     */
+    join(0, 1),
+    /**
+     * <code>exit = 2;</code>
+     */
+    exit(1, 2),
+    /**
+     * <code>start = 3;</code>
+     *
+     * <pre>
+     *开始匹配
+     * </pre>
+     */
+    start(2, 3),
+    /**
+     * <code>stop = 4;</code>
+     *
+     * <pre>
+     *停止
+     * </pre>
+     */
+    stop(3, 4),
+    ;
+
+    /**
+     * <code>join = 1;</code>
+     */
+    public static final int join_VALUE = 1;
+    /**
+     * <code>exit = 2;</code>
+     */
+    public static final int exit_VALUE = 2;
+    /**
+     * <code>start = 3;</code>
+     *
+     * <pre>
+     *开始匹配
+     * </pre>
+     */
+    public static final int start_VALUE = 3;
+    /**
+     * <code>stop = 4;</code>
+     *
+     * <pre>
+     *停止
+     * </pre>
+     */
+    public static final int stop_VALUE = 4;
+
+
+    public final int getNumber() { return value; }
+
+    public static RoomOpCode valueOf(int value) {
+      switch (value) {
+        case 1: return join;
+        case 2: return exit;
+        case 3: return start;
+        case 4: return stop;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<RoomOpCode>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<RoomOpCode>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RoomOpCode>() {
+            public RoomOpCode findValueByNumber(int number) {
+              return RoomOpCode.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.gproject.common.dto.proto.RoomDTO.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final RoomOpCode[] VALUES = values();
+
+    public static RoomOpCode valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private RoomOpCode(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:gsp.RoomOpCode)
+  }
+
   public interface C2SCreateRoomOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -737,46 +853,38 @@ public final class RoomDTO {
     // @@protoc_insertion_point(class_scope:gsp.S2CRoomInfo)
   }
 
-  public interface C2SExitRoomOrBuilder
+  public interface GPlayerInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated bytes data = 1;
+    // required int64 playerId = 1;
     /**
-     * <code>repeated bytes data = 1;</code>
+     * <code>required int64 playerId = 1;</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getDataList();
+    boolean hasPlayerId();
     /**
-     * <code>repeated bytes data = 1;</code>
+     * <code>required int64 playerId = 1;</code>
      */
-    int getDataCount();
-    /**
-     * <code>repeated bytes data = 1;</code>
-     */
-    com.google.protobuf.ByteString getData(int index);
+    long getPlayerId();
   }
   /**
-   * Protobuf type {@code gsp.C2SExitRoom}
-   *
-   * <pre>
-   *离开房间
-   * </pre>
+   * Protobuf type {@code gsp.GPlayerInfo}
    */
-  public static final class C2SExitRoom extends
+  public static final class GPlayerInfo extends
       com.google.protobuf.GeneratedMessage
-      implements C2SExitRoomOrBuilder {
-    // Use C2SExitRoom.newBuilder() to construct.
-    private C2SExitRoom(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements GPlayerInfoOrBuilder {
+    // Use GPlayerInfo.newBuilder() to construct.
+    private GPlayerInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private C2SExitRoom(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private GPlayerInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final C2SExitRoom defaultInstance;
-    public static C2SExitRoom getDefaultInstance() {
+    private static final GPlayerInfo defaultInstance;
+    public static GPlayerInfo getDefaultInstance() {
       return defaultInstance;
     }
 
-    public C2SExitRoom getDefaultInstanceForType() {
+    public GPlayerInfo getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -786,7 +894,7 @@ public final class RoomDTO {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private C2SExitRoom(
+    private GPlayerInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -809,12 +917,9 @@ public final class RoomDTO {
               }
               break;
             }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                data_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              data_.add(input.readBytes());
+            case 8: {
+              bitField0_ |= 0x00000001;
+              playerId_ = input.readInt64();
               break;
             }
           }
@@ -825,71 +930,66 @@ public final class RoomDTO {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          data_ = java.util.Collections.unmodifiableList(data_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SExitRoom_descriptor;
+      return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_GPlayerInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SExitRoom_fieldAccessorTable
+      return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_GPlayerInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.gproject.common.dto.proto.RoomDTO.C2SExitRoom.class, com.gproject.common.dto.proto.RoomDTO.C2SExitRoom.Builder.class);
+              com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.class, com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<C2SExitRoom> PARSER =
-        new com.google.protobuf.AbstractParser<C2SExitRoom>() {
-      public C2SExitRoom parsePartialFrom(
+    public static com.google.protobuf.Parser<GPlayerInfo> PARSER =
+        new com.google.protobuf.AbstractParser<GPlayerInfo>() {
+      public GPlayerInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new C2SExitRoom(input, extensionRegistry);
+        return new GPlayerInfo(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<C2SExitRoom> getParserForType() {
+    public com.google.protobuf.Parser<GPlayerInfo> getParserForType() {
       return PARSER;
     }
 
-    // repeated bytes data = 1;
-    public static final int DATA_FIELD_NUMBER = 1;
-    private java.util.List<com.google.protobuf.ByteString> data_;
+    private int bitField0_;
+    // required int64 playerId = 1;
+    public static final int PLAYERID_FIELD_NUMBER = 1;
+    private long playerId_;
     /**
-     * <code>repeated bytes data = 1;</code>
+     * <code>required int64 playerId = 1;</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
-        getDataList() {
-      return data_;
+    public boolean hasPlayerId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>repeated bytes data = 1;</code>
+     * <code>required int64 playerId = 1;</code>
      */
-    public int getDataCount() {
-      return data_.size();
-    }
-    /**
-     * <code>repeated bytes data = 1;</code>
-     */
-    public com.google.protobuf.ByteString getData(int index) {
-      return data_.get(index);
+    public long getPlayerId() {
+      return playerId_;
     }
 
     private void initFields() {
-      data_ = java.util.Collections.emptyList();
+      playerId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      if (!hasPlayerId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -897,8 +997,8 @@ public final class RoomDTO {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < data_.size(); i++) {
-        output.writeBytes(1, data_.get(i));
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, playerId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -909,14 +1009,9 @@ public final class RoomDTO {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < data_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(data_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getDataList().size();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, playerId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -930,53 +1025,53 @@ public final class RoomDTO {
       return super.writeReplace();
     }
 
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(byte[] data)
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(java.io.InputStream input)
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseDelimitedFrom(java.io.InputStream input)
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseDelimitedFrom(
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parseFrom(
+    public static com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -985,7 +1080,7 @@ public final class RoomDTO {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.gproject.common.dto.proto.RoomDTO.C2SExitRoom prototype) {
+    public static Builder newBuilder(com.gproject.common.dto.proto.RoomDTO.GPlayerInfo prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -997,28 +1092,24 @@ public final class RoomDTO {
       return builder;
     }
     /**
-     * Protobuf type {@code gsp.C2SExitRoom}
-     *
-     * <pre>
-     *离开房间
-     * </pre>
+     * Protobuf type {@code gsp.GPlayerInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.gproject.common.dto.proto.RoomDTO.C2SExitRoomOrBuilder {
+       implements com.gproject.common.dto.proto.RoomDTO.GPlayerInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SExitRoom_descriptor;
+        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_GPlayerInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SExitRoom_fieldAccessorTable
+        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_GPlayerInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.gproject.common.dto.proto.RoomDTO.C2SExitRoom.class, com.gproject.common.dto.proto.RoomDTO.C2SExitRoom.Builder.class);
+                com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.class, com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder.class);
       }
 
-      // Construct using com.gproject.common.dto.proto.RoomDTO.C2SExitRoom.newBuilder()
+      // Construct using com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1038,7 +1129,7 @@ public final class RoomDTO {
 
       public Builder clear() {
         super.clear();
-        data_ = java.util.Collections.emptyList();
+        playerId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -1049,59 +1140,57 @@ public final class RoomDTO {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SExitRoom_descriptor;
+        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_GPlayerInfo_descriptor;
       }
 
-      public com.gproject.common.dto.proto.RoomDTO.C2SExitRoom getDefaultInstanceForType() {
-        return com.gproject.common.dto.proto.RoomDTO.C2SExitRoom.getDefaultInstance();
+      public com.gproject.common.dto.proto.RoomDTO.GPlayerInfo getDefaultInstanceForType() {
+        return com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.getDefaultInstance();
       }
 
-      public com.gproject.common.dto.proto.RoomDTO.C2SExitRoom build() {
-        com.gproject.common.dto.proto.RoomDTO.C2SExitRoom result = buildPartial();
+      public com.gproject.common.dto.proto.RoomDTO.GPlayerInfo build() {
+        com.gproject.common.dto.proto.RoomDTO.GPlayerInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.gproject.common.dto.proto.RoomDTO.C2SExitRoom buildPartial() {
-        com.gproject.common.dto.proto.RoomDTO.C2SExitRoom result = new com.gproject.common.dto.proto.RoomDTO.C2SExitRoom(this);
+      public com.gproject.common.dto.proto.RoomDTO.GPlayerInfo buildPartial() {
+        com.gproject.common.dto.proto.RoomDTO.GPlayerInfo result = new com.gproject.common.dto.proto.RoomDTO.GPlayerInfo(this);
         int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          data_ = java.util.Collections.unmodifiableList(data_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
         }
-        result.data_ = data_;
+        result.playerId_ = playerId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.gproject.common.dto.proto.RoomDTO.C2SExitRoom) {
-          return mergeFrom((com.gproject.common.dto.proto.RoomDTO.C2SExitRoom)other);
+        if (other instanceof com.gproject.common.dto.proto.RoomDTO.GPlayerInfo) {
+          return mergeFrom((com.gproject.common.dto.proto.RoomDTO.GPlayerInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.gproject.common.dto.proto.RoomDTO.C2SExitRoom other) {
-        if (other == com.gproject.common.dto.proto.RoomDTO.C2SExitRoom.getDefaultInstance()) return this;
-        if (!other.data_.isEmpty()) {
-          if (data_.isEmpty()) {
-            data_ = other.data_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureDataIsMutable();
-            data_.addAll(other.data_);
-          }
-          onChanged();
+      public Builder mergeFrom(com.gproject.common.dto.proto.RoomDTO.GPlayerInfo other) {
+        if (other == com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.getDefaultInstance()) return this;
+        if (other.hasPlayerId()) {
+          setPlayerId(other.getPlayerId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
+        if (!hasPlayerId()) {
+          
+          return false;
+        }
         return true;
       }
 
@@ -1109,11 +1198,11 @@ public final class RoomDTO {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.gproject.common.dto.proto.RoomDTO.C2SExitRoom parsedMessage = null;
+        com.gproject.common.dto.proto.RoomDTO.GPlayerInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.gproject.common.dto.proto.RoomDTO.C2SExitRoom) e.getUnfinishedMessage();
+          parsedMessage = (com.gproject.common.dto.proto.RoomDTO.GPlayerInfo) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1124,87 +1213,910 @@ public final class RoomDTO {
       }
       private int bitField0_;
 
-      // repeated bytes data = 1;
-      private java.util.List<com.google.protobuf.ByteString> data_ = java.util.Collections.emptyList();
-      private void ensureDataIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          data_ = new java.util.ArrayList<com.google.protobuf.ByteString>(data_);
-          bitField0_ |= 0x00000001;
-         }
+      // required int64 playerId = 1;
+      private long playerId_ ;
+      /**
+       * <code>required int64 playerId = 1;</code>
+       */
+      public boolean hasPlayerId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>repeated bytes data = 1;</code>
+       * <code>required int64 playerId = 1;</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
-          getDataList() {
-        return java.util.Collections.unmodifiableList(data_);
+      public long getPlayerId() {
+        return playerId_;
       }
       /**
-       * <code>repeated bytes data = 1;</code>
+       * <code>required int64 playerId = 1;</code>
        */
-      public int getDataCount() {
-        return data_.size();
-      }
-      /**
-       * <code>repeated bytes data = 1;</code>
-       */
-      public com.google.protobuf.ByteString getData(int index) {
-        return data_.get(index);
-      }
-      /**
-       * <code>repeated bytes data = 1;</code>
-       */
-      public Builder setData(
-          int index, com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDataIsMutable();
-        data_.set(index, value);
+      public Builder setPlayerId(long value) {
+        bitField0_ |= 0x00000001;
+        playerId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated bytes data = 1;</code>
+       * <code>required int64 playerId = 1;</code>
        */
-      public Builder addData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDataIsMutable();
-        data_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bytes data = 1;</code>
-       */
-      public Builder addAllData(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
-        ensureDataIsMutable();
-        super.addAll(values, data_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bytes data = 1;</code>
-       */
-      public Builder clearData() {
-        data_ = java.util.Collections.emptyList();
+      public Builder clearPlayerId() {
         bitField0_ = (bitField0_ & ~0x00000001);
+        playerId_ = 0L;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:gsp.C2SExitRoom)
+      // @@protoc_insertion_point(builder_scope:gsp.GPlayerInfo)
     }
 
     static {
-      defaultInstance = new C2SExitRoom(true);
+      defaultInstance = new GPlayerInfo(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:gsp.C2SExitRoom)
+    // @@protoc_insertion_point(class_scope:gsp.GPlayerInfo)
+  }
+
+  public interface C2SRoomOpsOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required .gsp.RoomOpCode opCode = 1;
+    /**
+     * <code>required .gsp.RoomOpCode opCode = 1;</code>
+     */
+    boolean hasOpCode();
+    /**
+     * <code>required .gsp.RoomOpCode opCode = 1;</code>
+     */
+    com.gproject.common.dto.proto.RoomDTO.RoomOpCode getOpCode();
+
+    // optional int64 playerId = 2;
+    /**
+     * <code>optional int64 playerId = 2;</code>
+     */
+    boolean hasPlayerId();
+    /**
+     * <code>optional int64 playerId = 2;</code>
+     */
+    long getPlayerId();
+
+    // required string roomId = 3;
+    /**
+     * <code>required string roomId = 3;</code>
+     */
+    boolean hasRoomId();
+    /**
+     * <code>required string roomId = 3;</code>
+     */
+    java.lang.String getRoomId();
+    /**
+     * <code>required string roomId = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getRoomIdBytes();
+
+    // optional .gsp.GPlayerInfo info = 4;
+    /**
+     * <code>optional .gsp.GPlayerInfo info = 4;</code>
+     */
+    boolean hasInfo();
+    /**
+     * <code>optional .gsp.GPlayerInfo info = 4;</code>
+     */
+    com.gproject.common.dto.proto.RoomDTO.GPlayerInfo getInfo();
+    /**
+     * <code>optional .gsp.GPlayerInfo info = 4;</code>
+     */
+    com.gproject.common.dto.proto.RoomDTO.GPlayerInfoOrBuilder getInfoOrBuilder();
+  }
+  /**
+   * Protobuf type {@code gsp.C2SRoomOps}
+   */
+  public static final class C2SRoomOps extends
+      com.google.protobuf.GeneratedMessage
+      implements C2SRoomOpsOrBuilder {
+    // Use C2SRoomOps.newBuilder() to construct.
+    private C2SRoomOps(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private C2SRoomOps(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final C2SRoomOps defaultInstance;
+    public static C2SRoomOps getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public C2SRoomOps getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private C2SRoomOps(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+              com.gproject.common.dto.proto.RoomDTO.RoomOpCode value = com.gproject.common.dto.proto.RoomDTO.RoomOpCode.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                opCode_ = value;
+              }
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              playerId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              roomId_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = info_.toBuilder();
+              }
+              info_ = input.readMessage(com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(info_);
+                info_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SRoomOps_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SRoomOps_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gproject.common.dto.proto.RoomDTO.C2SRoomOps.class, com.gproject.common.dto.proto.RoomDTO.C2SRoomOps.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<C2SRoomOps> PARSER =
+        new com.google.protobuf.AbstractParser<C2SRoomOps>() {
+      public C2SRoomOps parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new C2SRoomOps(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<C2SRoomOps> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required .gsp.RoomOpCode opCode = 1;
+    public static final int OPCODE_FIELD_NUMBER = 1;
+    private com.gproject.common.dto.proto.RoomDTO.RoomOpCode opCode_;
+    /**
+     * <code>required .gsp.RoomOpCode opCode = 1;</code>
+     */
+    public boolean hasOpCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .gsp.RoomOpCode opCode = 1;</code>
+     */
+    public com.gproject.common.dto.proto.RoomDTO.RoomOpCode getOpCode() {
+      return opCode_;
+    }
+
+    // optional int64 playerId = 2;
+    public static final int PLAYERID_FIELD_NUMBER = 2;
+    private long playerId_;
+    /**
+     * <code>optional int64 playerId = 2;</code>
+     */
+    public boolean hasPlayerId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int64 playerId = 2;</code>
+     */
+    public long getPlayerId() {
+      return playerId_;
+    }
+
+    // required string roomId = 3;
+    public static final int ROOMID_FIELD_NUMBER = 3;
+    private java.lang.Object roomId_;
+    /**
+     * <code>required string roomId = 3;</code>
+     */
+    public boolean hasRoomId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string roomId = 3;</code>
+     */
+    public java.lang.String getRoomId() {
+      java.lang.Object ref = roomId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          roomId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string roomId = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRoomIdBytes() {
+      java.lang.Object ref = roomId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        roomId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional .gsp.GPlayerInfo info = 4;
+    public static final int INFO_FIELD_NUMBER = 4;
+    private com.gproject.common.dto.proto.RoomDTO.GPlayerInfo info_;
+    /**
+     * <code>optional .gsp.GPlayerInfo info = 4;</code>
+     */
+    public boolean hasInfo() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .gsp.GPlayerInfo info = 4;</code>
+     */
+    public com.gproject.common.dto.proto.RoomDTO.GPlayerInfo getInfo() {
+      return info_;
+    }
+    /**
+     * <code>optional .gsp.GPlayerInfo info = 4;</code>
+     */
+    public com.gproject.common.dto.proto.RoomDTO.GPlayerInfoOrBuilder getInfoOrBuilder() {
+      return info_;
+    }
+
+    private void initFields() {
+      opCode_ = com.gproject.common.dto.proto.RoomDTO.RoomOpCode.join;
+      playerId_ = 0L;
+      roomId_ = "";
+      info_ = com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasOpCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRoomId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (hasInfo()) {
+        if (!getInfo().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, opCode_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, playerId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getRoomIdBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, info_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, opCode_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, playerId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getRoomIdBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, info_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.gproject.common.dto.proto.RoomDTO.C2SRoomOps prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gsp.C2SRoomOps}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.gproject.common.dto.proto.RoomDTO.C2SRoomOpsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SRoomOps_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SRoomOps_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gproject.common.dto.proto.RoomDTO.C2SRoomOps.class, com.gproject.common.dto.proto.RoomDTO.C2SRoomOps.Builder.class);
+      }
+
+      // Construct using com.gproject.common.dto.proto.RoomDTO.C2SRoomOps.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getInfoFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        opCode_ = com.gproject.common.dto.proto.RoomDTO.RoomOpCode.join;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        playerId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        roomId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (infoBuilder_ == null) {
+          info_ = com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.getDefaultInstance();
+        } else {
+          infoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gproject.common.dto.proto.RoomDTO.internal_static_gsp_C2SRoomOps_descriptor;
+      }
+
+      public com.gproject.common.dto.proto.RoomDTO.C2SRoomOps getDefaultInstanceForType() {
+        return com.gproject.common.dto.proto.RoomDTO.C2SRoomOps.getDefaultInstance();
+      }
+
+      public com.gproject.common.dto.proto.RoomDTO.C2SRoomOps build() {
+        com.gproject.common.dto.proto.RoomDTO.C2SRoomOps result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.gproject.common.dto.proto.RoomDTO.C2SRoomOps buildPartial() {
+        com.gproject.common.dto.proto.RoomDTO.C2SRoomOps result = new com.gproject.common.dto.proto.RoomDTO.C2SRoomOps(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.opCode_ = opCode_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.playerId_ = playerId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.roomId_ = roomId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (infoBuilder_ == null) {
+          result.info_ = info_;
+        } else {
+          result.info_ = infoBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gproject.common.dto.proto.RoomDTO.C2SRoomOps) {
+          return mergeFrom((com.gproject.common.dto.proto.RoomDTO.C2SRoomOps)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gproject.common.dto.proto.RoomDTO.C2SRoomOps other) {
+        if (other == com.gproject.common.dto.proto.RoomDTO.C2SRoomOps.getDefaultInstance()) return this;
+        if (other.hasOpCode()) {
+          setOpCode(other.getOpCode());
+        }
+        if (other.hasPlayerId()) {
+          setPlayerId(other.getPlayerId());
+        }
+        if (other.hasRoomId()) {
+          bitField0_ |= 0x00000004;
+          roomId_ = other.roomId_;
+          onChanged();
+        }
+        if (other.hasInfo()) {
+          mergeInfo(other.getInfo());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasOpCode()) {
+          
+          return false;
+        }
+        if (!hasRoomId()) {
+          
+          return false;
+        }
+        if (hasInfo()) {
+          if (!getInfo().isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gproject.common.dto.proto.RoomDTO.C2SRoomOps parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gproject.common.dto.proto.RoomDTO.C2SRoomOps) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required .gsp.RoomOpCode opCode = 1;
+      private com.gproject.common.dto.proto.RoomDTO.RoomOpCode opCode_ = com.gproject.common.dto.proto.RoomDTO.RoomOpCode.join;
+      /**
+       * <code>required .gsp.RoomOpCode opCode = 1;</code>
+       */
+      public boolean hasOpCode() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .gsp.RoomOpCode opCode = 1;</code>
+       */
+      public com.gproject.common.dto.proto.RoomDTO.RoomOpCode getOpCode() {
+        return opCode_;
+      }
+      /**
+       * <code>required .gsp.RoomOpCode opCode = 1;</code>
+       */
+      public Builder setOpCode(com.gproject.common.dto.proto.RoomDTO.RoomOpCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        opCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .gsp.RoomOpCode opCode = 1;</code>
+       */
+      public Builder clearOpCode() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        opCode_ = com.gproject.common.dto.proto.RoomDTO.RoomOpCode.join;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 playerId = 2;
+      private long playerId_ ;
+      /**
+       * <code>optional int64 playerId = 2;</code>
+       */
+      public boolean hasPlayerId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int64 playerId = 2;</code>
+       */
+      public long getPlayerId() {
+        return playerId_;
+      }
+      /**
+       * <code>optional int64 playerId = 2;</code>
+       */
+      public Builder setPlayerId(long value) {
+        bitField0_ |= 0x00000002;
+        playerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 playerId = 2;</code>
+       */
+      public Builder clearPlayerId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        playerId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required string roomId = 3;
+      private java.lang.Object roomId_ = "";
+      /**
+       * <code>required string roomId = 3;</code>
+       */
+      public boolean hasRoomId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string roomId = 3;</code>
+       */
+      public java.lang.String getRoomId() {
+        java.lang.Object ref = roomId_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          roomId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string roomId = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRoomIdBytes() {
+        java.lang.Object ref = roomId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          roomId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string roomId = 3;</code>
+       */
+      public Builder setRoomId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string roomId = 3;</code>
+       */
+      public Builder clearRoomId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        roomId_ = getDefaultInstance().getRoomId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string roomId = 3;</code>
+       */
+      public Builder setRoomIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        roomId_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional .gsp.GPlayerInfo info = 4;
+      private com.gproject.common.dto.proto.RoomDTO.GPlayerInfo info_ = com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.gproject.common.dto.proto.RoomDTO.GPlayerInfo, com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder, com.gproject.common.dto.proto.RoomDTO.GPlayerInfoOrBuilder> infoBuilder_;
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public boolean hasInfo() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public com.gproject.common.dto.proto.RoomDTO.GPlayerInfo getInfo() {
+        if (infoBuilder_ == null) {
+          return info_;
+        } else {
+          return infoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public Builder setInfo(com.gproject.common.dto.proto.RoomDTO.GPlayerInfo value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          info_ = value;
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public Builder setInfo(
+          com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          info_ = builderForValue.build();
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public Builder mergeInfo(com.gproject.common.dto.proto.RoomDTO.GPlayerInfo value) {
+        if (infoBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              info_ != com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.getDefaultInstance()) {
+            info_ =
+              com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.newBuilder(info_).mergeFrom(value).buildPartial();
+          } else {
+            info_ = value;
+          }
+          onChanged();
+        } else {
+          infoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public Builder clearInfo() {
+        if (infoBuilder_ == null) {
+          info_ = com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.getDefaultInstance();
+          onChanged();
+        } else {
+          infoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder getInfoBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      public com.gproject.common.dto.proto.RoomDTO.GPlayerInfoOrBuilder getInfoOrBuilder() {
+        if (infoBuilder_ != null) {
+          return infoBuilder_.getMessageOrBuilder();
+        } else {
+          return info_;
+        }
+      }
+      /**
+       * <code>optional .gsp.GPlayerInfo info = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.gproject.common.dto.proto.RoomDTO.GPlayerInfo, com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder, com.gproject.common.dto.proto.RoomDTO.GPlayerInfoOrBuilder> 
+          getInfoFieldBuilder() {
+        if (infoBuilder_ == null) {
+          infoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.gproject.common.dto.proto.RoomDTO.GPlayerInfo, com.gproject.common.dto.proto.RoomDTO.GPlayerInfo.Builder, com.gproject.common.dto.proto.RoomDTO.GPlayerInfoOrBuilder>(
+                  info_,
+                  getParentForChildren(),
+                  isClean());
+          info_ = null;
+        }
+        return infoBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gsp.C2SRoomOps)
+    }
+
+    static {
+      defaultInstance = new C2SRoomOps(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gsp.C2SRoomOps)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -1218,10 +2130,15 @@ public final class RoomDTO {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gsp_S2CRoomInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_gsp_C2SExitRoom_descriptor;
+    internal_static_gsp_GPlayerInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gsp_C2SExitRoom_fieldAccessorTable;
+      internal_static_gsp_GPlayerInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_gsp_C2SRoomOps_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gsp_C2SRoomOps_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1232,9 +2149,13 @@ public final class RoomDTO {
   static {
     java.lang.String[] descriptorData = {
       "\n\nRoom.proto\022\003gsp\"!\n\rC2SCreateRoom\022\020\n\010ro" +
-      "omType\030\001 \002(\005\"\r\n\013S2CRoomInfo\"\033\n\013C2SExitRo" +
-      "om\022\014\n\004data\030\001 \003(\014B(\n\035com.gproject.common." +
-      "dto.protoB\007RoomDTO"
+      "omType\030\001 \002(\005\"\r\n\013S2CRoomInfo\"\037\n\013GPlayerIn" +
+      "fo\022\020\n\010playerId\030\001 \002(\003\"o\n\nC2SRoomOps\022\037\n\006op" +
+      "Code\030\001 \002(\0162\017.gsp.RoomOpCode\022\020\n\010playerId\030" +
+      "\002 \001(\003\022\016\n\006roomId\030\003 \002(\t\022\036\n\004info\030\004 \001(\0132\020.gs" +
+      "p.GPlayerInfo*5\n\nRoomOpCode\022\010\n\004join\020\001\022\010\n" +
+      "\004exit\020\002\022\t\n\005start\020\003\022\010\n\004stop\020\004B(\n\035com.gpro" +
+      "ject.common.dto.protoB\007RoomDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1253,12 +2174,18 @@ public final class RoomDTO {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_gsp_S2CRoomInfo_descriptor,
               new java.lang.String[] { });
-          internal_static_gsp_C2SExitRoom_descriptor =
+          internal_static_gsp_GPlayerInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
-          internal_static_gsp_C2SExitRoom_fieldAccessorTable = new
+          internal_static_gsp_GPlayerInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_gsp_C2SExitRoom_descriptor,
-              new java.lang.String[] { "Data", });
+              internal_static_gsp_GPlayerInfo_descriptor,
+              new java.lang.String[] { "PlayerId", });
+          internal_static_gsp_C2SRoomOps_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_gsp_C2SRoomOps_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gsp_C2SRoomOps_descriptor,
+              new java.lang.String[] { "OpCode", "PlayerId", "RoomId", "Info", });
           return null;
         }
       };

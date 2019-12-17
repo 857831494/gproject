@@ -1,13 +1,12 @@
 package com.gproject.common.db;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
 
 import com.gproject.common.utils.IDef.IAPPInit;
 import com.gproject.common.utils.IDef.InitParame;
 
-@Component
-public class LockService implements IAPPInit{
+
+public abstract class LockService implements IAPPInit{
 
 	/**
 	 * 最大锁数量
@@ -17,7 +16,7 @@ public class LockService implements IAPPInit{
 	Integer[] lockArray=new Integer[MAX_LOCK_NUM];
 	
 	@Override
-	public void init(InitParame initParame) {
+	public void init(InitParame initParame) throws Exception {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < lockArray.length; i++) {
 			lockArray[i]=i+1;

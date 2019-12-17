@@ -49,6 +49,18 @@ public final class StatusDTO {
      * </pre>
      */
     receive(5, 6),
+    /**
+     * <code>matching = 7;</code>
+     */
+    matching(6, 7),
+    /**
+     * <code>joinRoom = 8;</code>
+     *
+     * <pre>
+     *加入房间时间
+     * </pre>
+     */
+    joinRoom(7, 8),
     ;
 
     /**
@@ -87,6 +99,18 @@ public final class StatusDTO {
      * </pre>
      */
     public static final int receive_VALUE = 6;
+    /**
+     * <code>matching = 7;</code>
+     */
+    public static final int matching_VALUE = 7;
+    /**
+     * <code>joinRoom = 8;</code>
+     *
+     * <pre>
+     *加入房间时间
+     * </pre>
+     */
+    public static final int joinRoom_VALUE = 8;
 
 
     public final int getNumber() { return value; }
@@ -99,6 +123,8 @@ public final class StatusDTO {
         case 4: return proccess;
         case 5: return finish;
         case 6: return receive;
+        case 7: return matching;
+        case 8: return joinRoom;
         default: return null;
       }
     }
@@ -159,10 +185,11 @@ public final class StatusDTO {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014Status.proto\022\003gsp*R\n\nStatusCode\022\010\n\004idl" +
+      "\n\014Status.proto\022\003gsp*n\n\nStatusCode\022\010\n\004idl" +
       "e\020\001\022\t\n\005fight\020\002\022\010\n\004busy\020\003\022\014\n\010proccess\020\004\022\n" +
-      "\n\006finish\020\005\022\013\n\007receive\020\006B*\n\035com.gproject." +
-      "common.dto.protoB\tStatusDTO"
+      "\n\006finish\020\005\022\013\n\007receive\020\006\022\014\n\010matching\020\007\022\014\n" +
+      "\010joinRoom\020\010B*\n\035com.gproject.common.dto.p" +
+      "rotoB\tStatusDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

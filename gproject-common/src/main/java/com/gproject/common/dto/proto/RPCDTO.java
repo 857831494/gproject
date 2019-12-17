@@ -25,30 +25,6 @@ public final class RPCDTO {
      * </pre>
      */
     Common(0, 1),
-    /**
-     * <code>Union = 2;</code>
-     *
-     * <pre>
-     *工会
-     * </pre>
-     */
-    Union(1, 2),
-    /**
-     * <code>Match = 3;</code>
-     *
-     * <pre>
-     *匹配
-     * </pre>
-     */
-    Match(2, 3),
-    /**
-     * <code>Fight = 4;</code>
-     *
-     * <pre>
-     *战斗
-     * </pre>
-     */
-    Fight(3, 4),
     ;
 
     /**
@@ -59,30 +35,6 @@ public final class RPCDTO {
      * </pre>
      */
     public static final int Common_VALUE = 1;
-    /**
-     * <code>Union = 2;</code>
-     *
-     * <pre>
-     *工会
-     * </pre>
-     */
-    public static final int Union_VALUE = 2;
-    /**
-     * <code>Match = 3;</code>
-     *
-     * <pre>
-     *匹配
-     * </pre>
-     */
-    public static final int Match_VALUE = 3;
-    /**
-     * <code>Fight = 4;</code>
-     *
-     * <pre>
-     *战斗
-     * </pre>
-     */
-    public static final int Fight_VALUE = 4;
 
 
     public final int getNumber() { return value; }
@@ -90,9 +42,6 @@ public final class RPCDTO {
     public static CommandType valueOf(int value) {
       switch (value) {
         case 1: return Common;
-        case 2: return Union;
-        case 3: return Match;
-        case 4: return Fight;
         default: return null;
       }
     }
@@ -1415,15 +1364,25 @@ public final class RPCDTO {
      */
     com.google.protobuf.ByteString getReqData();
 
-    // required .gsp.CommandType cmdType = 3;
+    // required .gsp.CommandType cmdType = 3 [default = Common];
     /**
-     * <code>required .gsp.CommandType cmdType = 3;</code>
+     * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
      */
     boolean hasCmdType();
     /**
-     * <code>required .gsp.CommandType cmdType = 3;</code>
+     * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
      */
     com.gproject.common.dto.proto.RPCDTO.CommandType getCmdType();
+
+    // optional int64 playerId = 4;
+    /**
+     * <code>optional int64 playerId = 4;</code>
+     */
+    boolean hasPlayerId();
+    /**
+     * <code>optional int64 playerId = 4;</code>
+     */
+    long getPlayerId();
   }
   /**
    * Protobuf type {@code gsp.GameMessage}
@@ -1507,6 +1466,11 @@ public final class RPCDTO {
               }
               break;
             }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              playerId_ = input.readInt64();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1579,26 +1543,43 @@ public final class RPCDTO {
       return reqData_;
     }
 
-    // required .gsp.CommandType cmdType = 3;
+    // required .gsp.CommandType cmdType = 3 [default = Common];
     public static final int CMDTYPE_FIELD_NUMBER = 3;
     private com.gproject.common.dto.proto.RPCDTO.CommandType cmdType_;
     /**
-     * <code>required .gsp.CommandType cmdType = 3;</code>
+     * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
      */
     public boolean hasCmdType() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required .gsp.CommandType cmdType = 3;</code>
+     * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
      */
     public com.gproject.common.dto.proto.RPCDTO.CommandType getCmdType() {
       return cmdType_;
+    }
+
+    // optional int64 playerId = 4;
+    public static final int PLAYERID_FIELD_NUMBER = 4;
+    private long playerId_;
+    /**
+     * <code>optional int64 playerId = 4;</code>
+     */
+    public boolean hasPlayerId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int64 playerId = 4;</code>
+     */
+    public long getPlayerId() {
+      return playerId_;
     }
 
     private void initFields() {
       cmdCode_ = com.gproject.common.dto.proto.CommandCodeDTO.CommandCode.C2SLoginCode;
       reqData_ = com.google.protobuf.ByteString.EMPTY;
       cmdType_ = com.gproject.common.dto.proto.RPCDTO.CommandType.Common;
+      playerId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1629,6 +1610,9 @@ public final class RPCDTO {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeEnum(3, cmdType_.getNumber());
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, playerId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1649,6 +1633,10 @@ public final class RPCDTO {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, cmdType_.getNumber());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, playerId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1776,6 +1764,8 @@ public final class RPCDTO {
         bitField0_ = (bitField0_ & ~0x00000002);
         cmdType_ = com.gproject.common.dto.proto.RPCDTO.CommandType.Common;
         bitField0_ = (bitField0_ & ~0x00000004);
+        playerId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1816,6 +1806,10 @@ public final class RPCDTO {
           to_bitField0_ |= 0x00000004;
         }
         result.cmdType_ = cmdType_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.playerId_ = playerId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1840,6 +1834,9 @@ public final class RPCDTO {
         }
         if (other.hasCmdType()) {
           setCmdType(other.getCmdType());
+        }
+        if (other.hasPlayerId()) {
+          setPlayerId(other.getPlayerId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1948,22 +1945,22 @@ public final class RPCDTO {
         return this;
       }
 
-      // required .gsp.CommandType cmdType = 3;
+      // required .gsp.CommandType cmdType = 3 [default = Common];
       private com.gproject.common.dto.proto.RPCDTO.CommandType cmdType_ = com.gproject.common.dto.proto.RPCDTO.CommandType.Common;
       /**
-       * <code>required .gsp.CommandType cmdType = 3;</code>
+       * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
        */
       public boolean hasCmdType() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required .gsp.CommandType cmdType = 3;</code>
+       * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
        */
       public com.gproject.common.dto.proto.RPCDTO.CommandType getCmdType() {
         return cmdType_;
       }
       /**
-       * <code>required .gsp.CommandType cmdType = 3;</code>
+       * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
        */
       public Builder setCmdType(com.gproject.common.dto.proto.RPCDTO.CommandType value) {
         if (value == null) {
@@ -1975,11 +1972,44 @@ public final class RPCDTO {
         return this;
       }
       /**
-       * <code>required .gsp.CommandType cmdType = 3;</code>
+       * <code>required .gsp.CommandType cmdType = 3 [default = Common];</code>
        */
       public Builder clearCmdType() {
         bitField0_ = (bitField0_ & ~0x00000004);
         cmdType_ = com.gproject.common.dto.proto.RPCDTO.CommandType.Common;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 playerId = 4;
+      private long playerId_ ;
+      /**
+       * <code>optional int64 playerId = 4;</code>
+       */
+      public boolean hasPlayerId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int64 playerId = 4;</code>
+       */
+      public long getPlayerId() {
+        return playerId_;
+      }
+      /**
+       * <code>optional int64 playerId = 4;</code>
+       */
+      public Builder setPlayerId(long value) {
+        bitField0_ |= 0x00000008;
+        playerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 playerId = 4;</code>
+       */
+      public Builder clearPlayerId() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        playerId_ = 0L;
         onChanged();
         return this;
       }
@@ -2024,12 +2054,12 @@ public final class RPCDTO {
       "ode\030\002 \002(\0162\020.gsp.CommandCode\022\017\n\007reqData\030\003" +
       " \001(\014\"X\n\017SendGateMessage\022\021\n\tplayerIds\030\001 \003" +
       "(\003\022!\n\007cmdCode\030\002 \002(\0162\020.gsp.CommandCode\022\017\n" +
-      "\007reqData\030\003 \001(\014\"d\n\013GameMessage\022!\n\007cmdCode" +
+      "\007reqData\030\003 \001(\014\"~\n\013GameMessage\022!\n\007cmdCode" +
       "\030\001 \002(\0162\020.gsp.CommandCode\022\017\n\007reqData\030\002 \001(" +
-      "\014\022!\n\007cmdType\030\003 \002(\0162\020.gsp.CommandType*:\n\013" +
-      "CommandType\022\n\n\006Common\020\001\022\t\n\005Union\020\002\022\t\n\005Ma" +
-      "tch\020\003\022\t\n\005Fight\020\004B\'\n\035com.gproject.common.",
-      "dto.protoB\006RPCDTO"
+      "\014\022)\n\007cmdType\030\003 \002(\0162\020.gsp.CommandType:\006Co" +
+      "mmon\022\020\n\010playerId\030\004 \001(\003*\031\n\013CommandType\022\n\n" +
+      "\006Common\020\001B\'\n\035com.gproject.common.dto.pro",
+      "toB\006RPCDTO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2053,7 +2083,7 @@ public final class RPCDTO {
           internal_static_gsp_GameMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_gsp_GameMessage_descriptor,
-              new java.lang.String[] { "CmdCode", "ReqData", "CmdType", });
+              new java.lang.String[] { "CmdCode", "ReqData", "CmdType", "PlayerId", });
           return null;
         }
       };

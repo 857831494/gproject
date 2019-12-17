@@ -19,13 +19,12 @@ message SendGateMessage{
 //命令类型
 enum CommandType{
    Common=1;//通用类型
-   Union=2;//工会
-   Match=3;//匹配
-   Fight=4;//战斗
+   
 }
 //游戏数据包
 message GameMessage{
   required CommandCode cmdCode=1;
   optional bytes reqData=2;
-  required  CommandType cmdType=3;
+  required  CommandType cmdType=3[default=Common];
+  optional int64 playerId=4;
 }

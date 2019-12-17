@@ -10,4 +10,6 @@ enum StatusCode{
     proccess=4;//未完成
     finish=5;//完成
     receive=6;//已经领取
+    matching=7;
+	joinRoom=8;//加入房间时间
 }
