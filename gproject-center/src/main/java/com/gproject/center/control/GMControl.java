@@ -66,7 +66,14 @@ public class GMControl {
 		return fileService.saveFile(fileName, file);
 	}
 	
-	
+	/**
+	 * 上传战斗文件
+	 * @param dto
+	 */
+	@RequestMapping(path ="/uploadBattleFile")
+	public void getToken(@RequestBody byte[] dto) {
+		
+	}
 	/**
 	 * 重新加载Excel
 	 * @param fileName

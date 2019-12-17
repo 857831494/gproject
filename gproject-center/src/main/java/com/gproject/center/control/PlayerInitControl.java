@@ -10,14 +10,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gproject.center.service.PlayerInitService;
 import com.gproject.common.config.AuthHandler;
-import com.gproject.common.dto.proto.TipDTO.GameTip;
-
 @RestController
 public class PlayerInitControl {
 
@@ -32,9 +31,10 @@ public class PlayerInitControl {
 	
 	
 	
+	
 	@RequestMapping("/cai")
 	public void doTest() throws Exception {
-	
+		
 	}
 	
 	

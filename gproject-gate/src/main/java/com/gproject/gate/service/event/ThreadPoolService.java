@@ -1,4 +1,4 @@
-package com.gproject.gate.service.common;
+package com.gproject.gate.service.event;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
