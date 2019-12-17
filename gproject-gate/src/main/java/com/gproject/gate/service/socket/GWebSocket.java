@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.gproject.common.dto.proto.RPCDTO.GameMessage;
+import com.gproject.gate.service.event.PlayerEnterEventService;
+
 
 @Component
 @ServerEndpoint(value = "/" + PushService.WEBSCOKET)
@@ -20,7 +23,8 @@ public class GWebSocket  {
 
 	static Logger logger = LoggerFactory.getLogger(GWebSocket.class);
 
-	
+	@Autowired
+	WebSocketService webSocketService;
 	
 	final static int MAX_SESSION_NUM=5000;
 	
@@ -50,8 +54,23 @@ public class GWebSocket  {
 		logger.info("onError上线============" + session);
 	}
 
+	@Autowired
+	PlayerEnterEventService playerEnterEventService;
+	
 	@OnMessage
 	public void onMessage(byte[] message,Session session) {
-		logger.info("消息上线============" + message);
+		try {
+			GameMessage gameMessage=GameMessage.parseFrom(message);
+			long playerId=webSocketService.getPlayerId(session);
+			if (0==playerId) {
+				//必须进行安全监测
+				
+			}else {
+				//可以处理
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 }

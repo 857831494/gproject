@@ -18,10 +18,10 @@ import com.alicp.jetcache.anno.Cached;
 import com.google.protobuf.MessageLite;
 import com.gproject.common.cmdHandler.CMDDef;
 import com.gproject.common.cmdHandler.TCPCommand;
+import com.gproject.common.dto.proto.RPCDTO.GameMessage;
 import com.gproject.common.cmdHandler.CMDDef.CDModel;
 import com.gproject.common.cmdHandler.CMDDef.TCPCommandInfo;
 import com.gproject.common.cmdHandler.CMDDef.TcpParame;
-import com.gproject.common.net.netty.NetPack;
 import com.gproject.common.utils.IDef.IAPPInit;
 import com.gproject.common.utils.IDef.InitParame;
 import com.gproject.common.utils.common.GErrorException;
@@ -82,13 +82,13 @@ public abstract class TcpCmdService implements IAPPInit {
 		}
 	}
 	
-	public void doCmdReq(NetPack netPack) {
-		TCPCommandInfo tCommandInfo=handlerMap.get(netPack.cmdCode);
+	public void doCmdReq(GameMessage netPack) {
+		TCPCommandInfo tCommandInfo=handlerMap.get(netPack.getCmdCode());
 		if (tCommandInfo==null) {
-			logger.error("找不到协议处理==========="+netPack.cmdCode);
+			logger.error("找不到协议处理==========="+netPack.getCmdCode());
 			return;
 		}
-		long playerId=pushService.getPlayerId(netPack.playerId);
+		long playerId=pushService.getPlayerId(netPack.getPlayerId());
 		if (tCommandInfo.tcpCommand.needSec()) {
 			if (playerId==CMDDef.NO_ID) {
 				logger.error("玩家没有登录=========");
@@ -98,20 +98,19 @@ public abstract class TcpCmdService implements IAPPInit {
 		long now=System.currentTimeMillis();
 		if (tCommandInfo.tcpCommand.needCD()) {
 			
-			long cd=now-getCDModel(netPack.playerId, netPack.cmdCode).lastCDTime;
+			long cd=now-getCDModel(netPack.getPlayerId(),
+					netPack.getCmdCode().getNumber()).lastCDTime;
 			if (tCommandInfo.tcpCommand.CDTime()>cd) {
 				logger.info("cd中============");
 				return;
 			}
 		}
 		now=System.currentTimeMillis();
-		TcpParame tcpParame=new TcpParame();
-		tcpParame.netPack=netPack.data;
-		tcpParame.playerId=pushService.getPlayerId(netPack.playerId);
+		
 		try {
-			Object ret=tCommandInfo.method.invoke(tCommandInfo.handler, tcpParame);
+			Object ret=tCommandInfo.method.invoke(tCommandInfo.handler, netPack);
 			if (tCommandInfo.tcpCommand.needPrintLog()) {
-				logger.info("执行协议="+netPack.cmdCode+"====="+"耗时 ms=="+(System.currentTimeMillis()-now));
+				logger.info("执行协议="+netPack.getCmdCode().getNumber()+"====="+"耗时 ms=="+(System.currentTimeMillis()-now));
 			}
 			if (ret!=null&&(ret instanceof MessageLite)) {
 				pushService.pushOnline(tCommandInfo.tcpCommand.cmdCode(), (MessageLite) ret);
@@ -120,15 +119,10 @@ public abstract class TcpCmdService implements IAPPInit {
 			// TODO: handle exception
 			if (e instanceof GErrorException) {
 				GErrorException errorException=(GErrorException) e;
-				if (tcpParame.playerId==CMDDef.NO_ID) {
-					pushService.pushError(netPack.playerId, errorException.tipCode);
-				}else {
-					pushService.pushError(tcpParame.playerId, errorException.tipCode);
-				}
-				
+				pushService.pushError(netPack.getPlayerId(), errorException.tipCode);
 			}else {
-				logger.error("playerId:"+tcpParame.playerId+"执行协议"+netPack.cmdCode+"出错====");
-				logger.error(ExceptionUtils.getStackTrace(e));
+				logger.error("playerId:"+netPack.getPlayerId()+"执行协议"+netPack.getCmdCode().getNumber()+"出错====");
+				e.printStackTrace();
 			}
 		}
 		

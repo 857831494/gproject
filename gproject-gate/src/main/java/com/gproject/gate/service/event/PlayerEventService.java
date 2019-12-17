@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import com.gproject.common.utils.common.GErrorException;
 import com.gproject.gate.event.IEventDef.GEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
-import com.gproject.gate.service.common.ThreadPoolService;
 import com.gproject.gate.service.socket.PushService;
 import com.gproject.gate.event.player.PlayerEventParame;
 

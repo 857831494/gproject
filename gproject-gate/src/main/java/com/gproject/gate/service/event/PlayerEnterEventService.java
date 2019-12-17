@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import com.gproject.common.dto.proto.RPCDTO.GameMessage;
 import com.gproject.common.utils.common.GErrorException;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEvent;
 import com.gproject.gate.event.player.PlayerEnterEventDef.PlayerEnterEventParame;
-import com.gproject.gate.service.common.ThreadPoolService;
 import com.gproject.gate.service.socket.PushService;
 
 
@@ -35,7 +35,9 @@ public class PlayerEnterEventService {
 	@Autowired
 	ThreadPoolService threadPoolService;
 	
-	
+	public boolean checkSecurity(GameMessage gameMessage) {
+		return true;
+	}
 	/**
 	 * 玩家进来
 	 * @param playerId

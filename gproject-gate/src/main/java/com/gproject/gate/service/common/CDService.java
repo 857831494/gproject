@@ -25,7 +25,7 @@ import com.gproject.gate.pojo.CDTableDef.CDNumRet;
  *
  */
 @Service
-public class CDService implements PlayerEnterEvent{
+public class CDService {
 
 	Logger logger=LoggerFactory.getLogger(CDService.class);
 	
@@ -66,57 +66,8 @@ public class CDService implements PlayerEnterEvent{
 		
 	}
 	
-	public List<HCDConfig> getList(int type) {
-		ArrayList<HCDConfig> list=new ArrayList<>();
-		List<HCDConfig> dataConfigs=excelService.getAll(HCDConfig.class);
-		for (HCDConfig hcdConfig :dataConfigs ) {
-			if (hcdConfig.cdType==type) {
-				list.add(hcdConfig);
-			}
-		}
-		return list;
-	}
-	
-	
-	/**
-	 * 玩家进来的时候，就调用
-	 * @param playerEnterEventParame
-	 */
-	public void doDataReSet(PlayerEnterEventParame playerEnterEventParame) {
-		CDNumRet cdNumRet=cdNumCache.getPojo(playerEnterEventParame.playerId);
-		
-		if (cdNumRet.lastflushTime!=null) {
-			if (!DateUtils.isSameDate(cdNumRet.lastflushTime)) {
-				this.resetCDNum(playerEnterEventParame.playerId, CDType.Daily);
-			}
-			if (!DateUtils.isSameWeek(cdNumRet.lastflushTime)) {
-				this.resetCDNum(playerEnterEventParame.playerId, CDType.Week);
-			}
-			if (!DateUtils.isSameMonth(cdNumRet.lastflushTime)) {
-				this.resetCDNum(playerEnterEventParame.playerId, CDType.Month);
-			}
-		}
-		cdNumRet.lastflushTime=new Date();
-		cdNumCache.update(cdNumRet,playerEnterEventParame.playerId);
-	}
-	
-	private void resetCDNum(long playerid,int type) {
-		List<HCDConfig> list=getList(CDType.Daily);
-		CDNumRet cdNumRet=cdNumCache.getPojo(playerid);
-	
-		for (HCDConfig hcdConfig : list) {
-			cdNumRet.map.put(hcdConfig.cdId, 0);
-		}
-		cdNumCache.update(cdNumRet,playerid);
-	}
-
 	
 
-	@Override
-	public void doPlayerEnterEvent(PlayerEnterEventParame playerEnterEventParame) {
-		// TODO Auto-generated method stub
-		this.doDataReSet(playerEnterEventParame);
-	}
 	
 	
 	
